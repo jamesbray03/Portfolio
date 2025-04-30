@@ -2,11 +2,11 @@
 *
 
 # But not these files/folders
-!_Portfolio/index.html
-!_Portfolio/_media/
-!_Portfolio/README.md
-!_Portfolio/website_generator.py
-!_Portfolio/projects/
+!index.html
+!_media/
+!README.md
+!website_generator.py
+!projects/
 
 # Don't include any git metadata or unnecessary system files
 !.git/
