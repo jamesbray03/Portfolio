@@ -1,0 +1,12 @@
+{
+    "title": "ACS137 Assignment",
+    "description": "Build, simulate and optimise a state-space control system in simulink",
+    "tags": ["control systems", "simulink", "MATLAB", "software"],
+    "content_type": "simulation",
+    "context": "university",
+    "difficulty": 4,
+    "size": 5,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

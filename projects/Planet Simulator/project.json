@@ -1,0 +1,12 @@
+{
+    "title": "Planet Simulator",
+    "description": "A simple orbit simulation of various alien planets around a sun",
+    "tags": ["simulation", "software", "unity/C#", "game"],
+    "content_type": "simulation",
+    "context": "personal",
+    "difficulty": 3,
+    "size": 4,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

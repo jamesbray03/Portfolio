@@ -1,0 +1,12 @@
+{
+    "title": "Sunfire Throttling Simulation",
+    "description": "Building a simulation and tuning a control system for engine throttling",
+    "tags": ["aerospace", "control systems", "electronics", "simulation", "MATLAB", "software", "simulink"],
+    "content_type": "simulation",
+    "context": "sunride",
+    "difficulty": 8,
+    "size": 5,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

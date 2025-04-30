@@ -1,0 +1,12 @@
+{
+    "title": "Raycasting",
+    "description": "The classic raycasting algorithm with a pseudo-3D rendering engine",
+    "tags": ["software", "game", "python"],
+    "content_type": "code",
+    "context": "personal",
+    "difficulty": 5,
+    "size": 5,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

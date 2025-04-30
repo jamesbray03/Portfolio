@@ -1,0 +1,12 @@
+{
+    "title": "Raindrops",
+    "description": "Prodcedural runner game dodging raindrops on a MicroBit",
+    "tags": ["electronics", "game", "software", "python"],
+    "content_type": "build",
+    "context": "personal",
+    "difficulty": 3,
+    "size": 2,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

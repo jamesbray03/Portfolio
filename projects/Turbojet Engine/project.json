@@ -1,0 +1,12 @@
+{
+    "title": "Turbojet Engine",
+    "description": "Building a self sustaining turbojet engine from a car turbo",
+    "tags": ["aerospace", "build", "CAD", "manufacture", "3D printing", "electronics"],
+    "content_type": "build",
+    "context": "personal",
+    "difficulty": 10,
+    "size": 10,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

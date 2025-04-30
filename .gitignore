@@ -1,13 +1,26 @@
-# Ignore everything
-*
+# exclude common unwanted file types
+*.pyc
+*.pyo
+*.log
+*.tmp
+*.swp
+*.DS_Store
+*.bak
+*.old
+*.class
+*.out
+*.o
+*.exe
+*.bin
+*.obj
 
-# But not these files/folders
-!index.html
-!_media/
-!README.md
-!website_generator.py
-!projects/
+# exclude version control or system metadata
+.git/
+.gitignore
+*.orig
 
-# Don't include any git metadata or unnecessary system files
-!.git/
-!.gitignore
+# optionally exclude any config or local env files
+.env
+.vscode/
+.idea/
+__pycache__/

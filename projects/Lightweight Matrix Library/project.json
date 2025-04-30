@@ -1,0 +1,12 @@
+{
+    "title": "Lightweight Matrix Library",
+    "description": "Matrix operation library for C, used in my graphics engine",
+    "tags": ["software", "C", "tool", "data"],
+    "content_type": "code",
+    "context": "personal",
+    "difficulty": 6,
+    "size": 6,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

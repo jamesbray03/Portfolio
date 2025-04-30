@@ -1,0 +1,12 @@
+{
+    "title": "IR Camera",
+    "description": "DIY wii remote using IR camera and 4 positioning LEDs",
+    "tags": ["electronics", "python", "software"],
+    "content_type": "build",
+    "context": "personal",
+    "difficulty": 8,
+    "size": 5,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}
