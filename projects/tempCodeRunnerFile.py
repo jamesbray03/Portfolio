@@ -118,7 +118,6 @@ def generate_portfolio_html(projects):
                 background-color: #fafafa;
                 overflow-y: auto;
                 font-family: 'HarmonyOS', sans-serif;
-                transition: all 0.3s ease;
             }}
             .filter-box {{
                 background-color: white;
@@ -232,77 +231,6 @@ def generate_portfolio_html(projects):
                 max-width: 160px;
                 margin: 60px auto;
             }}
-            
-            /* Mobile dropdown styles */
-            .mobile-filter-toggle {{
-                display: none;
-                background-color: #fff;
-                color: black;
-                border: none;
-                border-radius: 20px;
-                padding: 10px 20px;
-                margin: 20px auto;
-                cursor: pointer;
-                font-family: 'HarmonyOS', sans-serif;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            }}
-            
-            .mobile-filter-dropdown {{
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0,0,0,0.5);
-                z-index: 1000;
-                padding: 20px;
-                overflow-y: auto;
-            }}
-            
-            .mobile-filter-content {{
-                background-color: white;
-                border-radius: 12px;
-                padding: 20px;
-                max-width: 600px;
-                margin: 20px auto;
-            }}
-            
-            .mobile-filter-header {{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 20px;
-            }}
-            
-            .mobile-filter-close {{
-                background: none;
-                border: none;
-                font-size: 1.5em;
-                cursor: pointer;
-            }}
-            
-            @media (max-width: 1200px) {{
-                .filter-panel {{
-                    display: none;
-                }}
-                .portfolio-column {{
-                    width: 90%;
-                    padding: 20px;
-                }}
-                .mobile-filter-toggle {{
-                    display: block;
-                }}
-            }}
-            
-            @media (max-width: 768px) {{
-                .portfolio-container {{
-                    grid-template-columns: 1fr;
-                }}
-                .project-cell {{
-                    max-width: none;
-                }}
-            }}
         </style>
     </head>
     <body>
@@ -331,61 +259,12 @@ def generate_portfolio_html(projects):
             <p>Here are all the various projects I've worked on over the years, feel free to browse through. More content coming soon.</p>
             <br>
         </div>
-        
-        <button id="mobile-filter-toggle" class="mobile-filter-toggle">Sort and Filter</button>
-        
-        <div id="mobile-filter-dropdown" class="mobile-filter-dropdown">
-            <div class="mobile-filter-content">
-                <div class="mobile-filter-header">
-                    <h2>Sort and Filter</h2>
-                    <button class="mobile-filter-close" onclick="closeMobileFilters()">×</button>
-                </div>
-    '''
-
-    # sort options for mobile
-    html_content += '''
-                <div class="filter-box">
-                    <h3>Sort by</h3>
-                    <select id="sort-select-mobile" class="sort-control" onchange="sortProjects()">
-                        <option value="title">Title</option>
-                        <option value="difficulty">Difficulty</option>
-                        <option value="size">Size</option>
-                    </select>
-                    <select id="sort-order-mobile" class="sort-control" onchange="sortProjects()">
-                        <option value="asc">Ascending</option>
-                        <option value="desc">Descending</option>
-                    </select>
-                </div>
-                '''
-
-    # generate all filters for mobile: tags, context, content_type
-    for filter_key, filter_title, values in [
-        ("tag", "Filter by Tag", sorted(all_tags)),
-        ("context", "Filter by Context", sorted(all_contexts)),
-        ("type", "Filter by Content", sorted(all_types)),
-    ]:
-        html_content += f'''
-                <div class="filter-box">
-                    <h3>{filter_title}
-                        <button class="tag-button" onclick="selectAll('{filter_key}')">Select All</button>
-                    </h3>
-        '''
-        for val in values:
-            html_content += f'''
-                    <button class="tag-button" data-group="{filter_key}" onclick="toggleValue('{filter_key}', '{val}')">{val}</button>
-            '''
-        html_content += '</div>'
-
-    html_content += '''
-            </div>
-        </div>
-        
         <div class="main-content">
             <div class="margin-left"></div>
             <div class="filter-panel">
     '''
 
-    # sort options for desktop
+    # sort options
     html_content += '''
                 <div class="filter-box">
                     <h3>Sort by</h3>
@@ -401,7 +280,7 @@ def generate_portfolio_html(projects):
                 </div>
                 '''
 
-    # generate all filters for desktop: tags, context, content_type
+    # generate all filters: tags, context, content_type
     for filter_key, filter_title, values in [
         ("tag", "Filter by Tag", sorted(all_tags)),
         ("context", "Filter by Context", sorted(all_contexts)),
@@ -466,8 +345,7 @@ def generate_portfolio_html(projects):
             };
 
             function toggleValue(group, value) {
-                const buttons = document.querySelectorAll(`.tag-button[data-group="${group}"]`);
-                const btn = Array.from(buttons).find(b => b.textContent === value);
+                const btn = [...document.querySelectorAll(`.tag-button[data-group="${group}"]`)].find(b => b.textContent === value);
                 btn.classList.toggle("active");
                 if (selected[group].has(value)) {
                     selected[group].delete(value);
@@ -523,17 +401,10 @@ def generate_portfolio_html(projects):
                 sortProjects();
             }
 
+
             function sortProjects() {
-                // Get values from both desktop and mobile selects
-                const desktopKey = document.getElementById('sort-select')?.value;
-                const mobileKey = document.getElementById('sort-select-mobile')?.value;
-                const desktopOrder = document.getElementById('sort-order')?.value;
-                const mobileOrder = document.getElementById('sort-order-mobile')?.value;
-                
-                // Use mobile values if they exist, otherwise desktop
-                const key = mobileKey || desktopKey;
-                const order = mobileOrder || desktopOrder;
-                
+                const key = document.getElementById('sort-select').value;
+                const order = document.getElementById('sort-order').value;
                 const container = document.getElementById('project-grid');
                 const items = Array.from(container.querySelectorAll('.project-cell.visible'));
 
@@ -552,47 +423,10 @@ def generate_portfolio_html(projects):
                 items.forEach(item => container.appendChild(item));
             }
 
-            function openMobileFilters() {
-                document.getElementById('mobile-filter-dropdown').style.display = 'block';
-            }
-
-            function closeMobileFilters() {
-                document.getElementById('mobile-filter-dropdown').style.display = 'none';
-            }
-
-            function syncSelects(sourceId, targetId) {
-                const source = document.getElementById(sourceId);
-                const target = document.getElementById(targetId);
-                if (source && target) {
-                    target.value = source.value;
-                }
-            }
-
             window.onload = () => {
                 selectAll('tag');
                 selectAll('context');
                 selectAll('type');
-                
-                // Set up mobile filter toggle
-                document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
-                
-                // Sync desktop and mobile sort controls
-                document.getElementById('sort-select').addEventListener('change', function() {
-                    syncSelects('sort-select', 'sort-select-mobile');
-                    sortProjects();
-                });
-                document.getElementById('sort-order').addEventListener('change', function() {
-                    syncSelects('sort-order', 'sort-order-mobile');
-                    sortProjects();
-                });
-                document.getElementById('sort-select-mobile').addEventListener('change', function() {
-                    syncSelects('sort-select-mobile', 'sort-select');
-                    sortProjects();
-                });
-                document.getElementById('sort-order-mobile').addEventListener('change', function() {
-                    syncSelects('sort-order-mobile', 'sort-order');
-                    sortProjects();
-                });
             };
         </script>
     </body>

@@ -55,7 +55,7 @@ def generate_home_html():
                 border: none;
                 border-radius: 20px;
                 padding: 12px 24px;
-                margin: 0 10px;
+                margin: 10px 10px;
                 box-shadow: 0 2px 6px rgba(0,0,0,0.2);
                 font-size: 1rem;
                 color: #000;

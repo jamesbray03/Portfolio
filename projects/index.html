@@ -102,6 +102,7 @@
                 background-color: #fafafa;
                 overflow-y: auto;
                 font-family: 'HarmonyOS', sans-serif;
+                transition: all 0.3s ease;
             }
             .filter-box {
                 background-color: white;
@@ -215,6 +216,77 @@
                 max-width: 160px;
                 margin: 60px auto;
             }
+            
+            /* Mobile dropdown styles */
+            .mobile-filter-toggle {
+                display: none;
+                background-color: #fff;
+                color: black;
+                border: none;
+                border-radius: 20px;
+                padding: 10px 20px;
+                margin: 20px auto;
+                cursor: pointer;
+                font-family: 'HarmonyOS', sans-serif;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            }
+            
+            .mobile-filter-dropdown {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 1000;
+                padding: 20px;
+                overflow-y: auto;
+            }
+            
+            .mobile-filter-content {
+                background-color: white;
+                border-radius: 12px;
+                padding: 20px;
+                max-width: 600px;
+                margin: 20px auto;
+            }
+            
+            .mobile-filter-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+            .mobile-filter-close {
+                background: none;
+                border: none;
+                font-size: 1.5em;
+                cursor: pointer;
+            }
+            
+            @media (max-width: 1200px) {
+                .filter-panel {
+                    display: none;
+                }
+                .portfolio-column {
+                    width: 90%;
+                    padding: 20px;
+                }
+                .mobile-filter-toggle {
+                    display: block;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .portfolio-container {
+                    grid-template-columns: 1fr;
+                }
+                .project-cell {
+                    max-width: none;
+                }
+            }
         </style>
     </head>
     <body>
@@ -243,6 +315,135 @@
             <p>Here are all the various projects I've worked on over the years, feel free to browse through. More content coming soon.</p>
             <br>
         </div>
+        
+        <button id="mobile-filter-toggle" class="mobile-filter-toggle">Sort and Filter</button>
+        
+        <div id="mobile-filter-dropdown" class="mobile-filter-dropdown">
+            <div class="mobile-filter-content">
+                <div class="mobile-filter-header">
+                    <h2>Sort and Filter</h2>
+                    <button class="mobile-filter-close" onclick="closeMobileFilters()">×</button>
+                </div>
+    
+                <div class="filter-box">
+                    <h3>Sort by</h3>
+                    <select id="sort-select-mobile" class="sort-control" onchange="sortProjects()">
+                        <option value="title">Title</option>
+                        <option value="difficulty">Difficulty</option>
+                        <option value="size">Size</option>
+                    </select>
+                    <select id="sort-order-mobile" class="sort-control" onchange="sortProjects()">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+                
+                <div class="filter-box">
+                    <h3>Filter by Tag
+                        <button class="tag-button" onclick="selectAll('tag')">Select All</button>
+                    </h3>
+        
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', '3D printing')">3D printing</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'C')">C</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'CAD')">CAD</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'CLI')">CLI</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'FEA')">FEA</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'MATLAB')">MATLAB</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'UI')">UI</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'aerospace')">aerospace</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'art')">art</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'build')">build</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'control systems')">control systems</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'data')">data</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'electronics')">electronics</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'fea')">fea</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'game')">game</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'image processing')">image processing</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'manufacture')">manufacture</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'microcontrollers')">microcontrollers</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'motors')">motors</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'presentation')">presentation</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'product design')">product design</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'python')">python</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'report')">report</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'simulation')">simulation</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'simulink')">simulink</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'software')">software</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'sound')">sound</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'team')">team</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'tool')">tool</button>
+            
+                    <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'unity/C#')">unity/C#</button>
+            </div>
+                <div class="filter-box">
+                    <h3>Filter by Context
+                        <button class="tag-button" onclick="selectAll('context')">Select All</button>
+                    </h3>
+        
+                    <button class="tag-button" data-group="context" onclick="toggleValue('context', 'AMRC')">AMRC</button>
+            
+                    <button class="tag-button" data-group="context" onclick="toggleValue('context', 'a-level')">a-level</button>
+            
+                    <button class="tag-button" data-group="context" onclick="toggleValue('context', 'e-commerce')">e-commerce</button>
+            
+                    <button class="tag-button" data-group="context" onclick="toggleValue('context', 'personal')">personal</button>
+            
+                    <button class="tag-button" data-group="context" onclick="toggleValue('context', 'sunride')">sunride</button>
+            
+                    <button class="tag-button" data-group="context" onclick="toggleValue('context', 'university')">university</button>
+            </div>
+                <div class="filter-box">
+                    <h3>Filter by Content
+                        <button class="tag-button" onclick="selectAll('type')">Select All</button>
+                    </h3>
+        
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', '3D print')">3D print</button>
+            
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', 'app')">app</button>
+            
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', 'art')">art</button>
+            
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', 'build')">build</button>
+            
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', 'code')">code</button>
+            
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', 'game')">game</button>
+            
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', 'presentation')">presentation</button>
+            
+                    <button class="tag-button" data-group="type" onclick="toggleValue('type', 'simulation')">simulation</button>
+            </div>
+            </div>
+        </div>
+        
         <div class="main-content">
             <div class="margin-left"></div>
             <div class="filter-panel">
@@ -1311,7 +1512,8 @@
             };
 
             function toggleValue(group, value) {
-                const btn = [...document.querySelectorAll(`.tag-button[data-group="${group}"]`)].find(b => b.textContent === value);
+                const buttons = document.querySelectorAll(`.tag-button[data-group="${group}"]`);
+                const btn = Array.from(buttons).find(b => b.textContent === value);
                 btn.classList.toggle("active");
                 if (selected[group].has(value)) {
                     selected[group].delete(value);
@@ -1367,10 +1569,17 @@
                 sortProjects();
             }
 
-
             function sortProjects() {
-                const key = document.getElementById('sort-select').value;
-                const order = document.getElementById('sort-order').value;
+                // Get values from both desktop and mobile selects
+                const desktopKey = document.getElementById('sort-select')?.value;
+                const mobileKey = document.getElementById('sort-select-mobile')?.value;
+                const desktopOrder = document.getElementById('sort-order')?.value;
+                const mobileOrder = document.getElementById('sort-order-mobile')?.value;
+                
+                // Use mobile values if they exist, otherwise desktop
+                const key = mobileKey || desktopKey;
+                const order = mobileOrder || desktopOrder;
+                
                 const container = document.getElementById('project-grid');
                 const items = Array.from(container.querySelectorAll('.project-cell.visible'));
 
@@ -1389,10 +1598,47 @@
                 items.forEach(item => container.appendChild(item));
             }
 
+            function openMobileFilters() {
+                document.getElementById('mobile-filter-dropdown').style.display = 'block';
+            }
+
+            function closeMobileFilters() {
+                document.getElementById('mobile-filter-dropdown').style.display = 'none';
+            }
+
+            function syncSelects(sourceId, targetId) {
+                const source = document.getElementById(sourceId);
+                const target = document.getElementById(targetId);
+                if (source && target) {
+                    target.value = source.value;
+                }
+            }
+
             window.onload = () => {
                 selectAll('tag');
                 selectAll('context');
                 selectAll('type');
+                
+                // Set up mobile filter toggle
+                document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
+                
+                // Sync desktop and mobile sort controls
+                document.getElementById('sort-select').addEventListener('change', function() {
+                    syncSelects('sort-select', 'sort-select-mobile');
+                    sortProjects();
+                });
+                document.getElementById('sort-order').addEventListener('change', function() {
+                    syncSelects('sort-order', 'sort-order-mobile');
+                    sortProjects();
+                });
+                document.getElementById('sort-select-mobile').addEventListener('change', function() {
+                    syncSelects('sort-select-mobile', 'sort-select');
+                    sortProjects();
+                });
+                document.getElementById('sort-order-mobile').addEventListener('change', function() {
+                    syncSelects('sort-order-mobile', 'sort-order');
+                    sortProjects();
+                });
             };
         </script>
     </body>
