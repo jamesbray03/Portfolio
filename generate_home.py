@@ -8,11 +8,11 @@ def generate_home_html():
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>James Bray - Home</title>
-        <link rel="preload" href="/_media/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+        <link rel="preload" href="./_media/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous">
         <style>
             @font-face {
                 font-family: 'HarmonyOS';
-                src: url('/_media/fonts/HarmonyOS.woff2') format('woff2');
+                src: url('./_media/fonts/HarmonyOS.woff2') format('woff2');
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
@@ -74,7 +74,7 @@ def generate_home_html():
     </head>
     <body>
         <header>
-            <img src="/_media/profile.png" alt="Profile Picture" class="profile-pic">
+            <img src="./_media/profile.png" alt="Profile Picture" class="profile-pic">
             <h1>James Bray</h1>
             <p>Portfolio Website</p>
             <nav>
