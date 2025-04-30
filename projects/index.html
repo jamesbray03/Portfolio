@@ -30,7 +30,7 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: 12px 30px;
-                background-color: #f0f0f0;
+                background-color: #fff;
                 flex-shrink: 0;
                 font-family: 'HarmonyOS', sans-serif;
             }
@@ -99,7 +99,7 @@
                 width: 25%;
                 padding: 40px 20px;
                 box-sizing: border-box;
-                background-color: #fafafa;
+                background-color: #fff;
                 overflow-y: auto;
                 font-family: 'HarmonyOS', sans-serif;
                 transition: all 0.3s ease;
@@ -239,6 +239,7 @@
                 right: 0;
                 bottom: 0;
                 background-color: rgba(0,0,0,0.5);
+                color: black;
                 z-index: 1000;
                 padding: 20px;
                 overflow-y: auto;
@@ -261,6 +262,7 @@
             
             .mobile-filter-close {
                 background: none;
+                color: black;
                 border: none;
                 font-size: 1.5em;
                 cursor: pointer;
@@ -340,7 +342,7 @@
                 
                 <div class="filter-box">
                     <h3>Filter by Tag
-                        <button class="tag-button" onclick="selectAll('tag')">Select All</button>
+                        <button class="tag-button" onclick="selectAll('tag')">Select/Deselct All</button>
                     </h3>
         
                     <button class="tag-button" data-group="tag" onclick="toggleValue('tag', '3D printing')">3D printing</button>
@@ -405,7 +407,7 @@
             </div>
                 <div class="filter-box">
                     <h3>Filter by Context
-                        <button class="tag-button" onclick="selectAll('context')">Select All</button>
+                        <button class="tag-button" onclick="selectAll('context')">Select/Deselct All</button>
                     </h3>
         
                     <button class="tag-button" data-group="context" onclick="toggleValue('context', 'AMRC')">AMRC</button>
@@ -422,7 +424,7 @@
             </div>
                 <div class="filter-box">
                     <h3>Filter by Content
-                        <button class="tag-button" onclick="selectAll('type')">Select All</button>
+                        <button class="tag-button" onclick="selectAll('type')">Select/Deselct All</button>
                     </h3>
         
                     <button class="tag-button" data-group="type" onclick="toggleValue('type', '3D print')">3D print</button>
@@ -463,7 +465,7 @@
                 
                 <div class="filter-box">
                     <h3>Filter by Tag
-                        <button class="tag-button" onclick="selectAll('tag')">Select All</button>
+                        <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
                     </h3>
         
                     <button class="tag-button" data-group="tag" onclick="toggleValue('tag', '3D printing')">3D printing</button>
@@ -528,7 +530,7 @@
             </div>
                 <div class="filter-box">
                     <h3>Filter by Context
-                        <button class="tag-button" onclick="selectAll('context')">Select All</button>
+                        <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
                     </h3>
         
                     <button class="tag-button" data-group="context" onclick="toggleValue('context', 'AMRC')">AMRC</button>
@@ -545,7 +547,7 @@
             </div>
                 <div class="filter-box">
                     <h3>Filter by Content
-                        <button class="tag-button" onclick="selectAll('type')">Select All</button>
+                        <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
                     </h3>
         
                     <button class="tag-button" data-group="type" onclick="toggleValue('type', '3D print')">3D print</button>
@@ -1504,143 +1506,138 @@
             </div>
             <div class="margin-right"></div>
         </div>
-        <script>
-            const selected = {
-                tag: new Set(),
-                context: new Set(),
-                type: new Set()
-            };
+            <script>
+                const selected = {
+                    tag: new Set(),
+                    context: new Set(),
+                    type: new Set()
+                };
 
-            function toggleValue(group, value) {
-                const buttons = document.querySelectorAll(`.tag-button[data-group="${group}"]`);
-                const btn = Array.from(buttons).find(b => b.textContent === value);
-                btn.classList.toggle("active");
-                if (selected[group].has(value)) {
-                    selected[group].delete(value);
-                } else {
-                    selected[group].add(value);
+                // Update button visual states
+                function updateButtonStates(group, value = null) {
+                    if (value) {
+                        // Update specific button
+                        const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
+                        buttons.forEach(btn => {
+                            if (btn.textContent.trim() === value) {
+                                btn.classList.toggle('active', selected[group].has(value));
+                            }
+                        });
+                    } else {
+                        // Update all buttons in group
+                        const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
+                        buttons.forEach(btn => {
+                            const val = btn.textContent.trim();
+                            btn.classList.toggle('active', selected[group].has(val));
+                        });
+                    }
+                    
+                    // Update the "Select All" button text
+                    const selectAllBtn = document.querySelector(`button.select-all[data-group="${group}"]`);
+                    if (selectAllBtn) {
+                        const buttons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                        const allSelected = buttons.length > 0 && selected[group].size === buttons.length;
+                        selectAllBtn.textContent = allSelected ? 'Deselect All' : 'Select All';
+                    }
                 }
-                filterProjects();
-            }
 
-            function selectAll(group) {
-                const buttons = document.querySelectorAll(`.tag-button[data-group="${group}"]`);
-                const allSelected = selected[group].size === buttons.length;
-                selected[group].clear();
-                buttons.forEach(btn => {
-                    const val = btn.textContent;
-                    if (!allSelected) {
-                        selected[group].add(val);
-                        btn.classList.add("active");
+                function toggleValue(group, value) {
+                    value = value.trim();
+                    
+                    if (selected[group].has(value)) {
+                        selected[group].delete(value);
                     } else {
-                        btn.classList.remove("active");
+                        selected[group].add(value);
                     }
-                });
-                filterProjects();
-            }
-
-            function filterProjects() {
-                const projects = document.querySelectorAll('.project-cell');
-                let visible = 0;
-
-                const tagButtons = document.querySelectorAll('.tag-button[data-group="tag"]');
-                const allTags = Array.from(tagButtons).map(btn => btn.textContent);
-                const allTagsSelected = selected.tag.size === allTags.length;
-
-                projects.forEach(p => {
-                    const tagSet = new Set(p.dataset.tags.split(',').filter(Boolean));
-                    const context = p.dataset.context;
-                    const type = p.dataset.type;
-
-                    // tag filtering logic
-                    const tagMatch = allTagsSelected || [...selected.tag].some(t => tagSet.has(t));
-                    const contextMatch = selected.context.size === 0 || selected.context.has(context);
-                    const typeMatch = selected.type.size === 0 || selected.type.has(type);
-
-                    if (tagMatch && contextMatch && typeMatch) {
-                        p.classList.add('visible');
-                        visible++;
-                    } else {
-                        p.classList.remove('visible');
-                    }
-                });
-
-                document.getElementById("no-projects").style.display = visible === 0 ? "block" : "none";
-                sortProjects();
-            }
-
-            function sortProjects() {
-                // Get values from both desktop and mobile selects
-                const desktopKey = document.getElementById('sort-select')?.value;
-                const mobileKey = document.getElementById('sort-select-mobile')?.value;
-                const desktopOrder = document.getElementById('sort-order')?.value;
-                const mobileOrder = document.getElementById('sort-order-mobile')?.value;
-                
-                // Use mobile values if they exist, otherwise desktop
-                const key = mobileKey || desktopKey;
-                const order = mobileOrder || desktopOrder;
-                
-                const container = document.getElementById('project-grid');
-                const items = Array.from(container.querySelectorAll('.project-cell.visible'));
-
-                items.sort((a, b) => {
-                    let valA = a.dataset[key];
-                    let valB = b.dataset[key];
-                    if (key === 'title') {
-                        return order === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
-                    } else {
-                        valA = parseInt(valA);
-                        valB = parseInt(valB);
-                        return order === 'asc' ? valA - valB : valB - valA;
-                    }
-                });
-
-                items.forEach(item => container.appendChild(item));
-            }
-
-            function openMobileFilters() {
-                document.getElementById('mobile-filter-dropdown').style.display = 'block';
-            }
-
-            function closeMobileFilters() {
-                document.getElementById('mobile-filter-dropdown').style.display = 'none';
-            }
-
-            function syncSelects(sourceId, targetId) {
-                const source = document.getElementById(sourceId);
-                const target = document.getElementById(targetId);
-                if (source && target) {
-                    target.value = source.value;
+                    
+                    updateButtonStates(group, value);
+                    filterProjects();
                 }
-            }
 
-            window.onload = () => {
-                selectAll('tag');
-                selectAll('context');
-                selectAll('type');
-                
-                // Set up mobile filter toggle
-                document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
-                
-                // Sync desktop and mobile sort controls
-                document.getElementById('sort-select').addEventListener('change', function() {
-                    syncSelects('sort-select', 'sort-select-mobile');
+                function toggleSelectAll(group) {
+                    const buttons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                    const selectAllBtn = document.querySelector(`button.select-all[data-group="${group}"]`);
+                    
+                    // Determine if we should select all or deselect all
+                    const shouldSelectAll = selectAllBtn.textContent.trim() === 'Select All';
+                    
+                    if (shouldSelectAll) {
+                        // Select all
+                        selected[group].clear();
+                        buttons.forEach(btn => {
+                            const val = btn.textContent.trim();
+                            selected[group].add(val);
+                        });
+                        selectAllBtn.textContent = 'Deselect All';
+                    } else {
+                        // Deselect all
+                        selected[group].clear();
+                        selectAllBtn.textContent = 'Select All';
+                    }
+                    
+                    updateButtonStates(group);
+                    filterProjects();
+                }
+
+                function filterProjects() {
+                    const projects = document.querySelectorAll('.project-cell');
+                    let visibleCount = 0;
+
+                    projects.forEach(project => {
+                        const projectTags = new Set(
+                            project.dataset.tags.split(',')
+                                .map(tag => tag.trim())
+                                .filter(tag => tag)
+                        );
+                        const projectContext = project.dataset.context;
+                        const projectType = project.dataset.type;
+
+                        const tagMatch = selected.tag.size === 0 || 
+                            [...selected.tag].some(tag => projectTags.has(tag));
+                        const contextMatch = selected.context.size === 0 || 
+                            selected.context.has(projectContext);
+                        const typeMatch = selected.type.size === 0 || 
+                            selected.type.has(projectType);
+
+                        if (tagMatch && contextMatch && typeMatch) {
+                            project.classList.add('visible');
+                            visibleCount++;
+                        } else {
+                            project.classList.remove('visible');
+                        }
+                    });
+
+                    document.getElementById("no-projects").style.display = 
+                        visibleCount === 0 ? "block" : "none";
+                        
                     sortProjects();
-                });
-                document.getElementById('sort-order').addEventListener('change', function() {
-                    syncSelects('sort-order', 'sort-order-mobile');
+                }
+
+                // Rest of your functions (sortProjects, openMobileFilters, etc.) remain the same
+                // ...
+
+                window.onload = function() {
+                    // Initialize all filters as selected by default
+                    document.querySelectorAll('[data-group]').forEach(group => {
+                        const groupName = group.dataset.group;
+                        // Start with all selected
+                        const buttons = document.querySelectorAll(`button[data-group="${groupName}"]:not(.select-all)`);
+                        buttons.forEach(btn => {
+                            selected[groupName].add(btn.textContent.trim());
+                        });
+                        updateButtonStates(groupName);
+                    });
+
+                    // Mobile filter toggle
+                    document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
+                    
+                    // Close mobile filters when clicking close button
+                    document.querySelector('.mobile-filter-close').addEventListener('click', closeMobileFilters);
+                    
+                    // Initialize sort controls
                     sortProjects();
-                });
-                document.getElementById('sort-select-mobile').addEventListener('change', function() {
-                    syncSelects('sort-select-mobile', 'sort-select');
-                    sortProjects();
-                });
-                document.getElementById('sort-order-mobile').addEventListener('change', function() {
-                    syncSelects('sort-order-mobile', 'sort-order');
-                    sortProjects();
-                });
-            };
-        </script>
+                };
+            </script>
     </body>
     </html>
     

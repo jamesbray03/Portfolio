@@ -46,7 +46,7 @@ def generate_portfolio_html(projects):
                 justify-content: space-between;
                 align-items: center;
                 padding: 12px 30px;
-                background-color: #f0f0f0;
+                background-color: #fff;
                 flex-shrink: 0;
                 font-family: 'HarmonyOS', sans-serif;
             }}
@@ -115,7 +115,7 @@ def generate_portfolio_html(projects):
                 width: 25%;
                 padding: 40px 20px;
                 box-sizing: border-box;
-                background-color: #fafafa;
+                background-color: #fff;
                 overflow-y: auto;
                 font-family: 'HarmonyOS', sans-serif;
                 transition: all 0.3s ease;
@@ -255,6 +255,7 @@ def generate_portfolio_html(projects):
                 right: 0;
                 bottom: 0;
                 background-color: rgba(0,0,0,0.5);
+                color: black;
                 z-index: 1000;
                 padding: 20px;
                 overflow-y: auto;
@@ -277,6 +278,7 @@ def generate_portfolio_html(projects):
             
             .mobile-filter-close {{
                 background: none;
+                color: black;
                 border: none;
                 font-size: 1.5em;
                 cursor: pointer;
@@ -458,143 +460,118 @@ def generate_portfolio_html(projects):
             </div>
             <div class="margin-right"></div>
         </div>
-        <script>
-            const selected = {
-                tag: new Set(),
-                context: new Set(),
-                type: new Set()
-            };
+            <script>
+                const selected = {
+                    tag: new Set(),
+                    context: new Set(),
+                    type: new Set()
+                };
 
-            function toggleValue(group, value) {
-                const buttons = document.querySelectorAll(`.tag-button[data-group="${group}"]`);
-                const btn = Array.from(buttons).find(b => b.textContent === value);
-                btn.classList.toggle("active");
-                if (selected[group].has(value)) {
-                    selected[group].delete(value);
-                } else {
-                    selected[group].add(value);
+                // Update button visual states
+                function updateButtonStates(group, value = null) {
+                    if (value) {
+                        // Update specific button
+                        const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
+                        buttons.forEach(btn => {
+                            if (btn.textContent.trim() === value) {
+                                btn.classList.toggle('active', selected[group].has(value));
+                            }
+                        });
+                    } else {
+                        // Update all buttons in group
+                        const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
+                        buttons.forEach(btn => {
+                            const val = btn.textContent.trim();
+                            btn.classList.toggle('active', selected[group].has(val));
+                        });
+                    }
                 }
-                filterProjects();
-            }
 
-            function selectAll(group) {
-                const buttons = document.querySelectorAll(`.tag-button[data-group="${group}"]`);
-                const allSelected = selected[group].size === buttons.length;
-                selected[group].clear();
-                buttons.forEach(btn => {
-                    const val = btn.textContent;
+                function toggleValue(group, value) {
+                    value = value.trim();
+                    
+                    if (selected[group].has(value)) {
+                        selected[group].delete(value);
+                    } else {
+                        selected[group].add(value);
+                    }
+                    
+                    // Update both desktop and mobile button states
+                    updateButtonStates(group, value);
+                    filterProjects();
+                }
+
+                function selectAll(group) {
+                    const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
+                    const allSelected = selected[group].size === buttons.length;
+                    
+                    selected[group].clear();
+                    
                     if (!allSelected) {
-                        selected[group].add(val);
-                        btn.classList.add("active");
-                    } else {
-                        btn.classList.remove("active");
+                        buttons.forEach(btn => {
+                            selected[group].add(btn.textContent.trim());
+                        });
                     }
-                });
-                filterProjects();
-            }
-
-            function filterProjects() {
-                const projects = document.querySelectorAll('.project-cell');
-                let visible = 0;
-
-                const tagButtons = document.querySelectorAll('.tag-button[data-group="tag"]');
-                const allTags = Array.from(tagButtons).map(btn => btn.textContent);
-                const allTagsSelected = selected.tag.size === allTags.length;
-
-                projects.forEach(p => {
-                    const tagSet = new Set(p.dataset.tags.split(',').filter(Boolean));
-                    const context = p.dataset.context;
-                    const type = p.dataset.type;
-
-                    // tag filtering logic
-                    const tagMatch = allTagsSelected || [...selected.tag].some(t => tagSet.has(t));
-                    const contextMatch = selected.context.size === 0 || selected.context.has(context);
-                    const typeMatch = selected.type.size === 0 || selected.type.has(type);
-
-                    if (tagMatch && contextMatch && typeMatch) {
-                        p.classList.add('visible');
-                        visible++;
-                    } else {
-                        p.classList.remove('visible');
-                    }
-                });
-
-                document.getElementById("no-projects").style.display = visible === 0 ? "block" : "none";
-                sortProjects();
-            }
-
-            function sortProjects() {
-                // Get values from both desktop and mobile selects
-                const desktopKey = document.getElementById('sort-select')?.value;
-                const mobileKey = document.getElementById('sort-select-mobile')?.value;
-                const desktopOrder = document.getElementById('sort-order')?.value;
-                const mobileOrder = document.getElementById('sort-order-mobile')?.value;
-                
-                // Use mobile values if they exist, otherwise desktop
-                const key = mobileKey || desktopKey;
-                const order = mobileOrder || desktopOrder;
-                
-                const container = document.getElementById('project-grid');
-                const items = Array.from(container.querySelectorAll('.project-cell.visible'));
-
-                items.sort((a, b) => {
-                    let valA = a.dataset[key];
-                    let valB = b.dataset[key];
-                    if (key === 'title') {
-                        return order === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
-                    } else {
-                        valA = parseInt(valA);
-                        valB = parseInt(valB);
-                        return order === 'asc' ? valA - valB : valB - valA;
-                    }
-                });
-
-                items.forEach(item => container.appendChild(item));
-            }
-
-            function openMobileFilters() {
-                document.getElementById('mobile-filter-dropdown').style.display = 'block';
-            }
-
-            function closeMobileFilters() {
-                document.getElementById('mobile-filter-dropdown').style.display = 'none';
-            }
-
-            function syncSelects(sourceId, targetId) {
-                const source = document.getElementById(sourceId);
-                const target = document.getElementById(targetId);
-                if (source && target) {
-                    target.value = source.value;
+                    
+                    // Update all buttons in this group
+                    updateButtonStates(group);
+                    filterProjects();
                 }
-            }
 
-            window.onload = () => {
-                selectAll('tag');
-                selectAll('context');
-                selectAll('type');
-                
-                // Set up mobile filter toggle
-                document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
-                
-                // Sync desktop and mobile sort controls
-                document.getElementById('sort-select').addEventListener('change', function() {
-                    syncSelects('sort-select', 'sort-select-mobile');
+                function filterProjects() {
+                    const projects = document.querySelectorAll('.project-cell');
+                    let visibleCount = 0;
+
+                    projects.forEach(project => {
+                        const projectTags = new Set(
+                            project.dataset.tags.split(',')
+                                .map(tag => tag.trim())
+                                .filter(tag => tag)
+                        );
+                        const projectContext = project.dataset.context;
+                        const projectType = project.dataset.type;
+
+                        const tagMatch = selected.tag.size === 0 || 
+                            [...selected.tag].some(tag => projectTags.has(tag));
+                        const contextMatch = selected.context.size === 0 || 
+                            selected.context.has(projectContext);
+                        const typeMatch = selected.type.size === 0 || 
+                            selected.type.has(projectType);
+
+                        if (tagMatch && contextMatch && typeMatch) {
+                            project.classList.add('visible');
+                            visibleCount++;
+                        } else {
+                            project.classList.remove('visible');
+                        }
+                    });
+
+                    document.getElementById("no-projects").style.display = 
+                        visibleCount === 0 ? "block" : "none";
+                        
                     sortProjects();
-                });
-                document.getElementById('sort-order').addEventListener('change', function() {
-                    syncSelects('sort-order', 'sort-order-mobile');
+                }
+
+                // Rest of your functions (sortProjects, openMobileFilters, etc.) remain the same
+                // ...
+
+                window.onload = function() {
+                    // Initialize all filters as selected by default
+                    document.querySelectorAll('[data-group]').forEach(group => {
+                        const groupName = group.dataset.group;
+                        selectAll(groupName);
+                    });
+
+                    // Mobile filter toggle
+                    document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
+                    
+                    // Close mobile filters when clicking close button
+                    document.querySelector('.mobile-filter-close').addEventListener('click', closeMobileFilters);
+                    
+                    // Initialize sort controls
                     sortProjects();
-                });
-                document.getElementById('sort-select-mobile').addEventListener('change', function() {
-                    syncSelects('sort-select-mobile', 'sort-select');
-                    sortProjects();
-                });
-                document.getElementById('sort-order-mobile').addEventListener('change', function() {
-                    syncSelects('sort-order-mobile', 'sort-order');
-                    sortProjects();
-                });
-            };
-        </script>
+                };
+            </script>
     </body>
     </html>
     '''
