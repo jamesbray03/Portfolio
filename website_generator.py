@@ -210,15 +210,15 @@ def generate_portfolio_html(projects):
     <body>
         <div class="header">
             <div class="header-left">
-                <img src="_media/profile.png" alt="Profile Picture">
+                <img src="media/profile.png" alt="Profile Picture">
                 <div class="info">
                     <h1>James Bray</h1>
                     <p>Engineer | Project Designer | Audio Enthusiast</p>
                 </div>
             </div>
             <div class="header-right">
-                <a href="https://github.com/jamesbray03" target="_blank"><img src="_media/github.png" alt="GitHub"></a>
-                <a href="https://linkedin.com/in/jamesbray03" target="_blank"><img src="_media/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://github.com/jamesbray03" target="_blank"><img src="media/github.png" alt="GitHub"></a>
+                <a href="https://linkedin.com/in/jamesbray03" target="_blank"><img src="media/linkedin.png" alt="LinkedIn"></a>
             </div>
         </div>
         <div class="header-divider"></div>
@@ -254,7 +254,7 @@ def generate_portfolio_html(projects):
             </div>
             <div class="portfolio-column">
                 <div id="no-projects" class="no-projects">
-                    <img src="_media/no_projects.png" alt="No projects" style="width: 200px; max-width: 400px; margin: 60px auto;">
+                    <img src="media/no_projects.png" alt="No projects" style="width: 200px; max-width: 400px; margin: 60px auto;">
                     <h2>No projects found</h2><p>Select more tags to view projects</p>
                 </div>
                 <div class="portfolio-container" id="project-grid">
@@ -266,7 +266,7 @@ def generate_portfolio_html(projects):
         html_content += f'''
                     <div class="project-cell" data-tags="{tags_str}" data-title="{project['title'].lower()}" data-difficulty="{project.get('difficulty', 5)}" data-size="{project.get('size', 5)}">
                         <div class="image-container">
-                            <img src="../{project['title']}/_media/thumbnail.png" alt="{project['title']}">
+                            <img src="../{project['title']}/media/thumbnail.png" alt="{project['title']}">
                         </div>
                         <div class="project-info">
                             <h3>{project['title']}</h3>
