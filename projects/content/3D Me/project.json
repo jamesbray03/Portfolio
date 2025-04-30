@@ -1,0 +1,12 @@
+{
+    "title": "3D Me",
+    "description": "A bobblehead model of me using an industrial 3D scanner",
+    "tags": ["3D printing", "CAD", "manufacture", "team"],
+    "content_type": "3D print",
+    "context": "AMRC",
+    "difficulty": 2,
+    "size": 3,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

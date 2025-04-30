@@ -1,0 +1,12 @@
+{
+    "title": "Graphics Engine",
+    "description": "Custom graphics engine built from scratch",
+    "tags": ["C", "software", "tool", "presentation", "image processing"],
+    "content_type": "code",
+    "context": "university",
+    "difficulty": 9,
+    "size": 8,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

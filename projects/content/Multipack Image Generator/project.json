@@ -1,0 +1,12 @@
+{
+    "title": "Multipack Image Generator",
+    "description": "Python tool to generate images for multipack products",
+    "tags": ["tool", "CLI", "python", "software"],
+    "content_type": "code",
+    "context": "e-commerce",
+    "difficulty": 4,
+    "size": 2,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

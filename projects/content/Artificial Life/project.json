@@ -1,0 +1,12 @@
+{
+    "title": "Artificial Life",
+    "description": "Advanced cellular automata simulation",
+    "tags": ["simulation", "software", "unity/C#", "game", "UI", "image processing"],
+    "content_type": "simulation",
+    "context": "personal",
+    "difficulty": 8,
+    "size": 7,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

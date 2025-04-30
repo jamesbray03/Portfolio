@@ -1,0 +1,12 @@
+{
+    "title": "ExoTerra",
+    "description": "Terrain generation, manipulation and exploration game",
+    "tags": ["game", "unity/C#", "art", "software"],
+    "content_type": "game",
+    "context": "personal",
+    "difficulty": 8,
+    "size": 10,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

@@ -1,0 +1,12 @@
+{
+    "title": "Artwork",
+    "description": "My various attempts at art over the years",
+    "tags": ["art", "image processing"],
+    "content_type": "art",
+    "context": "personal",
+    "difficulty": 1,
+    "size": 1,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

@@ -1,0 +1,12 @@
+{
+    "title": "EEE223 Assignment",
+    "description": "Simulating and starting a three-phase induction motor",
+    "tags": ["motors", "MATLAB", "simulink", "report", "electronics", "software"],
+    "content_type": "simulation",
+    "context": "university",
+    "difficulty": 6,
+    "size": 3,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}

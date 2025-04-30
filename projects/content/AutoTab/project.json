@@ -1,0 +1,12 @@
+{
+    "title": "AutoTab",
+    "description": "Tool which listens to you play music and creates a tab for you",
+    "tags": ["sound", "software", "python", "sound", "UI"],
+    "content_type": "app",
+    "context": "personal",
+    "difficulty": 4,
+    "size": 2,
+    "public": true,
+    "start_date": "",
+    "end_date": ""
+}
