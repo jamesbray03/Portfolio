@@ -1,0 +1,103 @@
+/* ===================== */
+/* SKILL CARDS CONTAINER */
+/* ===================== */
+#skill-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 950px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.info-card {
+    background: var(--base-5);
+    border-radius: 12px;
+    box-shadow: 0 0 16px var(--base-3);
+    display: flex;
+    flex-direction: row;
+    padding: 32px; /* Increased padding for more vertical spacing */
+    transition: transform 0.3s ease-in-out;
+    gap: 16px;
+    max-width: 950px;
+    margin: 32px auto; /* Added vertical margin for spacing between cards */
+}
+
+/* ===================== */
+/* SKILL CARDS CONTAINER */
+/* ===================== */
+#skill-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px 0px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ===================== */
+/* INDIVIDUAL SKILL CARD */
+/* ===================== */
+.skill-card {
+    background: var(--base-5);
+    border-radius: 12px;
+    box-shadow: 0 0 16px var(--base-3);
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 32px;
+    text-align: center;
+    gap: 16px;
+    transition: transform 0.3s ease-in-out;
+    min-width: 120px; /* Minimum card width */
+    flex: 1; /* Allow cards to grow/shrink */
+    max-width: 258px; /* Maximum card width */
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--base-3);
+}
+
+.skill-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    /* Removed margin-bottom since we're using gap */
+}
+
+.skill-card h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--base-1);
+}
+
+.skill-card p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--base-3);
+}
+
+/* ===================== */
+/* RESPONSIVE LAYOUT     */
+/* ===================== */
+@media (max-width: 768px) {
+    #skill-card-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+    
+    .skill-card {
+        width: 100%; /* Wider cards in column layout */
+
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-card {
+        width: 80%; /* Full width on very small screens */
+        max-width: none;
+    }
+}

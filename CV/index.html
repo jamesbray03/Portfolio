@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Bray – CV</title>
+    <link rel="icon" href="/content/images/icon.ico" type="image/x-icon">
+    <link rel="preload" href="content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../CV/css/cv.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-left">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/CV/index.html" class="nav-link">CV</a>
+            <a href="/projects/index.html" class="nav-link">Projects</a>
+            <a href="/contact/index.html" class="nav-link">Contact</a>
+        </nav>
+        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    </header>
+
+    <main class="main-content">
+        <h1>My CV</h1>
+        <p class="subtitle">A brief overview of my skills and experience</p>
+        <div style="display: flex; justify-content: center; margin: 20px 0;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <p style="margin: 0; text-align: right;">Click here for the PDF version:</p>
+                <button class="button" onclick="downloadFile()">Download</button>
+            </div>
+        </div>        
+        <script>
+            function downloadFile() {
+            const link = document.createElement('a');
+            link.href = './content/CV.pdf';
+            link.download = 'James_Bray_CV.pdf';
+            link.click();
+            }
+        </script>
+        <hr class="divider">
+
+        <h2>Professional Experience</h2>
+        <section>
+            <div class="info-card">
+                <img src="/content/images/amrc.png" alt="AMRC" class="info-image">
+                <div class="info-content">
+                    <h3>Assistant Project Engineer - AMRC</h3>
+                    <p><em>Jul 2024 – Oct 2024</em></p>
+                    <ul>
+                        <li>Designed and manufactured a £4000 partial discharge testing cell for 20kV motor coils</li>
+                        <li>Co-ordinated and liaised with 6 suppliers to source components for manufacturing</li>
+                        <li>Managed project deliverables, mitigated risks, and produced supporting documentation</li>
+                        <li>Used Ansys FEA to evaluate the feasibility of geometries in slinky stator manufacture</li>
+                        <li>Utilised Ansys’ design optimisation for the pneumatic end effector of a sorting robot</li>
+                        <li>Planned the automated disassembly of a Siemens servo motor to extract valuable parts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <img src="/content/images/minsterfb.png" alt="AMRC" class="info-image">
+                <div class="info-content">
+                    <h3>Catalogue Executive - MinsterFB</h3>
+                    <p><em>Jul 2024 – Oct 2024</em></p>
+                    <ul>
+                        <li>Created and optimised listings for maximum engagement and profitability</li>
+                        <li>Used Excel to make an automated product name generator based on supplier data</li>
+                        <li>Designed enhanced graphical content for 5 brands using Canva and Inkscape</li>
+                        <li>Gained a good understanding of SEO for Amazon listings to help maximise conversions</li>
+                        <li>Adapted to working in a fast-paced environment both independently and in virtual teams</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <br>
+        <h2>Education</h2>
+
+        <section>
+            <div class="info-card">
+                <img src="/content/images/uos.png" alt="University of Sheffield" class="info-image">
+                <div class="info-content">
+                    <h3>Aerospace Engineering Degree MEng - University of Sheffield</h3>
+                    <p><em>Sep 2022 – Present</em></p>
+                    <p>Five-year course with a year in industry, currently in 3rd year. Predicted first-class.</p>
+                    <ul>
+                        <strong>Relevant completed modules:</strong>
+                        <ul>
+                            <li>Quadcopter Project: Control lead on a quadcopter project which won lightest in the cohort</li>
+                            <li>Electrical Energy Management: Studied electrical infrastructure and motor performance</li>
+                            <li>Systems Engineering: Built and coded a search robot in C with obstacle avoidance</li>
+                            <li>Control Systems: Analysed and designed basic control methods for various systems</li>
+                        </ul>
+                        <strong>Relevant current modules:</strong>
+                        <ul>
+                            <li>Space Systems Engineering: Exploring the concepts of space system and mission design</li>
+                            <li>VTOL Quad Plane: Leading all avionics aspects of the quad plane</li>
+                            <li>State-space Control: Learning how to implement state-space control for MIMO systems</li>
+                            <li>Machine Learning: Studying regression, classification, and reinforcement learning</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <img src="/content/images/gsa.png" alt="George Spencer Academy" class="info-image">
+                <div class="info-content">
+                    <h3>GCSEs and A-Levels - George Spencer Academy</h3>
+                    <p><em>Sep 2020 – Jul 2022</em></p>
+                    <ul>
+                        <strong>A-Levels</strong>
+                        <ul>
+                            <li>A*AAA in Maths, Further Maths, Computer Science, and Physics respectively</li>
+                        </ul>
+                        <strong>GCSEs</strong>
+                        <ul>
+                            <li>Grade 9: Maths, Biology, Chemistry, Physics</li>
+                            <li>Grade 7-8: Computer Science, Design & Technology, Geography, English</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <br>
+        <h2>Proficiencies</h2>
+
+        <section>
+            <div id="skill-card-container">
+                <div class="skill-card">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>CAD/CAM & simulation</li>
+                        <li>Iterative design & analysis</li>
+                        <li>Advanced manufacturing</li>
+                        <li>Programming</li>
+                        <li>Documentation</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Effective communication</li>
+                        <li>Analytical thinking</li>
+                        <li>Leadership and Collaboration</li>
+                        <li>Attention to detail</li>
+                        <li>Quick learning aptitude</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <strong>Software</strong>
+                    <ul>
+                        <li>Fusion 360</li>
+                        <li>MATLAB and Simulink</li>
+                        <li>Python, C, C#</li>
+                        <li>Unity & Blender</li>
+                        <li>Google & Microsoft Suites</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 James Bray. All rights reserved.</p>
+        <p>Hosted on GitHub Pages, built from scratch.</p>
+        <div style="height: 100px;"></div>
+    </footer>
+
+    <script src="../js/dark-mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.profile-pic {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 16px var(--base-3);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+    fill: var(--base1);
+    filter: invert(0);
+}
+.icon-button {
+    display: inline-block;
+    background-color: var(--base-5);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    margin: 10px 10px;
+    cursor: pointer;
+    color: var(--base-1);
+    box-shadow: 0 0 8px var(--base-3);
+    font-size: 1rem;
+    text-align: center;
+    line-height: 48px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.icon-button:hover {
+    background-color: var(--accent-1);
+    color: var(--base-1);
+}
+
+.dark-mode .icon {
+    filter: invert(1);
+  }

@@ -1,0 +1,304 @@
+/* ===================== */
+/* COLOR THEME VARIABLES */
+/* ===================== */
+:root {
+    /* Base Colors */
+    --base-1: #000000; /* dark */
+    --base-2: #303030;
+    --base-3: #707070;
+    --base-4: #cacaca;
+    --base-5: #ffffff; /* light */
+
+    /* Accent Colors */
+    --accent-1: #78b3dd; /* weak */
+    --accent-2: #4c9bd3;
+    --accent-3: #0095ff; /* strong */
+}
+
+.dark-mode {
+    --base-1: #ffffff; /* light */
+    --base-2: #cacaca;
+    --base-3: #707070;
+    --base-4: #303030;
+    --base-5: #000000; /* dark */
+    
+    /* Accent Colors */
+    --accent-1: #78b3dd; /* weak */
+    --accent-2: #4c9bd3;
+    --accent-3: #0095ff; /* strong */
+}
+
+body,
+header,
+main,
+.button,
+.nav-link,
+.contact-form,
+.contact-form input,
+.contact-form textarea {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+
+/* ============= */
+/* FONT SETTINGS */
+/* ============= */
+@font-face {
+    font-family: 'HarmonyOS';
+    src: url('../content/fonts/HarmonyOS.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============== */
+/* BASE STYLES */
+/* ============== */
+body {
+    font-family: 'HarmonyOS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-5);
+    color: var(--base-1);
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: var(--base-1);
+    margin: 0.2em 0 1em;
+}
+
+.divider {
+    height: 4px;
+    width: 80%;
+    background-color: var(--accent-3);
+    margin: 2rem auto;
+    border-radius: 50px;
+    border: none; /* Ensure no border is applied */
+    box-shadow: none; /* Remove any potential shadow causing the outline */
+}
+
+
+/* ============== */
+/* TYPOGRAPHY */
+/* ============== */
+h1, h2, h3 {
+    font-family: 'HarmonyOS', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0.2em 0;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 0.2em 0;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin: 0.2em 0;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--base-2);
+    margin: 0.5em 0 1em;
+}
+
+ul {
+    list-style-type: disc;
+    margin: 1em 0;
+    padding-left: 2rem;
+    text-align: left;
+    color: var(--base-2);
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: var(--base-3);
+    text-align: center;
+    background-color: var(--base-5);
+}
+
+a {
+    color: var(--accent-3);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+/* ============== */
+/* HEADER & NAV */
+/* ============== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0.5rem 1.5rem 1.5rem;
+    background-color: var(--base-5);
+    box-shadow: 0 0 16px var(--base-3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--base-1);
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-3);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-3);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ============== */
+/* BUTTONS & CONTROLS */
+/* ============== */
+.button {
+    display: inline-block;
+    background-color: var(--base-5);
+    border: none;
+    border-radius: 20px;
+    padding: 12px 24px;
+    margin: 10px 10px;
+    box-shadow: 0 0 8px var(--base-3);
+    font-size: 1rem;
+    color: var(--base-1);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--accent-1);
+    color: var(--base-1);
+}
+
+.mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    color: var(--base-1);
+    transition: color 0.3s ease;
+}
+
+.mode-toggle:hover {
+    color: var(--accent-3);
+}
+
+/* ===================== */
+/* INDIVIDUAL INFO CARD */
+/* ===================== */
+.info-card {
+    background: var(--base-5);
+    border-radius: 12px;
+    box-shadow: 0 0 16px var(--base-3);
+    display: flex;
+    flex-direction: row; /* Default side-by-side layout */
+    padding: 16px;
+    transition: transform 0.3s ease-in-out;
+    gap: 16px;
+    max-width: 950px;
+    margin: 32px auto;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--base-3);
+}
+
+.info-image {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0; /* Allow text overflow */
+}
+
+.info-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    color: var(--base-1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info-card p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--base-1);
+    text-align: left;
+}
+
+/* ===================== */
+/* RESPONSIVE ADJUSTMENTS */
+/* ===================== */
+
+@media (max-width: 700px) {
+    .info-card {
+        flex-direction: column !important; /* Force the column layout */
+        align-items: center !important; /* Ensure it's centered */
+        padding: 24px !important;
+    }
+
+    .info-image {
+        width: 100% !important;
+        max-width: 300px !important;
+        height: auto !important;
+        object-fit: cover !important;
+        margin-bottom: 16px !important;
+    }
+
+    .info-content {
+        width: 100% !important;
+        text-align: left !important;
+    }
+}

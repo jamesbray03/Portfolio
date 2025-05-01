@@ -1,90 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Bray – Home</title>
+    <link rel="icon" href="/content/images/icon.ico" type="image/x-icon">
+    <link rel="preload" href="content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+</head>
+<body>
+    <header>
+        <nav class="nav-left">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/CV/index.html" class="nav-link">CV</a>
+            <a href="/projects/index.html" class="nav-link">Projects</a>
+            <a href="/contact/index.html" class="nav-link">Contact</a>
+        </nav>
+        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    </header>
+    <main>
+        <br>
+        <img src="content/images/profile.png" alt="Profile Picture" class="profile-pic">
+        <h1>James Bray</h1>
+        <p class="subtitle">Portfolio Website</p>
+        <div class="button-container">
+            <button class="icon-button" aria-label="GitHub">
+                <a href="https://github.com/jamesbray03" target="_blank" rel="noopener noreferrer">
+                    <img src="content/images/github.png" alt="GitHub Icon" class="icon" style="display: block; margin: 0 auto;">
+                </a>
+            </button>
+            <button class="icon-button" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/jamesbray03/" target="_blank" rel="noopener noreferrer">
+                    <img src="content/images/linkedin.png" alt="LinkedIn Icon" class="icon" style="display: block; margin: 0 auto;">
+                </a>
+            </button>
+            <button class="icon-button" aria-label="Email">
+                <a href="/contact/index.html">
+                    <img src="content/images/email.png" alt="Email Icon" class="icon" style="display: block; margin: 0 auto;">
+                </a>
+            </button>
+        </div>
+        <hr class="divider">
+        <br>
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <div class="info-card">
+                <div class="info-content">
+                    <h3>Background</h3>
+                    <p>
+                        I'm a 3rd year Aerospace Engineering student at the University of Sheffield, on track for a first-class masters degree. 
+                        I enjoy working on projects that combine practical problem-solving with creativity 
+                        from turbojet engines to simulations and games.
+                    </p>
+                    <br>
+                    <p>
+                        I have a strong foundation in engineering principles, programming, and design, with a particular interest in propulsion systems.
+                        I hope to be able to apply my <a href="/CV/index.html">skills and exerience</a> in a real-world setting,
+                         where I can contribute to innovative projects and learn from experienced professionals.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="info-card">
+                <div class="info-content">
+                    <h3>What I Do</h3>
+                    <p>
+                        I prototype and attempt to develop full-stack solutions and systems with hands-on experience in:
+                    </p>
+                    <ul>
+                        <li>🚀 Propulsion system R&D and aircraft design</li>
+                        <li>🎧 Real-time digital signal processing and audio systems</li>
+                        <li>🕹️ Various games and mini-games, including some game jams</li>
+                        <li>🌐 Full-stack web development, from design to deployment</li>
+                        <li>🧠 Machine learning and AI, including neural networks</li>
+                    </ul>
+                    <p>
+                        You can see examples of these on my <a href="/projects/index.html">projects page</a>.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="info-card">
+                <div class="info-content">
+                    <h3>What’s Next?</h3>
+                    <p>
+                        I’m currently open to internships, freelance work, or collaborative projects. Particularly those related to product design, simulation, 
+                        or software that blends technical depth with user-focused design. I'm based in Sheffield and Nottingham and happy to work locally or remotely.
+                    </p>
+                    <br>
+                    <p>
+                        Long term, Iim hoping to launch my own tech/engineering company focused on future-facing, meaningful design. 
+                        Until then, I'm building toward that vision — one system at a time.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+    <main>
 
-    <!DOCTYPE html>
-    <html lang='en'>
-    <head>
-        <meta charset='UTF-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>James Bray - Home</title>
-        <link rel="preload" href="./_media/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-        <style>
-            @font-face {
-                font-family: 'HarmonyOS';
-                src: url('./_media/fonts/HarmonyOS.woff2') format('woff2');
-                font-weight: normal;
-                font-style: normal;
-                font-display: swap;
-            }
-            body {
-                font-family: 'HarmonyOS', sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #fff;
-                color: #000;
-                text-align: center;
-            }
-            header {
-                padding: 3rem 2rem 2rem;
-                background-color: #fff;
-            }
-            .profile-pic {
-                width: 180px;
-                height: 180px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 1rem;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            }
-            h1 {
-                font-size: 2.5rem;
-                margin: 0.2em 0;
-            }
-            p {
-                font-size: 1.2rem;
-                color: #666;
-                margin: 0.2em 0 1em;
-            }
-            nav {
-                margin-top: 2rem;
-            }
-            .nav-button {
-                display: inline-block;
-                background-color: white;
-                border: none;
-                border-radius: 20px;
-                padding: 12px 24px;
-                margin: 10px 10px;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-                font-size: 1rem;
-                color: #000;
-                text-decoration: none;
-                font-weight: bold;
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
-            .nav-button:hover {
-                background-color: #007bff;
-                color: white;
-            }
-            main {
-                padding: 2rem;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <img src="./_media/profile.png" alt="Profile Picture" class="profile-pic">
-            <h1>James Bray</h1>
-            <p>Portfolio Website</p>
-            <nav>
-                <a href="projects/index.html" class="nav-button">Projects</a>
-                <a href="#" class="nav-button">Future Company #1</a>
-                <a href="#" class="nav-button">Future Company #2</a>
-                <a href="#" class="nav-button">10 mil YouTube Channel</a>
-                <a href="#" class="nav-button">Contact</a>
-            </nav>
-        </header>
-        <main>
-            <p>Welcome to my personal site. Click Projects to view my portfolio.</p>
-        </main>
-    </body>
-    </html>
-    
+    <footer>
+        <p>© 2025 James Bray. All rights reserved.</p>
+        <p>Hosted on GitHub Pages, built from scratch.</p>
+        <div style="height: 100px;"></div>
+    </footer>
+
+    <script src="../js/dark-mode.js"></script>
+</body>
+</html>
