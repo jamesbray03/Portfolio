@@ -4,349 +4,349 @@
       "title": "2D Beam Solver",
       "description": "A small 2D beam solver that uses FEA to solve for deflection and stress",
       "public": true,
-      "thumbnail": "content/2D Beam Solver/_media/thumbnail.png"
+      "thumbnail": "../projects/content/2D Beam Solver/_media/thumbnail.png"
     },
     {
       "title": "3D Me",
       "description": "A bobblehead model of me using an industrial 3D scanner",
       "public": true,
-      "thumbnail": "content/3D Me/_media/thumbnail.png"
+      "thumbnail": "../projects/content/3D Me/_media/thumbnail.png"
     },
     {
       "title": "ACS130 Assignment",
       "description": "Demonstration of matrix multiplication and solving linear equations using C",
       "public": true,
-      "thumbnail": "content/ACS130 Assignment/_media/thumbnail.png"
+      "thumbnail": "../projects/content/ACS130 Assignment/_media/thumbnail.png"
     },
     {
       "title": "ACS137 Assignment",
       "description": "Build, simulate and optimise a state-space control system in simulink",
       "public": true,
-      "thumbnail": "content/ACS137 Assignment/_media/thumbnail.png"
+      "thumbnail": "../projects/content/ACS137 Assignment/_media/thumbnail.png"
     },
     {
       "title": "ACS341 Assignment",
       "description": "Predicting household energy consumption with machine learning",
       "public": true,
-      "thumbnail": "content/ACS341 Assignment/_media/thumbnail.png"
+      "thumbnail": "../projects/content/ACS341 Assignment/_media/thumbnail.png"
     },
     {
       "title": "AER11002 Assignment",
       "description": "Evaluate the performance of the ATR42 aircraft with MATLAB",
       "public": true,
-      "thumbnail": "content/AER11002 Assignment/_media/thumbnail.png"
+      "thumbnail": "../projects/content/AER11002 Assignment/_media/thumbnail.png"
     },
     {
       "title": "AMRC Presentation",
       "description": "Leaving presentation for my placement at the AMRC",
       "public": true,
-      "thumbnail": "content/AMRC Presentation/_media/thumbnail.png"
+      "thumbnail": "../projects/content/AMRC Presentation/_media/thumbnail.png"
     },
     {
       "title": "ANC Headphones",
       "description": "",
       "public": false,
-      "thumbnail": "content/ANC Headphones/_media/thumbnail.png"
+      "thumbnail": "../projects/content/ANC Headphones/_media/thumbnail.png"
     },
     {
       "title": "AQA Text Adventures",
       "description": "A classic text adventure game using Python",
       "public": true,
-      "thumbnail": "content/AQA Text Adventures/_media/thumbnail.png"
+      "thumbnail": "../projects/content/AQA Text Adventures/_media/thumbnail.png"
     },
     {
       "title": "Artificial Life",
       "description": "Advanced cellular automata simulation",
       "public": true,
-      "thumbnail": "content/Artificial Life/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Artificial Life/_media/thumbnail.png"
     },
     {
       "title": "Artwork",
       "description": "My various attempts at art over the years",
       "public": true,
-      "thumbnail": "content/Artwork/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Artwork/_media/thumbnail.png"
     },
     {
       "title": "ATP Glider",
       "description": "Design and manufacture of a small 'around the pole' glider",
       "public": true,
-      "thumbnail": "content/ATP Glider/_media/thumbnail.png"
+      "thumbnail": "../projects/content/ATP Glider/_media/thumbnail.png"
     },
     {
       "title": "AutoTab",
       "description": "Tool which listens to you play music and creates a tab for you",
       "public": true,
-      "thumbnail": "content/AutoTab/_media/thumbnail.png"
+      "thumbnail": "../projects/content/AutoTab/_media/thumbnail.png"
     },
     {
       "title": "Axial Flux Motor Winding Rig",
       "description": "Designing a rig which guides coils into desired geometry",
       "public": true,
-      "thumbnail": "content/Axial Flux Motor Winding Rig/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Axial Flux Motor Winding Rig/_media/thumbnail.png"
     },
     {
       "title": "Blaze",
       "description": "Proof of concept for a small platform game",
       "public": true,
-      "thumbnail": "content/Blaze/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Blaze/_media/thumbnail.png"
     },
     {
       "title": "Brain Simulator",
       "description": "Complex statistic management system for simulating a human",
       "public": true,
-      "thumbnail": "content/Brain Simulator/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Brain Simulator/_media/thumbnail.png"
     },
     {
       "title": "Breadboarding",
       "description": "Various experiments with breadboards and electronics",
       "public": true,
-      "thumbnail": "content/Breadboarding/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Breadboarding/_media/thumbnail.png"
     },
     {
       "title": "Chemical Chaos",
       "description": "Submission to Brackey's Game Jam 2021.2, hitting top 50 out of 1702 entries",
       "public": true,
-      "thumbnail": "content/Chemical Chaos/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Chemical Chaos/_media/thumbnail.png"
     },
     {
       "title": "Control System Analyser",
       "description": "Small program to produce plots and metrics for control systems",
       "public": true,
-      "thumbnail": "content/Control System Analyser/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Control System Analyser/_media/thumbnail.png"
     },
     {
       "title": "Desktop PR Set",
       "description": "Tiny barbell set for keeping track of powerlifting PRs",
       "public": true,
-      "thumbnail": "content/Desktop PR Set/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Desktop PR Set/_media/thumbnail.png"
     },
     {
       "title": "Doughnut Tutorial",
       "description": "The classic blender doughnut tutorial",
       "public": true,
-      "thumbnail": "content/Doughnut Tutorial/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Doughnut Tutorial/_media/thumbnail.png"
     },
     {
       "title": "EEE223 Assignment",
       "description": "Simulating and starting a three-phase induction motor",
       "public": true,
-      "thumbnail": "content/EEE223 Assignment/_media/thumbnail.png"
+      "thumbnail": "../projects/content/EEE223 Assignment/_media/thumbnail.png"
     },
     {
       "title": "Espresso Set",
       "description": "Coffee machine accessories for a DeLonghi coffee machine",
       "public": true,
-      "thumbnail": "content/Espresso Set/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Espresso Set/_media/thumbnail.png"
     },
     {
       "title": "ExoTerra",
       "description": "Terrain generation, manipulation and exploration game",
       "public": true,
-      "thumbnail": "content/ExoTerra/_media/thumbnail.png"
+      "thumbnail": "../projects/content/ExoTerra/_media/thumbnail.png"
     },
     {
       "title": "EYH Moving Seabins",
       "description": "'Engineering you're hired' week consisting of a sustainablility project",
       "public": true,
-      "thumbnail": "content/EYH Moving Seabins/_media/thumbnail.png"
+      "thumbnail": "../projects/content/EYH Moving Seabins/_media/thumbnail.png"
     },
     {
       "title": "Flight Simulator",
       "description": "A flying game to get to grips with unity",
       "public": true,
-      "thumbnail": "content/Flight Simulator/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Flight Simulator/_media/thumbnail.png"
     },
     {
       "title": "Graphics Engine",
       "description": "Custom graphics engine built from scratch",
       "public": true,
-      "thumbnail": "content/Graphics Engine/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Graphics Engine/_media/thumbnail.png"
     },
     {
       "title": "Grumman X29 Presentation",
       "description": "Fancy presentation for the Grumman X29 to practice presentation skills",
       "public": true,
-      "thumbnail": "content/Grumman X29 Presentation/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Grumman X29 Presentation/_media/thumbnail.png"
     },
     {
       "title": "Guitar Looper",
       "description": "Simple looping software for making short songs",
       "public": true,
-      "thumbnail": "content/Guitar Looper/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Guitar Looper/_media/thumbnail.png"
     },
     {
       "title": "Gyro Balancing",
       "description": "Test app using a phones gyroscope in unity",
       "public": true,
-      "thumbnail": "content/Gyro Balancing/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Gyro Balancing/_media/thumbnail.png"
     },
     {
       "title": "Inverse Kinematics",
       "description": "Implementation of inverse kinematics algorithms for robotic arms",
       "public": true,
-      "thumbnail": "content/Inverse Kinematics/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Inverse Kinematics/_media/thumbnail.png"
     },
     {
       "title": "IR Camera",
       "description": "DIY wii remote using IR camera and 4 positioning LEDs",
       "public": true,
-      "thumbnail": "content/IR Camera/_media/thumbnail.png"
+      "thumbnail": "../projects/content/IR Camera/_media/thumbnail.png"
     },
     {
       "title": "Lasercut Models",
       "description": "Star Wars models designed without any 3D CAD software",
       "public": true,
-      "thumbnail": "content/Lasercut Models/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Lasercut Models/_media/thumbnail.png"
     },
     {
       "title": "Lightweight Matrix Library",
       "description": "Matrix operation library for C, used in my graphics engine",
       "public": true,
-      "thumbnail": "content/Lightweight Matrix Library/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Lightweight Matrix Library/_media/thumbnail.png"
     },
     {
       "title": "Loose Ends",
       "description": "Short detective puzzle game built over a few days",
       "public": true,
-      "thumbnail": "content/Loose Ends/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Loose Ends/_media/thumbnail.png"
     },
     {
       "title": "Mark II Floor Plan",
       "description": "",
       "public": false,
-      "thumbnail": "content/Mark II Floor Plan/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Mark II Floor Plan/_media/thumbnail.png"
     },
     {
       "title": "Maze Horror",
       "description": "Procedural mansion maze horror with jumpscares and puzzles",
       "public": true,
-      "thumbnail": "content/Maze Horror/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Maze Horror/_media/thumbnail.png"
     },
     {
       "title": "Mimic",
       "description": "Attempt at an eriee rhythm game played against a lurking creature",
       "public": true,
-      "thumbnail": "content/Mimic/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Mimic/_media/thumbnail.png"
     },
     {
       "title": "Multipack Image Generator",
       "description": "Python tool to generate images for multipack products",
       "public": true,
-      "thumbnail": "content/Multipack Image Generator/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Multipack Image Generator/_media/thumbnail.png"
     },
     {
       "title": "Partial Discharge Test Rig",
       "description": "Testing enslosure for partial discharge of high voltage motor coils",
       "public": true,
-      "thumbnail": "content/Partial Discharge Test Rig/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Partial Discharge Test Rig/_media/thumbnail.png"
     },
     {
       "title": "Planet Simulator",
       "description": "A simple orbit simulation of various alien planets around a sun",
       "public": true,
-      "thumbnail": "content/Planet Simulator/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Planet Simulator/_media/thumbnail.png"
     },
     {
       "title": "PSO Projects",
       "description": "Various particle swarm optimisation projects",
       "public": true,
-      "thumbnail": "content/PSO Projects/_media/thumbnail.png"
+      "thumbnail": "../projects/content/PSO Projects/_media/thumbnail.png"
     },
     {
       "title": "Quadcopter",
       "description": "Built a quadcopter than won lightest weight out of 31 teams",
       "public": true,
-      "thumbnail": "content/Quadcopter/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Quadcopter/_media/thumbnail.png"
     },
     {
       "title": "Raindrops",
       "description": "Prodcedural runner game dodging raindrops on a MicroBit",
       "public": true,
-      "thumbnail": "content/Raindrops/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Raindrops/_media/thumbnail.png"
     },
     {
       "title": "Rapid Access",
       "description": "Customiseable shortcut and hotkey app for Windows",
       "public": true,
-      "thumbnail": "content/Rapid Access/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Rapid Access/_media/thumbnail.png"
     },
     {
       "title": "Raycasting",
       "description": "The classic raycasting algorithm with a pseudo-3D rendering engine",
       "public": true,
-      "thumbnail": "content/Raycasting/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Raycasting/_media/thumbnail.png"
     },
     {
       "title": "Resume",
       "description": "",
       "public": false,
-      "thumbnail": "content/Resume/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Resume/_media/thumbnail.png"
     },
     {
       "title": "Shadowbot",
       "description": "Building and coding a two-wheeled robot to avoid obstacles",
       "public": true,
-      "thumbnail": "content/Shadowbot/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Shadowbot/_media/thumbnail.png"
     },
     {
       "title": "Slinky Stators",
       "description": "Studying the feasibility of manufature of slinky stator geometries",
       "public": true,
-      "thumbnail": "content/Slinky Stators/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Slinky Stators/_media/thumbnail.png"
     },
     {
       "title": "SQL Database",
       "description": "Getting to grips with SQL and databases by designing a database app",
       "public": true,
-      "thumbnail": "content/SQL Database/_media/thumbnail.png"
+      "thumbnail": "../projects/content/SQL Database/_media/thumbnail.png"
     },
     {
       "title": "Strava API",
       "description": "",
       "public": false,
-      "thumbnail": "content/Strava API/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Strava API/_media/thumbnail.png"
     },
     {
       "title": "Sunfire Engine Control System",
       "description": "Building the valve control an DAQ for the Sunride Sunfire engine",
       "public": true,
-      "thumbnail": "content/Sunfire Engine Control System/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Sunfire Engine Control System/_media/thumbnail.png"
     },
     {
       "title": "Sunfire Throttling Simulation",
       "description": "Building a simulation and tuning a control system for engine throttling",
       "public": true,
-      "thumbnail": "content/Sunfire Throttling Simulation/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Sunfire Throttling Simulation/_media/thumbnail.png"
     },
     {
       "title": "Topology Optimisation with FEA",
       "description": "The project submitted for my A-Level computer science coursework",
       "public": true,
-      "thumbnail": "content/Topology Optimisation with FEA/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Topology Optimisation with FEA/_media/thumbnail.png"
     },
     {
       "title": "Track and Trace",
       "description": "A COVID-19 track and trace app to measure proximity between students",
       "public": true,
-      "thumbnail": "content/Track and Trace/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Track and Trace/_media/thumbnail.png"
     },
     {
       "title": "Truss Analysis",
       "description": "2D truss editor and analyser using the finite element method",
       "public": true,
-      "thumbnail": "content/Truss Analysis/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Truss Analysis/_media/thumbnail.png"
     },
     {
       "title": "Turbojet Engine",
       "description": "Building a self sustaining turbojet engine from a car turbo",
       "public": true,
-      "thumbnail": "content/Turbojet Engine/_media/thumbnail.png"
+      "thumbnail": "../projects/content/Turbojet Engine/_media/thumbnail.png"
     },
     {
       "title": "UKSEDS",
       "description": "Building a whislting rocket for a student rocketry competition",
       "public": true,
-      "thumbnail": "content/UKSEDS/_media/thumbnail.png"
+      "thumbnail": "../projects/content/UKSEDS/_media/thumbnail.png"
     }
   ]
 }
