@@ -55,7 +55,7 @@ for entry in ROOT_DIR.iterdir():
                     "title": project_data.get("title", entry.name),
                     "description": project_data.get("description", "No description provided."),
                     "public": project_data.get("public", False),
-                    "thumbnail": f"./content/{entry.name}/_media/thumbnail.png"  # assuming this path for thumbnail
+                    "thumbnail": f"content/{entry.name}/_media/thumbnail.png"  # assuming this path for thumbnail
                 }
                 projects_data.append(project_details)
 
