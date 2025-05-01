@@ -295,8 +295,23 @@ def generate_portfolio_html(projects):
                 .mobile-filter-toggle {{
                     display: block;
                 }}
+                .margin-left, .margin-right {{
+                    display: none;
+                }}
             }}
-            
+
+            @media (min-width: 1201px) {{
+                .filter-panel {{
+                    display: block !important;
+                }}
+                .mobile-filter-toggle {{
+                    display: none !important;
+                }}
+                .mobile-filter-dropdown {{
+                    display: none !important;
+                }}
+            }}
+
             @media (max-width: 768px) {{
                 .portfolio-container {{
                     grid-template-columns: 1fr;
@@ -369,9 +384,9 @@ def generate_portfolio_html(projects):
         html_content += f'''
                 <div class="filter-box">
                     <h3>{filter_title}
-                        <button class="tag-button" onclick="selectAll('{filter_key}')">Select All</button>
+                        <button class="tag-button select-all" data-group="{filter_key}" onclick="toggleSelectAll('{filter_key}')">Select All</button>
                     </h3>
-        '''
+'''
         for val in values:
             html_content += f'''
                     <button class="tag-button" data-group="{filter_key}" onclick="toggleValue('{filter_key}', '{val}')">{val}</button>
@@ -410,10 +425,10 @@ def generate_portfolio_html(projects):
         ("type", "Filter by Content", sorted(all_types)),
     ]:
         html_content += f'''
-                <div class="filter-box">
-                    <h3>{filter_title}
-                        <button class="tag-button" onclick="selectAll('{filter_key}')">Select All</button>
-                    </h3>
+                        <div class="filter-box">
+                            <h3>{filter_title}
+                                <button class="tag-button select-all" data-group="{filter_key}" onclick="toggleSelectAll('{filter_key}')">Select All</button>
+                            </h3>
         '''
         for val in values:
             html_content += f'''
@@ -470,7 +485,7 @@ def generate_portfolio_html(projects):
                 // Update button visual states
                 function updateButtonStates(group, value = null) {
                     if (value) {
-                        // Update specific button
+                        // Update specific button in both desktop and mobile
                         const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
                         buttons.forEach(btn => {
                             if (btn.textContent.trim() === value) {
@@ -482,9 +497,22 @@ def generate_portfolio_html(projects):
                         const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
                         buttons.forEach(btn => {
                             const val = btn.textContent.trim();
-                            btn.classList.toggle('active', selected[group].has(val));
+                            if (val !== "Select All" && val !== "Deselect All") {
+                                btn.classList.toggle('active', selected[group].has(val));
+                            }
                         });
                     }
+                    
+                    // Update all "Select All" button texts and active states
+                    const selectAllBtns = document.querySelectorAll(`.select-all[data-group="${group}"]`);
+                    const regularButtons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                    const allSelected = regularButtons.length > 0 && 
+                                    selected[group].size === regularButtons.length;
+                    
+                    selectAllBtns.forEach(btn => {
+                        btn.textContent = allSelected ? 'Deselect All' : 'Select All';
+                        btn.classList.toggle('active', allSelected);
+                    });
                 }
 
                 function toggleValue(group, value) {
@@ -496,24 +524,30 @@ def generate_portfolio_html(projects):
                         selected[group].add(value);
                     }
                     
-                    // Update both desktop and mobile button states
                     updateButtonStates(group, value);
                     filterProjects();
                 }
 
-                function selectAll(group) {
-                    const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
-                    const allSelected = selected[group].size === buttons.length;
-                    
-                    selected[group].clear();
-                    
-                    if (!allSelected) {
-                        buttons.forEach(btn => {
-                            selected[group].add(btn.textContent.trim());
-                        });
-                    }
-                    
-                    // Update all buttons in this group
+                function toggleSelectAll(group) {
+                    const buttons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                    if (buttons.length === 0) return;
+
+                    // Check if all are currently selected
+                    const allSelected = Array.from(buttons).every(btn => 
+                        selected[group].has(btn.textContent.trim())
+                    );
+
+                    // Toggle all buttons
+                    buttons.forEach(btn => {
+                        const val = btn.textContent.trim();
+                        if (allSelected) {
+                            selected[group].delete(val);
+                        } else {
+                            selected[group].add(val);
+                        }
+                    });
+
+                    // Update button states and filter
                     updateButtonStates(group);
                     filterProjects();
                 }
@@ -552,24 +586,80 @@ def generate_portfolio_html(projects):
                     sortProjects();
                 }
 
-                // Rest of your functions (sortProjects, openMobileFilters, etc.) remain the same
-                // ...
+                function sortProjects() {
+                    // Get sort values from either mobile or desktop controls
+                    const sortSelect = document.getElementById('sort-select') || document.getElementById('sort-select-mobile');
+                    const sortOrder = document.getElementById('sort-order') || document.getElementById('sort-order-mobile');
+                    
+                    const key = sortSelect?.value || 'title';
+                    const order = sortOrder?.value || 'asc';
+                    
+                    const container = document.getElementById('project-grid');
+                    if (!container) return;
+                    
+                    const items = Array.from(container.querySelectorAll('.project-cell.visible'));
+
+                    items.sort((a, b) => {
+                        let valA = a.dataset[key];
+                        let valB = b.dataset[key];
+                        
+                        if (key === 'title') {
+                            return order === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
+                        } else {
+                            valA = parseFloat(valA) || 0;
+                            valB = parseFloat(valB) || 0;
+                            return order === 'asc' ? valA - valB : valB - valA;
+                        }
+                    });
+
+                    items.forEach(item => container.appendChild(item));
+                }
+
+                function openMobileFilters() {
+                    document.getElementById('mobile-filter-dropdown').style.display = 'block';
+                }
+
+                function closeMobileFilters() {
+                    document.getElementById('mobile-filter-dropdown').style.display = 'none';
+                }
 
                 window.onload = function() {
                     // Initialize all filters as selected by default
-                    document.querySelectorAll('[data-group]').forEach(group => {
-                        const groupName = group.dataset.group;
-                        selectAll(groupName);
+                    ['tag', 'context', 'type'].forEach(group => {
+                        const buttons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                        buttons.forEach(btn => {
+                            selected[group].add(btn.textContent.trim());
+                            btn.classList.add('active');
+                        });
+                    });
+
+                    // Update all select all buttons to show correct initial state
+                    ['tag', 'context', 'type'].forEach(group => {
+                        const selectAllBtns = document.querySelectorAll(`.select-all[data-group="${group}"]`);
+                        const regularButtons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                        const allSelected = regularButtons.length > 0 && 
+                                        selected[group].size === regularButtons.length;
+                        
+                        selectAllBtns.forEach(btn => {
+                            btn.textContent = allSelected ? 'Deselect All' : 'Select All';
+                            btn.classList.toggle('active', allSelected);
+                        });
                     });
 
                     // Mobile filter toggle
-                    document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
+                    const mobileToggle = document.getElementById('mobile-filter-toggle');
+                    if (mobileToggle) {
+                        mobileToggle.addEventListener('click', openMobileFilters);
+                    }
                     
-                    // Close mobile filters when clicking close button
-                    document.querySelector('.mobile-filter-close').addEventListener('click', closeMobileFilters);
+                    // Close mobile filters
+                    const mobileClose = document.querySelector('.mobile-filter-close');
+                    if (mobileClose) {
+                        mobileClose.addEventListener('click', closeMobileFilters);
+                    }
                     
-                    // Initialize sort controls
-                    sortProjects();
+                    // Initial filter and sort
+                    filterProjects();
                 };
             </script>
     </body>

@@ -279,8 +279,23 @@
                 .mobile-filter-toggle {
                     display: block;
                 }
+                .margin-left, .margin-right {
+                    display: none;
+                }
             }
-            
+
+            @media (min-width: 1201px) {
+                .filter-panel {
+                    display: block !important;
+                }
+                .mobile-filter-toggle {
+                    display: none !important;
+                }
+                .mobile-filter-dropdown {
+                    display: none !important;
+                }
+            }
+
             @media (max-width: 768px) {
                 .portfolio-container {
                     grid-template-columns: 1fr;
@@ -342,9 +357,9 @@
                 
                 <div class="filter-box">
                     <h3>Filter by Tag
-                        <button class="tag-button" onclick="selectAll('tag')">Select/Deselct All</button>
+                        <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
                     </h3>
-        
+
                     <button class="tag-button" data-group="tag" onclick="toggleValue('tag', '3D printing')">3D printing</button>
             
                     <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'C')">C</button>
@@ -407,9 +422,9 @@
             </div>
                 <div class="filter-box">
                     <h3>Filter by Context
-                        <button class="tag-button" onclick="selectAll('context')">Select/Deselct All</button>
+                        <button class="tag-button select-all" data-group="context" onclick="toggleSelectAll('context')">Select All</button>
                     </h3>
-        
+
                     <button class="tag-button" data-group="context" onclick="toggleValue('context', 'AMRC')">AMRC</button>
             
                     <button class="tag-button" data-group="context" onclick="toggleValue('context', 'a-level')">a-level</button>
@@ -424,9 +439,9 @@
             </div>
                 <div class="filter-box">
                     <h3>Filter by Content
-                        <button class="tag-button" onclick="selectAll('type')">Select/Deselct All</button>
+                        <button class="tag-button select-all" data-group="type" onclick="toggleSelectAll('type')">Select All</button>
                     </h3>
-        
+
                     <button class="tag-button" data-group="type" onclick="toggleValue('type', '3D print')">3D print</button>
             
                     <button class="tag-button" data-group="type" onclick="toggleValue('type', 'app')">app</button>
@@ -463,10 +478,10 @@
                     </select>
                 </div>
                 
-                <div class="filter-box">
-                    <h3>Filter by Tag
-                        <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
-                    </h3>
+                        <div class="filter-box">
+                            <h3>Filter by Tag
+                                <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
+                            </h3>
         
                     <button class="tag-button" data-group="tag" onclick="toggleValue('tag', '3D printing')">3D printing</button>
             
@@ -528,10 +543,10 @@
             
                     <button class="tag-button" data-group="tag" onclick="toggleValue('tag', 'unity/C#')">unity/C#</button>
             </div>
-                <div class="filter-box">
-                    <h3>Filter by Context
-                        <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
-                    </h3>
+                        <div class="filter-box">
+                            <h3>Filter by Context
+                                <button class="tag-button select-all" data-group="context" onclick="toggleSelectAll('context')">Select All</button>
+                            </h3>
         
                     <button class="tag-button" data-group="context" onclick="toggleValue('context', 'AMRC')">AMRC</button>
             
@@ -545,10 +560,10 @@
             
                     <button class="tag-button" data-group="context" onclick="toggleValue('context', 'university')">university</button>
             </div>
-                <div class="filter-box">
-                    <h3>Filter by Content
-                        <button class="tag-button select-all" data-group="tag" onclick="toggleSelectAll('tag')">Select All</button>
-                    </h3>
+                        <div class="filter-box">
+                            <h3>Filter by Content
+                                <button class="tag-button select-all" data-group="type" onclick="toggleSelectAll('type')">Select All</button>
+                            </h3>
         
                     <button class="tag-button" data-group="type" onclick="toggleValue('type', '3D print')">3D print</button>
             
@@ -1516,7 +1531,7 @@
                 // Update button visual states
                 function updateButtonStates(group, value = null) {
                     if (value) {
-                        // Update specific button
+                        // Update specific button in both desktop and mobile
                         const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
                         buttons.forEach(btn => {
                             if (btn.textContent.trim() === value) {
@@ -1528,17 +1543,22 @@
                         const buttons = document.querySelectorAll(`button[data-group="${group}"]`);
                         buttons.forEach(btn => {
                             const val = btn.textContent.trim();
-                            btn.classList.toggle('active', selected[group].has(val));
+                            if (val !== "Select All" && val !== "Deselect All") {
+                                btn.classList.toggle('active', selected[group].has(val));
+                            }
                         });
                     }
                     
-                    // Update the "Select All" button text
-                    const selectAllBtn = document.querySelector(`button.select-all[data-group="${group}"]`);
-                    if (selectAllBtn) {
-                        const buttons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
-                        const allSelected = buttons.length > 0 && selected[group].size === buttons.length;
-                        selectAllBtn.textContent = allSelected ? 'Deselect All' : 'Select All';
-                    }
+                    // Update all "Select All" button texts and active states
+                    const selectAllBtns = document.querySelectorAll(`.select-all[data-group="${group}"]`);
+                    const regularButtons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                    const allSelected = regularButtons.length > 0 && 
+                                    selected[group].size === regularButtons.length;
+                    
+                    selectAllBtns.forEach(btn => {
+                        btn.textContent = allSelected ? 'Deselect All' : 'Select All';
+                        btn.classList.toggle('active', allSelected);
+                    });
                 }
 
                 function toggleValue(group, value) {
@@ -1556,25 +1576,24 @@
 
                 function toggleSelectAll(group) {
                     const buttons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
-                    const selectAllBtn = document.querySelector(`button.select-all[data-group="${group}"]`);
-                    
-                    // Determine if we should select all or deselect all
-                    const shouldSelectAll = selectAllBtn.textContent.trim() === 'Select All';
-                    
-                    if (shouldSelectAll) {
-                        // Select all
-                        selected[group].clear();
-                        buttons.forEach(btn => {
-                            const val = btn.textContent.trim();
+                    if (buttons.length === 0) return;
+
+                    // Check if all are currently selected
+                    const allSelected = Array.from(buttons).every(btn => 
+                        selected[group].has(btn.textContent.trim())
+                    );
+
+                    // Toggle all buttons
+                    buttons.forEach(btn => {
+                        const val = btn.textContent.trim();
+                        if (allSelected) {
+                            selected[group].delete(val);
+                        } else {
                             selected[group].add(val);
-                        });
-                        selectAllBtn.textContent = 'Deselect All';
-                    } else {
-                        // Deselect all
-                        selected[group].clear();
-                        selectAllBtn.textContent = 'Select All';
-                    }
-                    
+                        }
+                    });
+
+                    // Update button states and filter
                     updateButtonStates(group);
                     filterProjects();
                 }
@@ -1613,29 +1632,80 @@
                     sortProjects();
                 }
 
-                // Rest of your functions (sortProjects, openMobileFilters, etc.) remain the same
-                // ...
+                function sortProjects() {
+                    // Get sort values from either mobile or desktop controls
+                    const sortSelect = document.getElementById('sort-select') || document.getElementById('sort-select-mobile');
+                    const sortOrder = document.getElementById('sort-order') || document.getElementById('sort-order-mobile');
+                    
+                    const key = sortSelect?.value || 'title';
+                    const order = sortOrder?.value || 'asc';
+                    
+                    const container = document.getElementById('project-grid');
+                    if (!container) return;
+                    
+                    const items = Array.from(container.querySelectorAll('.project-cell.visible'));
+
+                    items.sort((a, b) => {
+                        let valA = a.dataset[key];
+                        let valB = b.dataset[key];
+                        
+                        if (key === 'title') {
+                            return order === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
+                        } else {
+                            valA = parseFloat(valA) || 0;
+                            valB = parseFloat(valB) || 0;
+                            return order === 'asc' ? valA - valB : valB - valA;
+                        }
+                    });
+
+                    items.forEach(item => container.appendChild(item));
+                }
+
+                function openMobileFilters() {
+                    document.getElementById('mobile-filter-dropdown').style.display = 'block';
+                }
+
+                function closeMobileFilters() {
+                    document.getElementById('mobile-filter-dropdown').style.display = 'none';
+                }
 
                 window.onload = function() {
                     // Initialize all filters as selected by default
-                    document.querySelectorAll('[data-group]').forEach(group => {
-                        const groupName = group.dataset.group;
-                        // Start with all selected
-                        const buttons = document.querySelectorAll(`button[data-group="${groupName}"]:not(.select-all)`);
+                    ['tag', 'context', 'type'].forEach(group => {
+                        const buttons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
                         buttons.forEach(btn => {
-                            selected[groupName].add(btn.textContent.trim());
+                            selected[group].add(btn.textContent.trim());
+                            btn.classList.add('active');
                         });
-                        updateButtonStates(groupName);
+                    });
+
+                    // Update all select all buttons to show correct initial state
+                    ['tag', 'context', 'type'].forEach(group => {
+                        const selectAllBtns = document.querySelectorAll(`.select-all[data-group="${group}"]`);
+                        const regularButtons = document.querySelectorAll(`button[data-group="${group}"]:not(.select-all)`);
+                        const allSelected = regularButtons.length > 0 && 
+                                        selected[group].size === regularButtons.length;
+                        
+                        selectAllBtns.forEach(btn => {
+                            btn.textContent = allSelected ? 'Deselect All' : 'Select All';
+                            btn.classList.toggle('active', allSelected);
+                        });
                     });
 
                     // Mobile filter toggle
-                    document.getElementById('mobile-filter-toggle').addEventListener('click', openMobileFilters);
+                    const mobileToggle = document.getElementById('mobile-filter-toggle');
+                    if (mobileToggle) {
+                        mobileToggle.addEventListener('click', openMobileFilters);
+                    }
                     
-                    // Close mobile filters when clicking close button
-                    document.querySelector('.mobile-filter-close').addEventListener('click', closeMobileFilters);
+                    // Close mobile filters
+                    const mobileClose = document.querySelector('.mobile-filter-close');
+                    if (mobileClose) {
+                        mobileClose.addEventListener('click', closeMobileFilters);
+                    }
                     
-                    // Initialize sort controls
-                    sortProjects();
+                    // Initial filter and sort
+                    filterProjects();
                 };
             </script>
     </body>
