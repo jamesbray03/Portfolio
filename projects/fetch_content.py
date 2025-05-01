@@ -7,7 +7,6 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent  # up to root
 PROJECTS_DIR = Path(__file__).resolve().parent            # _Portfolio/projects
 PROJECTS_CONTENT_DIR = PROJECTS_DIR / "content"
-INDEX_FILE = PROJECTS_CONTENT_DIR / "index.json"
 PROJECTS_JSON_FILE = PROJECTS_CONTENT_DIR / "projects.json"  # New file to store project details
 
 # folders and files to copy from each project folder
@@ -55,7 +54,6 @@ for entry in ROOT_DIR.iterdir():
                     "title": project_data.get("title", entry.name),
                     "description": project_data.get("description", "No description provided."),
                     "public": project_data.get("public", False),
-                    "thumbnail": f"../projects/content/{entry.name}/_media/thumbnail.png"  # assuming this path for thumbnail
                 }
                 projects_data.append(project_details)
 
@@ -63,11 +61,5 @@ for entry in ROOT_DIR.iterdir():
 with open(PROJECTS_JSON_FILE, "w") as f:
     json.dump({"projects": projects_data}, f, indent=2)
 
-# write index.json with sorted project names
-project_names = [entry.name for entry in ROOT_DIR.iterdir() if entry.is_dir() and entry.name != "_Portfolio" and not entry.name.startswith(".")]
-with open(INDEX_FILE, "w") as f:
-    json.dump(sorted(project_names), f, indent=2)
-
 print("Deployable project content stored in:", PROJECTS_CONTENT_DIR)
-print("Project index file created at:", INDEX_FILE)
 print("Project details stored in:", PROJECTS_JSON_FILE)

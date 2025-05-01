@@ -8,27 +8,26 @@ async function loadProjects() {
     let allProjects = [];
 
     try {
-        // fetch all project data at once (if available as a combined JSON)
-        const indexResponse = await fetch('content/projects.json');
-        const projectsData = await indexResponse.json(); // {folders: [...], projects: [...]}
+        // fetch all project data at once from projects.json
+        const indexResponse = await fetch('/projects/content/projects.json');
+        const projectsData = await indexResponse.json(); // projects: [{ title, description, public, folderName, etc. }]
 
-        // loop through each project and create a card
+        // count public/private and store them in allProjects
         projectsData.projects.forEach(data => {
-            // count public/private
             if (data.public === true) {
                 publicCount++;
-                allProjects.push(data);  // store projects to render in batch
+                allProjects.push(data);  // store projects for rendering in batch
             } else {
                 privateCount++;
             }
         });
 
-        // update counts
+        // update the public/private count
         publicCounter.textContent = publicCount;
         privateCounter.textContent = privateCount;
 
-        // Render all projects in batches (batch size: 10)
-        renderProjectBatch(allProjects.slice(0, 10)); // Load first 10 projects
+        // Render the first batch of projects (e.g., first 10 projects)
+        renderProjectBatch(allProjects.slice(0, 10));  // Render the first 10
 
         // lazy load additional projects as user scrolls
         let batchStart = 10;
@@ -46,42 +45,39 @@ async function loadProjects() {
     }
 }
 
-// render a batch of projects
+// Function to render a batch of projects
 function renderProjectBatch(projects) {
     const container = document.getElementById('project-container');
-    const fragment = document.createDocumentFragment();  // Use a fragment to avoid reflow/repaint on each append
+    const fragment = document.createDocumentFragment();  // Avoid reflow/repaint by using a fragment
 
     projects.forEach(data => {
         const card = createProjectCard(data);
         fragment.appendChild(card);
     });
 
-    container.appendChild(fragment);  // Append all cards at once
+    container.appendChild(fragment);  // Append all cards in one go
 }
 
-// create a project card based on json data
+// Function to create a project card
 function createProjectCard(data) {
     const card = document.createElement('div');
     card.className = 'project-card';
 
-    // create elements
+    // Create elements for title and description
     const title = document.createElement('h3');
-    title.textContent = data.title || 'Untitled Project';
+    title.textContent = data.title || 'Unnamed Project';
 
     const description = document.createElement('p');
     description.textContent = data.description || 'No description provided.';
 
-    // optional thumbnail
-    let image = null;
-    if (data.thumbnail) {
-        image = document.createElement('img');
-        image.src = data.thumbnail;  // Assuming thumbnails are optimized (e.g., smaller resolution)
-        image.alt = `${data.title} thumbnail`;
-        image.className = 'project-thumbnail';
-        image.loading = 'lazy';  // Lazy loading for image
-    }
+    // Optional thumbnail image
+    const image = document.createElement('img');
+    image.src = `/projects/content/${data.title}/_media/thumbnail.png`;  // Updated path for project-specific images
+    image.alt = `${data.title || 'Unnamed Project'} thumbnail`;
+    image.className = 'project-thumbnail';
+    image.loading = 'lazy';  // Lazy load the images
 
-    // wrap it all up
+    // Append the image and text to the card
     if (image) card.appendChild(image);
     card.appendChild(title);
     card.appendChild(description);
