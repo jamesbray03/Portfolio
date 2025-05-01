@@ -187,7 +187,7 @@
     },
     {
       "title": "Mimic",
-      "description": "Attempt at an eriee rhythm game played against a lurking creature",
+      "description": "Attempt at an eerie rhythm game played against a lurking creature",
       "public": true
     },
     {
@@ -197,7 +197,7 @@
     },
     {
       "title": "Partial Discharge Test Rig",
-      "description": "Testing enslosure for partial discharge of high voltage motor coils",
+      "description": "Testing enclosure for partial discharge of high voltage motor coils",
       "public": true
     },
     {
@@ -217,12 +217,12 @@
     },
     {
       "title": "Raindrops",
-      "description": "Prodcedural runner game dodging raindrops on a MicroBit",
+      "description": "Procedural runner game dodging raindrops on a MicroBit",
       "public": true
     },
     {
       "title": "Rapid Access",
-      "description": "Customiseable shortcut and hotkey app for Windows",
+      "description": "Customisable shortcut and hotkey app for Windows",
       "public": true
     },
     {
@@ -257,7 +257,7 @@
     },
     {
       "title": "Sunfire Engine Control System",
-      "description": "Building the valve control an DAQ for the Sunride Sunfire engine",
+      "description": "Building the valve control a DAQ for the Sunride Sunfire engine",
       "public": true
     },
     {
@@ -287,7 +287,7 @@
     },
     {
       "title": "UKSEDS",
-      "description": "Building a whislting rocket for a student rocketry competition",
+      "description": "Building a whistling rocket for a student rocketry competition",
       "public": true
     }
   ]

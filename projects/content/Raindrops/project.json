@@ -1,6 +1,6 @@
 {
     "title": "Raindrops",
-    "description": "Prodcedural runner game dodging raindrops on a MicroBit",
+    "description": "Procedural runner game dodging raindrops on a MicroBit",
     "tags": ["electronics", "game", "software", "python"],
     "content_type": "build",
     "context": "personal",

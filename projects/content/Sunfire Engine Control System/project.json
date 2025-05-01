@@ -1,6 +1,6 @@
 {
     "title": "Sunfire Engine Control System",
-    "description": "Building the valve control an DAQ for the Sunride Sunfire engine",
+    "description": "Building the valve control a DAQ for the Sunride Sunfire engine",
     "tags": ["aerospace", "motors", "control systems", "team", "electronics", "data", "build", "CAD", "manufacture"],
     "content_type": "build",
     "context": "sunride",
