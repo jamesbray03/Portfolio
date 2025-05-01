@@ -266,9 +266,7 @@ header {
     font-weight: bold;
     text-align: left;
     color: var(--base-1);
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .info-card p {
