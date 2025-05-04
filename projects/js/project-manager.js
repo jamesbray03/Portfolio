@@ -72,7 +72,7 @@ function createProjectCard(data) {
 
     // Optional thumbnail image
     const image = document.createElement('img');
-    image.src = `/projects/content/${data.title}/_media/thumbnail.png`;  // Updated path for project-specific images
+    image.src = `/projects/content/${data.title}/_media/thumbnail.webp`;  // Updated path for project-specific images
     image.alt = `${data.title || 'Unnamed Project'} thumbnail`;
     image.className = 'project-thumbnail';
     image.loading = 'lazy';  // Lazy load the images
