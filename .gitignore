@@ -24,3 +24,6 @@
 .vscode/
 .idea/
 __pycache__/
+
+# ignore videos
+videos/

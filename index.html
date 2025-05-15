@@ -34,6 +34,12 @@
     <link rel="stylesheet" href="../css/home.css" />
 </head>
 <body>
+    <!-- prevent FOUC -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>   
     <header>
         <nav class="nav-left">
             <a href="/" class="nav-link">Home</a>
@@ -80,7 +86,7 @@
                     <br>
                     <p>
                         I have a strong foundation in engineering principles, programming, and design, with a particular interest in propulsion systems.
-                        I hope to be able to apply my <a href="/CV/index.html">skills and experience</a> in a real-world setting,
+                        I hope to be able to apply my skills and experience in a real-world setting,
                          where I can contribute to innovative projects and learn from experienced professionals.
                     </p>
                 </div>
@@ -99,9 +105,6 @@
                         <li>🌐 Full-stack web development, from design to deployment</li>
                         <li>🧠 Machine learning and AI, including neural networks</li>
                     </ul>
-                    <p>
-                        You can see examples of these on my <a href="/projects/index.html">projects page</a>.
-                    </p>
                 </div>
             </div>
         
@@ -119,8 +122,58 @@
                     </p>
                 </div>
             </div>
+            <p>See more of my background on my <a href="/CV/index.html">CV page</a></p>
         </section>
-        
+
+        <br>
+        <h2>Highlighted Projects</h2>
+
+        <div class="info-card">
+            <img src="/content/images/VTOL highlight.webp" alt="UKSEDS thumbnail" class="info-image">
+            <div class="info-content">
+                <h3>VTOL Quadplane Design Build and Test</h3>
+                <p><em>Sep 2024 – May 2025</em></p>
+                <ul>
+                    <li>Led the design and integration of the full avionics system for a modular VTOL UAV platform</li>
+                    <li>Designed open-plan, modular electronics layout with accessible connections for maintainability</li>
+                    <li>Implemented ironbird avionics testbed to verify systems before final integration</li>
+                    <li>Supported system-level integration ensuring plug-and-play compatibility across subsystems</li>
+                    <li>Optimised cooling layout by externally mounting ESCs and positioning components for airflow</li>
+                    <li>Collaborated cross-functionally with flight dynamics, structures, and integration teams</li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-card">
+            <img src="/content/images/Quadcopter highlight.webp" alt="Quadcopter thumbnail" class="info-image">
+            <div class="info-content">
+                <h3>Quadcopter Design Build and Test</h3>
+                <p><em>Sep 2023 – May 2024</em></p>
+                <ul>
+                    <li>Won the contract for the lightest flying drone out of a cohort of 31 teams</li>
+                    <li>Led control team, optimising flight behaviour through PID controller BetaFlight</li>
+                    <li>Used Google Sheets to analyse and predict motor performance with different components</li>
+                    <li>Modelled a digital twin in Fusion 360 to ensure consistency during manufacture</li>
+                    <li>Used topology optimisation to optimise the strength-to-weight ratio of the frame</li>
+                    <li>Manufactured drone using laser cut or 3D printed parts, and soldered electronics</li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-card">
+            <img src="/content/images/UKSEDS highlight.webp" alt="UKSEDS thumbnail" class="info-image">
+            <div class="info-content">
+                <h3>UKSEDS Student Rocketry Competition</h3>
+                <p><em>Sep 2022 – May 2023</em></p>
+                <ul>
+                    <li>Designed and 3D printed a whistling rocket nosecone using Fusion 360 and Prusa</li>
+                    <li>Developed an avionics bay using Teensy 4.1, GPS, IMU, and environmental sensors</li>
+                    <li>Managed a £300 budget across design, avionics, and recovery systems</li>
+                    <li>Produced a full technical report and performance evaluation for the UKSEDS competition</li>
+                    <li>Simulated flight dynamics using OpenRocket to ensure maximum apogee</li>
+                    <li>Handled subteam conflicts regarding rocket dimensions and features</li>
+                </ul>
+            </div>
+        </div>
+        <p>See more of my projects on my <a href="/CV/index.html">project page</a></p>
     </main>
 
     <footer>

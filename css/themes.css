@@ -1,0 +1,98 @@
+/* Electric Blue */
+:root {
+    /* Base Colors */
+    --base-1: #000000; /* dark */
+    --base-2: #303030;
+    --base-3: #707070;
+    --base-4: #cacaca;
+    --base-5: #ffffff; /* light */
+
+    /* Accent Colors */
+    --accent-1: #78b3dd; /* weak */
+    --accent-2: #4c9bd3;
+    --accent-3: #0095ff; /* strong */
+}
+.dark-mode {
+    --base-1: #ffffff; /* light */
+    --base-2: #cacaca;
+    --base-3: #707070;
+    --base-4: #303030;
+    --base-5: #000000; /* dark */
+    
+    /* Accent Colors */
+    --accent-1: #78b3dd; /* weak */
+    --accent-2: #4c9bd3;
+    --accent-3: #0095ff; /* strong */
+}
+
+/* Midnight Blue */
+:root {
+    --base-1: #0e172a;
+    --base-2: #1e293b;
+    --base-3: #334155;
+    --base-4: #cbd5e1;
+    --base-5: #ffffff;
+
+    --accent-1: #7dd3fc;
+    --accent-2: #38bdf8;
+    --accent-3: #0ea5e9;
+}
+.dark-mode {
+    --base-1: #ffffff;
+    --base-2: #cbd5e1;
+    --base-3: #334155;
+    --base-4: #1e293b;
+    --base-5: #0e172a;
+
+    --accent-1: #7dd3fc;
+    --accent-2: #38bdf8;
+    --accent-3: #0ea5e9;
+}
+
+/* Organic Pine */
+:root {
+    --base-1: #1b1f1a;
+    --base-2: #2e352b;
+    --base-3: #4f5c47;
+    --base-4: #b4c1a3;
+    --base-5: #f8fff0;
+
+    --accent-1: #a2c9a1;
+    --accent-2: #7cbf7a;
+    --accent-3: #4dae50;
+}
+.dark-mode {
+    --base-1: #f8fff0;
+    --base-2: #b4c1a3;
+    --base-3: #4f5c47;
+    --base-4: #2e352b;
+    --base-5: #1b1f1a;
+
+    --accent-1: #a2c9a1;
+    --accent-2: #7cbf7a;
+    --accent-3: #4dae50;
+}
+
+/* Lime Green */
+:root {
+    --base-1: #0f0f0f;
+    --base-2: #1c1c1c;
+    --base-3: #3a3a3a;
+    --base-4: #d0d0d0;
+    --base-5: #ffffff;
+
+    --accent-1: #b4f542;
+    --accent-2: #a0e838;
+    --accent-3: #8ede2c;
+}
+.dark-mode {
+    --base-1: #ffffff;
+    --base-2: #d0d0d0;
+    --base-3: #3a3a3a;
+    --base-4: #1c1c1c;
+    --base-5: #0f0f0f;
+
+    --accent-1: #b4f542;
+    --accent-2: #a0e838;
+    --accent-3: #8ede2c;
+}

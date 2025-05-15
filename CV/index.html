@@ -33,6 +33,12 @@
     <link rel="stylesheet" href="../CV/css/cv.css">
 </head>
 <body>
+    <!-- prevent FOUC -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script> 
     <header>
         <nav class="nav-left">
             <a href="/" class="nav-link">Home</a>
@@ -67,7 +73,7 @@
             <div class="info-card">
                 <img src="/content/images/amrc.webp" alt="AMRC" class="info-image">
                 <div class="info-content">
-                    <h3>Assistant Project Engineer - AMRC</h3>
+                    <h3>Assistant Project Engineer - <a href="https://www.amrc.co.uk/" target="_blank" rel="noopener noreferrer">AMRC</a></h3>
                     <p><em>Jul 2024 – Oct 2024</em></p>
                     <ul>
                         <li>Designed and manufactured a £4000 partial discharge testing cell for 20kV motor coils</li>
@@ -83,8 +89,8 @@
             <div class="info-card">
                 <img src="/content/images/minsterfb.webp" alt="AMRC" class="info-image">
                 <div class="info-content">
-                    <h3>Catalogue Executive - MinsterFB</h3>
-                    <p><em>Jul 2024 – Oct 2024</em></p>
+                    <h3>Catalogue Executive - <a href="https://www.minsterfb.com/" target="_blank" rel="noopener noreferrer">MinsterFB</a></h3>
+                    <p><em>Jul 2022 – Oct 2022</em></p>
                     <ul>
                         <li>Created and optimised listings for maximum engagement and profitability</li>
                         <li>Used Excel to make an automated product name generator based on supplier data</li>
@@ -103,7 +109,7 @@
             <div class="info-card">
                 <img src="/content/images/uos.webp" alt="University of Sheffield" class="info-image">
                 <div class="info-content">
-                    <h3>Aerospace Engineering Degree MEng - University of Sheffield</h3>
+                    <h3>Aerospace Engineering Degree MEng - <a href="https://www.sheffield.ac.uk/" target="_blank" rel="noopener noreferrer">University of Sheffield</a></h3>
                     <p><em>Sep 2022 – Present</em></p>
                     <p>Five-year course with a year in industry, currently in 3rd year. Predicted first-class.</p>
                     <ul>
@@ -128,7 +134,7 @@
             <div class="info-card">
                 <img src="/content/images/gsa.webp" alt="George Spencer Academy" class="info-image">
                 <div class="info-content">
-                    <h3>GCSEs and A-Levels - George Spencer Academy</h3>
+                    <h3>GCSEs and A-Levels - <a href="https://georgespencer.org.uk/" target="_blank" rel="noopener noreferrer">George Spencer Academy</a></h3>
                     <p><em>Sep 2015 – Jul 2022</em></p>
                     <ul>
                         <strong>A-Levels</strong>
@@ -158,6 +164,7 @@
                         <li>Advanced manufacturing</li>
                         <li>Programming</li>
                         <li>Documentation</li>
+                        <li>UI/UX Design</li>
                     </ul>
                 </div>
                 <div class="skill-card">
@@ -165,19 +172,21 @@
                     <ul>
                         <li>Effective communication</li>
                         <li>Analytical thinking</li>
-                        <li>Leadership and Collaboration</li>
+                        <li>Leadership and collaboration</li>
                         <li>Attention to detail</li>
                         <li>Quick learning aptitude</li>
+                        <li>Creative problem-solving</li>
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <strong>Software</strong>
+                    <h3>Software</h3>
                     <ul>
                         <li>Fusion 360</li>
                         <li>MATLAB and Simulink</li>
                         <li>Python, C, C#</li>
                         <li>Unity & Blender</li>
                         <li>Google & Microsoft Suites</li>
+                        <li>HTML, CSS, JavaScript</li>
                     </ul>
                 </div>
             </div>

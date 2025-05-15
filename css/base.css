@@ -14,7 +14,6 @@
     --accent-2: #4c9bd3;
     --accent-3: #0095ff; /* strong */
 }
-
 .dark-mode {
     --base-1: #ffffff; /* light */
     --base-2: #cacaca;
@@ -232,7 +231,7 @@ header {
     box-shadow: 0 0 16px var(--base-3);
     display: flex;
     flex-direction: row; /* Default side-by-side layout */
-    padding: 16px;
+    padding: 20px;
     transition: transform 0.3s ease-in-out;
     gap: 16px;
     max-width: 950px;
@@ -300,3 +299,4 @@ header {
         text-align: left !important;
     }
 }
+

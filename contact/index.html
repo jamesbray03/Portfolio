@@ -33,6 +33,12 @@
     <link rel="stylesheet" href="../contact/css/contact.css" />
 </head>
 <body>
+    <!-- prevent FOUC -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script> 
     <header>
         <nav class="nav-left">
             <a href="/" class="nav-link">Home</a>

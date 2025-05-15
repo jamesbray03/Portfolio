@@ -3,297 +3,1062 @@
     {
       "title": "2D Beam Solver",
       "description": "A small 2D beam solver that uses FEA to solve for deflection and stress",
-      "public": true
+      "tags": [
+        "FEA",
+        "C",
+        "tool",
+        "software"
+      ],
+      "content_type": "code",
+      "context": "university",
+      "difficulty": 4,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "3D Me",
       "description": "A bobblehead model of me using an industrial 3D scanner",
-      "public": true
+      "tags": [
+        "3D printing",
+        "CAD",
+        "manufacture",
+        "team"
+      ],
+      "content_type": "3D print",
+      "context": "AMRC",
+      "difficulty": 2,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "ACS130 Assignment",
       "description": "Demonstration of matrix multiplication and solving linear equations using C",
-      "public": true
+      "tags": [
+        "software",
+        "C"
+      ],
+      "content_type": "code",
+      "context": "university",
+      "difficulty": 2,
+      "size": 1,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "ACS137 Assignment",
       "description": "Build, simulate and optimise a state-space control system in simulink",
-      "public": true
+      "tags": [
+        "control systems",
+        "simulink",
+        "MATLAB",
+        "software"
+      ],
+      "content_type": "simulation",
+      "context": "university",
+      "difficulty": 4,
+      "size": 5,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "ACS341 Assignment",
       "description": "Predicting household energy consumption with machine learning",
-      "public": true
+      "tags": [
+        "software",
+        "MATLAB",
+        "data",
+        "report"
+      ],
+      "content_type": "code",
+      "context": "university",
+      "difficulty": 7,
+      "size": 6,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "AER11002 Assignment",
       "description": "Evaluate the performance of the ATR42 aircraft with MATLAB",
-      "public": true
+      "tags": [
+        "aerospace",
+        "MATLAB",
+        "software"
+      ],
+      "content_type": "code",
+      "context": "university",
+      "difficulty": 2,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "AMRC Presentation",
       "description": "Leaving presentation for my placement at the AMRC",
-      "public": true
+      "tags": [
+        "simulation",
+        "fea",
+        "CAD",
+        "manufacture",
+        "product design",
+        "motors",
+        "presentation",
+        "3D printing",
+        "team"
+      ],
+      "content_type": "presentation",
+      "context": "AMRC",
+      "difficulty": 6,
+      "size": 9,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "ANC Headphones",
       "description": "",
-      "public": false
+      "tags": [],
+      "content_type": "",
+      "context": "",
+      "difficulty": 5,
+      "size": 5,
+      "public": false,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "AQA Text Adventures",
       "description": "A classic text adventure game using Python",
-      "public": true
+      "tags": [
+        "game",
+        "python",
+        "software"
+      ],
+      "content_type": "code",
+      "context": "a-level",
+      "difficulty": 2,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Artificial Life",
       "description": "Advanced cellular automata simulation",
-      "public": true
+      "tags": [
+        "simulation",
+        "software",
+        "unity/C#",
+        "game",
+        "UI",
+        "image processing"
+      ],
+      "content_type": "simulation",
+      "context": "personal",
+      "difficulty": 8,
+      "size": 7,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Artwork",
       "description": "My various attempts at art over the years",
-      "public": true
+      "tags": [
+        "art",
+        "image processing"
+      ],
+      "content_type": "art",
+      "context": "personal",
+      "difficulty": 1,
+      "size": 1,
+      "public": false,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "ATP Glider",
       "description": "Design and manufacture of a small 'around the pole' glider",
-      "public": true
+      "tags": [
+        "manufacture",
+        "CAD",
+        "aerospace",
+        "report",
+        "team",
+        "3D printing"
+      ],
+      "content_type": "build",
+      "context": "university",
+      "difficulty": 4,
+      "size": 5,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "AutoTab",
       "description": "Tool which listens to you play music and creates a tab for you",
-      "public": true
+      "tags": [
+        "sound",
+        "software",
+        "python",
+        "sound",
+        "UI"
+      ],
+      "content_type": "app",
+      "context": "personal",
+      "difficulty": 4,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Axial Flux Motor Winding Rig",
       "description": "Designing a rig which guides coils into desired geometry",
-      "public": true
+      "tags": [
+        "motors",
+        "CAD",
+        "manufacture",
+        "3D printing",
+        "tool",
+        "team"
+      ],
+      "content_type": "3D print",
+      "context": "AMRC",
+      "difficulty": 4,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Blaze",
       "description": "Proof of concept for a small platform game",
-      "public": true
+      "tags": [
+        "unity/C#",
+        "game",
+        "art",
+        "software",
+        "image processing"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 5,
+      "size": 4,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Brain Simulator",
       "description": "Complex statistic management system for simulating a human",
-      "public": true
+      "tags": [
+        "unity/C#",
+        "game",
+        "simulation",
+        "software",
+        "data",
+        "UI"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 8,
+      "size": 6,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Breadboarding",
       "description": "Various experiments with breadboards and electronics",
-      "public": true
+      "tags": [
+        "electronics",
+        "microcontrollers",
+        "python"
+      ],
+      "content_type": "build",
+      "context": "personal",
+      "difficulty": 3,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Chemical Chaos",
       "description": "Submission to Brackey's Game Jam 2021.2, hitting top 50 out of 1702 entries",
-      "public": true
+      "tags": [
+        "game",
+        "unity/C#",
+        "UI",
+        "sound",
+        "team",
+        "art",
+        "software"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 6,
+      "size": 8,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Control System Analyser",
       "description": "Small program to produce plots and metrics for control systems",
-      "public": true
+      "tags": [
+        "control systems",
+        "MATLAB",
+        "software",
+        "tool"
+      ],
+      "content_type": "code",
+      "context": "personal",
+      "difficulty": 3,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Desktop PR Set",
       "description": "Tiny barbell set for keeping track of powerlifting PRs",
-      "public": true
+      "tags": [
+        "manufacture",
+        "CAD",
+        "3D printing",
+        "product design"
+      ],
+      "content_type": "3D print",
+      "context": "personal",
+      "difficulty": 3,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Doughnut Tutorial",
       "description": "The classic blender doughnut tutorial",
-      "public": true
+      "tags": [
+        "CAD",
+        "art",
+        "simulation",
+        "image processing"
+      ],
+      "content_type": "art",
+      "context": "personal",
+      "difficulty": 8,
+      "size": 4,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "EEE223 Assignment",
       "description": "Simulating and starting a three-phase induction motor",
-      "public": true
+      "tags": [
+        "motors",
+        "MATLAB",
+        "simulink",
+        "report",
+        "electronics",
+        "software"
+      ],
+      "content_type": "simulation",
+      "context": "university",
+      "difficulty": 6,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Espresso Set",
       "description": "Coffee machine accessories for a DeLonghi coffee machine",
-      "public": true
+      "tags": [
+        "product design",
+        "manufacture",
+        "CAD",
+        "3D printing"
+      ],
+      "content_type": "3D print",
+      "context": "personal",
+      "difficulty": 4,
+      "size": 6,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "ExoTerra",
       "description": "Terrain generation, manipulation and exploration game",
-      "public": true
+      "tags": [
+        "game",
+        "unity/C#",
+        "art",
+        "software"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 8,
+      "size": 10,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "EYH Moving Seabins",
       "description": "'Engineering you're hired' week consisting of a sustainablility project",
-      "public": true
+      "tags": [
+        "simulation",
+        "software",
+        "MATLAB",
+        "presentation",
+        "team",
+        "report"
+      ],
+      "content_type": "presentation",
+      "context": "university",
+      "difficulty": 5,
+      "size": 5,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Flight Simulator",
       "description": "A flying game to get to grips with unity",
-      "public": true
+      "tags": [
+        "game",
+        "unity/C#",
+        "software"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 4,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Graphics Engine",
       "description": "Custom graphics engine built from scratch",
-      "public": true
+      "tags": [
+        "C",
+        "software",
+        "tool",
+        "presentation",
+        "image processing"
+      ],
+      "content_type": "code",
+      "context": "university",
+      "difficulty": 9,
+      "size": 8,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Grumman X29 Presentation",
       "description": "Fancy presentation for the Grumman X29 to practice presentation skills",
-      "public": true
+      "tags": [
+        "presentation",
+        "aerospace"
+      ],
+      "content_type": "presentation",
+      "context": "university",
+      "difficulty": 2,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Guitar Looper",
       "description": "Simple looping software for making short songs",
-      "public": true
+      "tags": [
+        "tool",
+        "software",
+        "sound",
+        "UI",
+        "python"
+      ],
+      "content_type": "code",
+      "context": "personal",
+      "difficulty": 4,
+      "size": 2,
+      "public": false,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Gyro Balancing",
       "description": "Test app using a phones gyroscope in unity",
-      "public": true
+      "tags": [
+        "game",
+        "unity/C#",
+        "software",
+        "electronics"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 2,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Inverse Kinematics",
       "description": "Implementation of inverse kinematics algorithms for robotic arms",
-      "public": true
+      "tags": [
+        "python",
+        "tool",
+        "software"
+      ],
+      "content_type": "code",
+      "context": "personal",
+      "difficulty": 5,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "IR Camera",
       "description": "DIY wii remote using IR camera and 4 positioning LEDs",
-      "public": true
+      "tags": [
+        "electronics",
+        "python",
+        "software"
+      ],
+      "content_type": "build",
+      "context": "personal",
+      "difficulty": 8,
+      "size": 5,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Lasercut Models",
       "description": "Star Wars models designed without any 3D CAD software",
-      "public": true
+      "tags": [
+        "manufacture",
+        "CAD",
+        "product design"
+      ],
+      "content_type": "build",
+      "context": "personal",
+      "difficulty": 7,
+      "size": 4,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Lightweight Matrix Library",
       "description": "Matrix operation library for C, used in my graphics engine",
-      "public": true
+      "tags": [
+        "software",
+        "C",
+        "tool",
+        "data"
+      ],
+      "content_type": "code",
+      "context": "personal",
+      "difficulty": 6,
+      "size": 6,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Loose Ends",
       "description": "Short detective puzzle game built over a few days",
-      "public": true
+      "tags": [
+        "game",
+        "unity/C#",
+        "UI",
+        "art",
+        "sound",
+        "software"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 6,
+      "size": 7,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Mark II Floor Plan",
       "description": "",
-      "public": false
+      "tags": [],
+      "content_type": "",
+      "context": "",
+      "difficulty": 2,
+      "size": 2,
+      "public": false,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Maze Horror",
       "description": "Procedural mansion maze horror with jumpscares and puzzles",
-      "public": true
+      "tags": [
+        "game",
+        "unity/C#",
+        "sound",
+        "image processing",
+        "software"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 7,
+      "size": 6,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Mimic",
       "description": "Attempt at an eerie rhythm game played against a lurking creature",
-      "public": true
+      "tags": [
+        "game",
+        "unity/C#",
+        "software",
+        "UI"
+      ],
+      "content_type": "game",
+      "context": "personal",
+      "difficulty": 2,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Multipack Image Generator",
       "description": "Python tool to generate images for multipack products",
-      "public": true
+      "tags": [
+        "tool",
+        "CLI",
+        "python",
+        "software"
+      ],
+      "content_type": "code",
+      "context": "e-commerce",
+      "difficulty": 4,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Partial Discharge Test Rig",
       "description": "Testing enclosure for partial discharge of high voltage motor coils",
-      "public": true
+      "tags": [
+        "motors",
+        "CAD",
+        "product design",
+        "manufacture",
+        "team",
+        "tool",
+        "FEA"
+      ],
+      "content_type": "build",
+      "context": "AMRC",
+      "difficulty": 4,
+      "size": 9,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Planet Simulator",
       "description": "A simple orbit simulation of various alien planets around a sun",
-      "public": true
+      "tags": [
+        "simulation",
+        "software",
+        "unity/C#",
+        "game"
+      ],
+      "content_type": "simulation",
+      "context": "personal",
+      "difficulty": 3,
+      "size": 4,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "PSO Projects",
       "description": "Various particle swarm optimisation projects",
-      "public": true
+      "tags": [
+        "software",
+        "MATLAB",
+        "tool",
+        "simulation"
+      ],
+      "content_type": "code",
+      "context": "personal",
+      "difficulty": 6,
+      "size": 3,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Quadcopter",
       "description": "Built a quadcopter than won lightest weight out of 31 teams",
-      "public": true
+      "tags": [
+        "build",
+        "team",
+        "manufacture",
+        "CAD",
+        "product design",
+        "FEA",
+        "motors",
+        "electronics",
+        "presentation",
+        "3D printing",
+        "data",
+        "control systems",
+        "aerospace"
+      ],
+      "content_type": "build",
+      "context": "university",
+      "difficulty": 8,
+      "size": 10,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Raindrops",
       "description": "Procedural runner game dodging raindrops on a MicroBit",
-      "public": true
+      "tags": [
+        "electronics",
+        "game",
+        "software",
+        "python"
+      ],
+      "content_type": "build",
+      "context": "personal",
+      "difficulty": 3,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Rapid Access",
       "description": "Customisable shortcut and hotkey app for Windows",
-      "public": true
+      "tags": [
+        "tool",
+        "software",
+        "UI",
+        "product design"
+      ],
+      "content_type": "app",
+      "context": "personal",
+      "difficulty": 7,
+      "size": 7,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Raycasting",
       "description": "The classic raycasting algorithm with a pseudo-3D rendering engine",
-      "public": true
+      "tags": [
+        "software",
+        "game",
+        "python"
+      ],
+      "content_type": "code",
+      "context": "personal",
+      "difficulty": 5,
+      "size": 5,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Resume",
       "description": "",
-      "public": false
+      "tags": [],
+      "content_type": "",
+      "context": "",
+      "difficulty": 5,
+      "size": 5,
+      "public": false,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Shadowbot",
       "description": "Building and coding a two-wheeled robot to avoid obstacles",
-      "public": true
+      "tags": [
+        "electronics",
+        "C",
+        "motors",
+        "team"
+      ],
+      "content_type": "build",
+      "context": "university",
+      "difficulty": 4,
+      "size": 4,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Slinky Stators",
       "description": "Studying the feasibility of manufature of slinky stator geometries",
-      "public": true
+      "tags": [
+        "motors",
+        "FEA",
+        "CAD",
+        "simulation",
+        "report"
+      ],
+      "content_type": "simulation",
+      "context": "AMRC",
+      "difficulty": 9,
+      "size": 6,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "SQL Database",
       "description": "Getting to grips with SQL and databases by designing a database app",
-      "public": true
+      "tags": [
+        "tool",
+        "software",
+        "UI",
+        "data",
+        "python"
+      ],
+      "content_type": "app",
+      "context": "a-level",
+      "difficulty": 5,
+      "size": 6,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Strava API",
       "description": "",
-      "public": false
+      "tags": [],
+      "content_type": "",
+      "context": "",
+      "difficulty": 5,
+      "size": 5,
+      "public": false,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Sunfire Engine Control System",
       "description": "Building the valve control a DAQ for the Sunride Sunfire engine",
-      "public": true
+      "tags": [
+        "aerospace",
+        "motors",
+        "control systems",
+        "team",
+        "electronics",
+        "data",
+        "build",
+        "CAD",
+        "manufacture"
+      ],
+      "content_type": "build",
+      "context": "sunride",
+      "difficulty": 7,
+      "size": 8,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Sunfire Throttling Simulation",
       "description": "Building a simulation and tuning a control system for engine throttling",
-      "public": true
+      "tags": [
+        "aerospace",
+        "control systems",
+        "electronics",
+        "simulation",
+        "MATLAB",
+        "software",
+        "simulink"
+      ],
+      "content_type": "simulation",
+      "context": "sunride",
+      "difficulty": 8,
+      "size": 5,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "The Chase - Revision Edition",
       "description": "A revision game based on the chase that my sister asked me for during her A-Levels",
-      "public": true
+      "tags": [
+        "tool",
+        "UI",
+        "python",
+        "software",
+        "game"
+      ],
+      "content_type": "code",
+      "context": "personal",
+      "difficulty": 4,
+      "size": 2,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Topology Optimisation with FEA",
       "description": "The project submitted for my A-Level computer science coursework",
-      "public": true
+      "tags": [
+        "FEA",
+        "UI",
+        "unity/C#",
+        "tool",
+        "software",
+        "simulation",
+        "report",
+        "product design"
+      ],
+      "content_type": "app",
+      "context": "a-level",
+      "difficulty": 10,
+      "size": 10,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Track and Trace",
       "description": "A COVID-19 track and trace app to measure proximity between students",
-      "public": true
+      "tags": [
+        "simulation",
+        "software",
+        "python",
+        "tool",
+        "UI",
+        "data"
+      ],
+      "content_type": "",
+      "context": "",
+      "difficulty": 5,
+      "size": 5,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Truss Analysis",
       "description": "2D truss editor and analyser using the finite element method",
-      "public": true
+      "tags": [
+        "software",
+        "unity/C#",
+        "FEA",
+        "tool",
+        "simulation",
+        "UI"
+      ],
+      "content_type": "app",
+      "context": "personal",
+      "difficulty": 8,
+      "size": 7,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "Turbojet Engine",
       "description": "Building a self sustaining turbojet engine from a car turbo",
-      "public": true
+      "tags": [
+        "aerospace",
+        "build",
+        "CAD",
+        "manufacture",
+        "3D printing",
+        "electronics"
+      ],
+      "content_type": "build",
+      "context": "personal",
+      "difficulty": 10,
+      "size": 10,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     },
     {
       "title": "UKSEDS",
       "description": "Building a whistling rocket for a student rocketry competition",
-      "public": true
+      "tags": [
+        "aerospace",
+        "build",
+        "electronics",
+        "team",
+        "manufacture",
+        "3D printing",
+        "CAD",
+        "data",
+        "sound"
+      ],
+      "content_type": "build",
+      "context": "university",
+      "difficulty": 8,
+      "size": 8,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
+    },
+    {
+      "title": "VTOL Quadplane",
+      "description": "Designing and building all avionic systems for a search and rescue quadplane",
+      "tags": [
+        "build",
+        "team",
+        "manufacture",
+        "CAD",
+        "product design",
+        "FEA",
+        "motors",
+        "electronics",
+        "presentation",
+        "3D printing",
+        "data",
+        "control systems",
+        "aerospace"
+      ],
+      "content_type": "build",
+      "context": "university",
+      "difficulty": 9,
+      "size": 9,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
     }
   ]
 }

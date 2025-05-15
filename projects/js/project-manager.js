@@ -5,82 +5,155 @@ async function loadProjects() {
 
     let publicCount = 0;
     let privateCount = 0;
-    let allProjects = [];
+    let allPublicProjects = []; // Renamed to be more specific
+
+    // Helper to safely update text content
+    const setText = (element, text) => {
+        if (element) {
+            element.textContent = text;
+        }
+    };
 
     try {
-        // fetch all project data at once from projects.json
-        const indexResponse = await fetch('/projects/content/projects.json');
-        const projectsData = await indexResponse.json(); // projects: [{ title, description, public, folderName, etc. }]
+        // Fetch the main projects.json which now contains all project data
+        const indexResponse = await fetch('./content/projects.json'); // CHANGED: Filename
+        if (!indexResponse.ok) {
+            throw new Error(`Failed to load projects.json: ${indexResponse.status} ${indexResponse.statusText}`);
+        }
+        const allProjectsDataContainer = await indexResponse.json();
 
-        // count public/private and store them in allProjects
-        projectsData.projects.forEach(data => {
+        if (!allProjectsDataContainer.projects || !Array.isArray(allProjectsDataContainer.projects)) {
+            console.error('Invalid project list structure in projects.json:', allProjectsDataContainer);
+            if (container) container.innerHTML = '<p>Error loading projects: Invalid data structure.</p>';
+            return;
+        }
+
+        const rawProjectsData = allProjectsDataContainer.projects;
+
+        // Filter and count public/private
+        rawProjectsData.forEach(data => {
+            if (!data) {
+                console.warn('Encountered null project data in projects.json.');
+                return;
+            }
+
+            // ASSUMPTION: Each 'data' object (from an original project.json, aggregated by Python)
+            // should ideally contain 'folderName' (string, e.g., "MyProjectAlpha")
+            // and 'thumbnailExtension' (string, e.g., ".png").
+            // If not, createProjectCard will try fallbacks but it's less reliable.
+
             if (data.public === true) {
                 publicCount++;
-                allProjects.push(data);  // store projects for rendering in batch
+                allPublicProjects.push(data);
             } else {
                 privateCount++;
             }
         });
 
-        // update the public/private count
-        publicCounter.textContent = publicCount;
-        privateCounter.textContent = privateCount;
+        // Sort public projects by 'size' (difficulty) descending
+        allPublicProjects.sort((a, b) => (Number(b.size) || 0) - (Number(a.size) || 0));
 
-        // Render the first batch of projects (e.g., first 10 projects)
-        renderProjectBatch(allProjects.slice(0, 10));  // Render the first 10
+        setText(publicCounter, publicCount);
+        setText(privateCounter, privateCount);
 
-        // lazy load additional projects as user scrolls
-        let batchStart = 10;
-        window.addEventListener('scroll', () => {
-            if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 100) {
-                const nextBatch = allProjects.slice(batchStart, batchStart + 10);
-                renderProjectBatch(nextBatch);
-                batchStart += 10;
+        if (container) {
+            if (allPublicProjects.length === 0) {
+                container.innerHTML = rawProjectsData.length > 0 ?
+                    '<p>No public projects available at the moment.</p>' :
+                    '<p>No projects found.</p>';
+            } else {
+                container.innerHTML = ''; // Clear any previous message
             }
-        });
+        }
+
+
+        // Render the first batch of public projects
+        const batchSize = 10;
+        renderProjectBatch(allPublicProjects.slice(0, batchSize));
+
+        // Lazy load additional public projects on scroll
+        let batchStart = batchSize;
+        if (allPublicProjects.length > batchStart) {
+            const scrollListener = () => {
+                // Check if container is still in DOM (e.g., user hasn't navigated away)
+                if (!document.body.contains(container)) {
+                     window.removeEventListener('scroll', scrollListener);
+                     return;
+                }
+
+                if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 150) { // Trigger a bit earlier
+                    if (batchStart < allPublicProjects.length) {
+                        const nextBatch = allPublicProjects.slice(batchStart, batchStart + batchSize);
+                        renderProjectBatch(nextBatch);
+                        batchStart += batchSize;
+                        if (batchStart >= allPublicProjects.length) {
+                            window.removeEventListener('scroll', scrollListener);
+                        }
+                    } else {
+                        window.removeEventListener('scroll', scrollListener);
+                    }
+                }
+            };
+            window.addEventListener('scroll', scrollListener, { passive: true });
+        }
 
     } catch (err) {
-        console.error('Error loading project index:', err);
-        container.innerHTML = '<p>Error loading projects.</p>';
+        console.error('Failed to load or process projects:', err);
+        if (container) {
+            container.innerHTML = `<p>Error loading projects: ${err.message}. Please try again later.</p>`;
+        }
     }
 }
 
-// Function to render a batch of projects
-function renderProjectBatch(projects) {
+function renderProjectBatch(projectsToRender) {
     const container = document.getElementById('project-container');
-    const fragment = document.createDocumentFragment();  // Avoid reflow/repaint by using a fragment
+    if (!container) {
+        console.error("Project container not found for rendering batch.");
+        return;
+    }
+    // Use a document fragment for performance
+    const fragment = document.createDocumentFragment();
 
-    projects.forEach(data => {
+    projectsToRender.forEach(data => {
         const card = createProjectCard(data);
-        fragment.appendChild(card);
+        if (card) { // createProjectCard might return null on critical error
+            fragment.appendChild(card);
+        }
     });
 
-    container.appendChild(fragment);  // Append all cards in one go
+    container.appendChild(fragment);
 }
 
-// Function to create a project card
 function createProjectCard(data) {
+    if (!data) return null; // Should not happen if filtered earlier
+
     const card = document.createElement('div');
     card.className = 'project-card';
 
-    // Create elements for title and description
-    const title = document.createElement('h3');
-    title.textContent = data.title || 'Unnamed Project';
+    const titleText = data.title || 'Unnamed Project';
 
-    const description = document.createElement('p');
-    description.textContent = data.description || 'No description provided.';
+    const titleElement = document.createElement('h3');
+    titleElement.textContent = titleText;
 
-    // Optional thumbnail image
-    const image = document.createElement('img');
-    image.src = `/projects/content/${data.title}/_media/thumbnail.webp`;  // Updated path for project-specific images
-    image.alt = `${data.title || 'Unnamed Project'} thumbnail`;
-    image.className = 'project-thumbnail';
-    image.loading = 'lazy';  // Lazy load the images
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = data.description || 'No description provided.';
 
-    // Append the image and text to the card
-    if (image) card.appendChild(image);
-    card.appendChild(title);
-    card.appendChild(description);
+    const imageElement = document.createElement('img');
+    imageElement.src = `/projects/content/thumbnails/${data.title}.webp`; // Default to .webp if extension unknown
+    imageElement.alt = `${titleText} thumbnail (details missing)`;
+    imageElement.alt = imageElement.alt || `${titleText} thumbnail`; // Ensure alt is set
+    imageElement.className = 'project-thumbnail';
+    imageElement.loading = 'lazy';
+
+    imageElement.onerror = function() {
+        // Handle broken images
+        console.warn(`Failed to load image: ${this.src}.`);
+        this.alt = `${titleText} (thumbnail not available)`;
+    };
+
+    card.appendChild(imageElement);
+    card.appendChild(titleElement);
+    card.appendChild(descriptionElement);
 
     return card;
 }

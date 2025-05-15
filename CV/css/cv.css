@@ -2,30 +2,6 @@
 /* SKILL CARDS CONTAINER */
 /* ===================== */
 #skill-card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    width: 950px;
-    box-sizing: border-box;
-    margin: 0 auto;
-}
-.info-card {
-    background: var(--base-5);
-    border-radius: 12px;
-    box-shadow: 0 0 16px var(--base-3);
-    display: flex;
-    flex-direction: row;
-    padding: 32px; /* Increased padding for more vertical spacing */
-    transition: transform 0.3s ease-in-out;
-    gap: 16px;
-    max-width: 950px;
-    margin: 32px auto; /* Added vertical margin for spacing between cards */
-}
-
-/* ===================== */
-/* SKILL CARDS CONTAINER */
-/* ===================== */
-#skill-card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -54,21 +30,9 @@
     max-width: 258px; /* Maximum card width */
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px var(--base-3);
-}
-
-.skill-icon {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    /* Removed margin-bottom since we're using gap */
-}
-
 .skill-card h3 {
     margin: 0;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--base-1);
 }
@@ -88,7 +52,6 @@
         align-items: center;
         flex-wrap: nowrap; /* Prevent wrapping */
     }
-    
     .skill-card {
         width: 100%; /* Wider cards in column layout */
 

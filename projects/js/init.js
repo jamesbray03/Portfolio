@@ -18,6 +18,5 @@ window.onload = function () {
             btn.classList.toggle('active', allSelected);
         });
     });
-
-    filterProjects();
 };
+
