@@ -116,7 +116,7 @@
       "content_type": "presentation",
       "context": "AMRC",
       "difficulty": 6,
-      "size": 9,
+      "size": 8,
       "public": true,
       "start_date": "",
       "end_date": ""
@@ -411,7 +411,7 @@
       "content_type": "game",
       "context": "personal",
       "difficulty": 8,
-      "size": 10,
+      "size": 9,
       "public": true,
       "start_date": "",
       "end_date": ""
@@ -891,7 +891,7 @@
       "content_type": "build",
       "context": "sunride",
       "difficulty": 7,
-      "size": 8,
+      "size": 10,
       "public": true,
       "start_date": "",
       "end_date": ""
@@ -1055,7 +1055,7 @@
       "content_type": "build",
       "context": "university",
       "difficulty": 9,
-      "size": 9,
+      "size": 10,
       "public": true,
       "start_date": "",
       "end_date": ""
