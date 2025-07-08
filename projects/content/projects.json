@@ -810,6 +810,28 @@
       "end_date": ""
     },
     {
+      "title": "Rocket Engine Control System",
+      "description": "Designing and building the DAQ and control system for the UoS rocket test stand",
+      "tags": [
+        "aerospace",
+        "motors",
+        "control systems",
+        "team",
+        "electronics",
+        "data",
+        "build",
+        "CAD",
+        "manufacture"
+      ],
+      "content_type": "build",
+      "context": "sunride",
+      "difficulty": 7,
+      "size": 10,
+      "public": true,
+      "start_date": "",
+      "end_date": ""
+    },
+    {
       "title": "Shadowbot",
       "description": "Building and coding a two-wheeled robot to avoid obstacles",
       "tags": [
@@ -871,28 +893,6 @@
       "difficulty": 5,
       "size": 5,
       "public": false,
-      "start_date": "",
-      "end_date": ""
-    },
-    {
-      "title": "Sunfire Engine Control System",
-      "description": "Building the valve control a DAQ for the Sunride Sunfire engine",
-      "tags": [
-        "aerospace",
-        "motors",
-        "control systems",
-        "team",
-        "electronics",
-        "data",
-        "build",
-        "CAD",
-        "manufacture"
-      ],
-      "content_type": "build",
-      "context": "sunride",
-      "difficulty": 7,
-      "size": 10,
-      "public": true,
       "start_date": "",
       "end_date": ""
     },
