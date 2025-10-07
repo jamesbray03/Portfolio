@@ -536,6 +536,24 @@
       "end_date": ""
     },
     {
+      "title": "Iontotherapy Machine",
+      "description": "Various experiments with breadboards and electronics",
+      "tags": [
+        "electronics",
+        "microcontrollers",
+        "CAD",
+        "3D printing",
+        "product design"
+      ],
+      "content_type": "build",
+      "context": "personal",
+      "difficulty": 6,
+      "size": 5,
+      "public": false,
+      "start_date": "",
+      "end_date": ""
+    },
+    {
       "title": "IR Camera",
       "description": "DIY wii remote using IR camera and 4 positioning LEDs",
       "tags": [
@@ -548,6 +566,18 @@
       "difficulty": 8,
       "size": 5,
       "public": true,
+      "start_date": "",
+      "end_date": ""
+    },
+    {
+      "title": "Strava API",
+      "description": "",
+      "tags": [],
+      "content_type": "",
+      "context": "",
+      "difficulty": 5,
+      "size": 4,
+      "public": false,
       "start_date": "",
       "end_date": ""
     },

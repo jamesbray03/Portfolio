@@ -8,6 +8,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent.parent  # up to root (e.g., ma
 PORTFOLIO_PROJECTS_SCRIPT_DIR = Path(__file__).resolve().parent  # _Portfolio/projects (where this script is)
 PROJECTS_CONTENT_DIR = PORTFOLIO_PROJECTS_SCRIPT_DIR / "content"  # _Portfolio/projects/content
 PROJECTS_THUMBNAILS_DIR = PROJECTS_CONTENT_DIR / "thumbnails"  # New directory for all thumbnails
+PROJECTS_READMES_DIR = PROJECTS_CONTENT_DIR / "readmes"  # New directory for all README files
 PROJECTS_JSON_FILE = PROJECTS_CONTENT_DIR / "projects.json"  # Main JSON index file
 
 # Common image extensions for thumbnails
@@ -15,9 +16,21 @@ IMAGE_EXTENSIONS = [".gif", ".webp"]
 
 # clean the content directory
 if PROJECTS_CONTENT_DIR.exists():
-    shutil.rmtree(PROJECTS_CONTENT_DIR)
-PROJECTS_CONTENT_DIR.mkdir(parents=True)
-PROJECTS_THUMBNAILS_DIR.mkdir(parents=True) # Create the thumbnails directory
+    try:
+        shutil.rmtree(PROJECTS_CONTENT_DIR)
+    except PermissionError:
+        print("Warning: Could not remove existing content directory. Continuing...")
+        # Clear just the files instead
+        for item in PROJECTS_CONTENT_DIR.rglob('*'):
+            if item.is_file():
+                try:
+                    item.unlink()
+                except PermissionError:
+                    print(f"Warning: Could not remove {item}")
+
+PROJECTS_CONTENT_DIR.mkdir(parents=True, exist_ok=True)
+PROJECTS_THUMBNAILS_DIR.mkdir(parents=True, exist_ok=True) # Create the thumbnails directory
+PROJECTS_READMES_DIR.mkdir(parents=True, exist_ok=True) # Create the readmes directory
 
 # store project JSON data for the main projects.json
 all_projects_data = []
@@ -78,6 +91,33 @@ for entry in ROOT_DIR.iterdir():
         else:
             print(f"  Warning: Thumbnail not found for project {project_name}.")
 
+        # Handle README
+        found_readme_source_path = None
+        
+        # Look for README in project root then in _media folder
+        possible_readme_locations = [entry, entry / "_media"]
+        readme_names = ["README.md", "readme.md", "Readme.md", "README.txt", "readme.txt"]
+        
+        for loc in possible_readme_locations:
+            if loc.exists() and loc.is_dir():
+                for readme_name in readme_names:
+                    readme_path = loc / readme_name
+                    if readme_path.exists() and readme_path.is_file():
+                        found_readme_source_path = readme_path
+                        break
+            if found_readme_source_path:
+                break
+        
+        if found_readme_source_path:
+            try:
+                destination_readme_path = PROJECTS_READMES_DIR / f"{project_name}.md"
+                shutil.copy2(found_readme_source_path, destination_readme_path)
+                print(f"  Copied README: {found_readme_source_path.name} to {destination_readme_path}")
+            except Exception as e:
+                print(f"  Error copying README for {project_name}: {e}")
+        else:
+            print(f"  Warning: README not found for project {project_name}.")
+
 
 # write the aggregated projects data to the main projects.json
 if all_projects_data:
@@ -95,5 +135,6 @@ print("\n----------------------------------------------------")
 print("Script finished.")
 print(f"Deployable project content structure generated in: {PROJECTS_CONTENT_DIR}")
 print(f"All thumbnails (renamed) are in: {PROJECTS_THUMBNAILS_DIR}")
+print(f"All README files (renamed) are in: {PROJECTS_READMES_DIR}")
 print(f"Main project index (list of all project.json contents) is at: {PROJECTS_JSON_FILE}")
 print("----------------------------------------------------")
