@@ -1,0 +1,1 @@
+Leaving presentation for my placement at the [AMRC in Sheffield, UK](https://www.amrc.co.uk/). The presentation covers the work I did during my placement, including 3D scanning, mesh processing, and 3D printing a bobblehead model of myself using industrial equipment. It also highlights the skills and knowledge I gained in advanced manufacturing technologies.

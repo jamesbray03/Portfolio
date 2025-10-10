@@ -1,0 +1,1 @@
+A 3D graphics engine using [LML](https://github.com/jamesbray03/Lightweight-Matrix-Library) which renders obj files. This is a software renderer, meaning it does not use any graphics libraries such as OpenGL or DirectX. The engine supports both orthographic and perspective projection, as well as basic shading.

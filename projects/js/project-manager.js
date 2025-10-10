@@ -15,15 +15,15 @@ async function loadProjects() {
     };
 
     try {
-        // Fetch the main projects.json which now contains all project data
-        const indexResponse = await fetch('./content/projects.json'); // CHANGED: Filename
+        // Fetch the master projects file which now contains all project data
+        const indexResponse = await fetch('content/projects_master.json');
         if (!indexResponse.ok) {
-            throw new Error(`Failed to load projects.json: ${indexResponse.status} ${indexResponse.statusText}`);
+            throw new Error(`Failed to load projects_master.json: ${indexResponse.status} ${indexResponse.statusText}`);
         }
         const allProjectsDataContainer = await indexResponse.json();
 
         if (!allProjectsDataContainer.projects || !Array.isArray(allProjectsDataContainer.projects)) {
-            console.error('Invalid project list structure in projects.json:', allProjectsDataContainer);
+            console.error('Invalid project list structure in projects_master.json:', allProjectsDataContainer);
             if (container) container.innerHTML = '<p>Error loading projects: Invalid data structure.</p>';
             return;
         }
@@ -33,14 +33,9 @@ async function loadProjects() {
         // Filter and count public/private
         rawProjectsData.forEach(data => {
             if (!data) {
-                console.warn('Encountered null project data in projects.json.');
+                console.warn('Encountered null project data in projects_master.json.');
                 return;
             }
-
-            // ASSUMPTION: Each 'data' object (from an original project.json, aggregated by Python)
-            // should ideally contain 'folderName' (string, e.g., "MyProjectAlpha")
-            // and 'thumbnailExtension' (string, e.g., ".png").
-            // If not, createProjectCard will try fallbacks but it's less reliable.
 
             if (data.public === true) {
                 publicCount++;
@@ -139,9 +134,10 @@ function createProjectCard(data) {
     descriptionElement.textContent = data.description || 'No description provided.';
 
     const imageElement = document.createElement('img');
-    imageElement.src = `/projects/content/thumbnails/${data.title}.webp`; // Default to .webp if extension unknown
-    imageElement.alt = `${titleText} thumbnail (details missing)`;
-    imageElement.alt = imageElement.alt || `${titleText} thumbnail`; // Ensure alt is set
+    // Use safe_name to construct thumbnail path
+    const thumbnailName = `${data.safe_name}.webp`;
+    imageElement.src = `content/thumbnails/${thumbnailName}`;
+    imageElement.alt = `${titleText} thumbnail`;
     imageElement.className = 'project-thumbnail';
     imageElement.loading = 'lazy';
 
@@ -179,11 +175,25 @@ function createModal() {
                 <h2 class="modal-title" id="modal-title"></h2>
                 <button class="modal-close" id="modal-close">&times;</button>
             </div>
-            <video class="modal-video" id="modal-video" controls loop muted style="display: none;">
-                Your browser does not support the video tag.
-            </video>
+            <div class="modal-video-container" id="modal-video-container" style="display: none;">
+                <iframe class="modal-youtube" id="modal-youtube" 
+                    width="100%" height="315" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="display: none;">
+                </iframe>
+                <video class="modal-video" id="modal-video" controls loop muted style="display: none;">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="modal-body">
                 <div class="modal-readme" id="modal-readme"></div>
+            </div>
+            <div class="modal-download-bar" id="modal-download-bar" style="display: none;">
+                <a class="modal-download-button" id="modal-download-button" href="#" download>
+                    Download Project
+                </a>
             </div>
         </div>
     `;
@@ -208,30 +218,55 @@ function createModal() {
     });
 }
 
-function openProjectModal(projectData) {
+async function openProjectModal(projectData) {
     createModal();
     
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
+    const modalVideoContainer = document.getElementById('modal-video-container');
+    const modalYoutube = document.getElementById('modal-youtube');
     const modalVideo = document.getElementById('modal-video');
     const modalReadme = document.getElementById('modal-readme');
+    const modalDownloadBar = document.getElementById('modal-download-bar');
+    const modalDownloadButton = document.getElementById('modal-download-button');
 
     // Set title
     modalTitle.textContent = projectData.title || 'Unnamed Project';
 
-    // Set up video
-    const videoPath = `/videos/${projectData.title}.mp4`;
-    modalVideo.src = videoPath;
-    modalVideo.style.display = 'block';
+    // Load YouTube video if available
+    const youtubeVideoId = await loadYouTubeVideo(projectData.title);
     
-    // Handle video load error
-    modalVideo.onerror = function() {
-        console.warn(`Video not found: ${videoPath}`);
+    if (youtubeVideoId) {
+        // Show YouTube video with autoplay and loop
+        const embedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&loop=1&playlist=${youtubeVideoId}&mute=1&controls=1&modestbranding=1&rel=0`;
+        modalYoutube.src = embedUrl;
+        modalYoutube.style.display = 'block';
+        modalVideoContainer.style.display = 'block';
         modalVideo.style.display = 'none';
-    };
+    } else {
+        // Fall back to local video if no YouTube video
+        const videoPath = `/videos/${projectData.title}.mp4`;
+        modalVideo.src = videoPath;
+        modalVideo.style.display = 'block';
+        modalVideoContainer.style.display = 'block';
+        modalYoutube.style.display = 'none';
+        
+        // Handle video load error
+        modalVideo.onerror = function() {
+            console.warn(`Video not found: ${videoPath}`);
+            modalVideoContainer.style.display = 'none';
+        };
+    }
 
     // Load README content
-    loadProjectReadme(projectData.title, modalReadme);
+    const safeName = projectData.safe_name || projectData.title.replace(/\s+/g, '_').replace(/[^A-Za-z0-9_]/g, '_');
+    console.log('Project title:', projectData.title);
+    console.log('Project safe_name:', projectData.safe_name);
+    console.log('Using safeName:', safeName);
+    loadProjectReadme(safeName, modalReadme);
+
+    // Check for downloadable file and set up download button
+    setupDownload(projectData, modalDownloadBar, modalDownloadButton);
 
     // Show modal
     modal.classList.add('active');
@@ -241,6 +276,7 @@ function openProjectModal(projectData) {
 function closeProjectModal() {
     const modal = document.getElementById('project-modal');
     const modalVideo = document.getElementById('modal-video');
+    const modalYoutube = document.getElementById('modal-youtube');
     
     if (modal) {
         modal.classList.remove('active');
@@ -250,14 +286,65 @@ function closeProjectModal() {
         if (modalVideo) {
             modalVideo.pause();
         }
+        
+        // Stop YouTube video by clearing src
+        if (modalYoutube) {
+            modalYoutube.src = '';
+        }
     }
 }
 
-async function loadProjectReadme(projectTitle, readmeContainer) {
+// Load YouTube video URL for a project
+async function loadYouTubeVideo(projectTitle) {
+    try {
+        const response = await fetch('content/youtube_links.json');
+        if (!response.ok) {
+            console.warn('YouTube links file not found');
+            return null;
+        }
+        
+        const data = await response.json();
+        
+        // Look for project directly in the JSON (skip _instructions)
+        const youtubeUrl = data[projectTitle];
+        
+        if (!youtubeUrl || youtubeUrl.startsWith('_')) {
+            return null;
+        }
+        
+        // Extract video ID from various YouTube URL formats
+        const videoId = extractYouTubeVideoId(youtubeUrl);
+        return videoId;
+        
+    } catch (error) {
+        console.warn('Failed to load YouTube links:', error);
+        return null;
+    }
+}
+
+// Extract YouTube video ID from URL
+function extractYouTubeVideoId(url) {
+    const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
+        /youtube\.com\/watch.*[?&]v=([^&\n?#]+)/
+    ];
+    
+    for (const pattern of patterns) {
+        const match = url.match(pattern);
+        if (match && match[1]) {
+            return match[1];
+        }
+    }
+    
+    console.warn('Could not extract YouTube video ID from URL:', url);
+    return null;
+}
+
+async function loadProjectReadme(safeName, readmeContainer) {
     readmeContainer.innerHTML = '<div class="modal-loading">Loading README...</div>';
     
     try {
-        const readmePath = `/projects/content/readmes/${projectTitle}.md`;
+        const readmePath = `/projects/content/readmes/${safeName}.md`;
         const response = await fetch(readmePath);
         
         if (!response.ok) {
@@ -269,8 +356,53 @@ async function loadProjectReadme(projectTitle, readmeContainer) {
         readmeContainer.innerHTML = htmlContent;
         
     } catch (error) {
-        console.warn(`Failed to load README for ${projectTitle}:`, error);
+        console.warn(`Failed to load README for ${safeName}:`, error);
         readmeContainer.innerHTML = '<div class="modal-error">README not available for this project.</div>';
+    }
+}
+
+function setupDownload(projectData, downloadBar, downloadButton) {
+    // Check if download data exists in project metadata
+    if (projectData.download && projectData.download.available && projectData.download.file) {
+        // Use metadata to set up download
+        const downloadPath = `/projects/content/downloads/${projectData.download.file}`;
+        const fileSize = projectData.download.size || '';
+        
+        downloadButton.href = downloadPath;
+        downloadButton.download = projectData.download.file;
+        
+        // Update button text to include file size if available
+        downloadButton.textContent = fileSize ? 
+            `Download Project (${fileSize})` : 
+            'Download Project';
+        
+        downloadBar.style.display = 'flex';
+        
+        console.log(`Download set up for ${projectData.title}: ${downloadPath}`);
+    } else {
+        // Fallback: check if file exists by project title (legacy behavior)
+        checkAndSetupDownloadFallback(projectData.title, downloadBar, downloadButton);
+    }
+}
+
+async function checkAndSetupDownloadFallback(projectTitle, downloadBar, downloadButton) {
+    try {
+        const downloadPath = `/projects/content/downloads/${projectTitle}.zip`;
+        const response = await fetch(downloadPath, { method: 'HEAD' });
+        
+        if (response.ok) {
+            // File exists, show download bar and set up button
+            downloadButton.href = downloadPath;
+            downloadButton.download = `${projectTitle}.zip`;
+            downloadButton.textContent = 'Download Project';
+            downloadBar.style.display = 'flex';
+        } else {
+            // File doesn't exist, hide download bar
+            downloadBar.style.display = 'none';
+        }
+    } catch (error) {
+        console.warn(`Could not check for download file for ${projectTitle}:`, error);
+        downloadBar.style.display = 'none';
     }
 }
 
@@ -278,12 +410,12 @@ async function loadProjectReadme(projectTitle, readmeContainer) {
 function parseMarkdown(markdown) {
     let html = markdown;
     
-    // Headers
+    // Headers (process first)
     html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
     html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
     html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
     
-    // Bold
+    // Bold (process before other formatting)
     html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
     html = html.replace(/__(.*?)__/gim, '<strong>$1</strong>');
     
@@ -303,30 +435,33 @@ function parseMarkdown(markdown) {
     // Images
     html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, '<img src="$2" alt="$1">');
     
-    // Lists - handle bullet points
+    // Handle lists - both bullet points and dashes
     const lines = html.split('\n');
     let inList = false;
     let processedLines = [];
     
     for (let i = 0; i < lines.length; i++) {
-        let line = lines[i];
-        const isListItem = /^[\s]*[\*\-\+] (.*)/.test(line);
+        let line = lines[i].trim();
+        const isListItem = /^[\*\-\+] (.*)/.test(line);
         
         if (isListItem) {
             if (!inList) {
                 processedLines.push('<ul>');
                 inList = true;
             }
-            line = line.replace(/^[\s]*[\*\-\+] (.*)/, '<li>$1</li>');
-        } else if (inList && line.trim() === '') {
+            line = line.replace(/^[\*\-\+] (.*)/, '<li>$1</li>');
+        } else if (inList && line === '') {
             // Empty line in list, continue list
-        } else if (inList) {
+            continue;
+        } else if (inList && line !== '') {
             // End of list
             processedLines.push('</ul>');
             inList = false;
         }
         
-        processedLines.push(line);
+        if (line !== '' || !inList) {
+            processedLines.push(line);
+        }
     }
     
     // Close list if it was still open
@@ -336,21 +471,35 @@ function parseMarkdown(markdown) {
     
     html = processedLines.join('\n');
     
-    // Line breaks and paragraphs
-    html = html.replace(/\n\n+/gim, '</p><p>');
-    html = html.replace(/\n/gim, '<br>');
+    // Handle paragraphs - split by double newlines but preserve structure
+    const sections = html.split('\n\n');
+    const processedSections = [];
     
-    // Wrap in paragraphs
-    html = '<p>' + html + '</p>';
+    for (let section of sections) {
+        section = section.trim();
+        if (section === '') continue;
+        
+        // Don't wrap headers, lists, code blocks, or horizontal rules in paragraphs
+        if (section.startsWith('<h') || section.startsWith('<ul') || 
+            section.startsWith('<pre') || section.startsWith('---') ||
+            section.includes('<ul>') || section.includes('<h')) {
+            processedSections.push(section);
+        } else if (section.includes('<br>')) {
+            // Already has line breaks, don't add paragraph
+            processedSections.push(section);
+        } else {
+            // Regular text paragraph
+            processedSections.push(`<p>${section}</p>`);
+        }
+    }
     
-    // Clean up around block elements
-    html = html.replace(/<p><\/p>/gim, '');
-    html = html.replace(/<p>(<h[1-6]>)/gim, '$1');
-    html = html.replace(/(<\/h[1-6]>)<\/p>/gim, '$1');
-    html = html.replace(/<p>(<pre>)/gim, '$1');
-    html = html.replace(/(<\/pre>)<\/p>/gim, '$1');
-    html = html.replace(/<p>(<ul>)/gim, '$1');
-    html = html.replace(/(<\/ul>)<\/p>/gim, '$1');
+    html = processedSections.join('\n\n');
+    
+    // Clean up extra line breaks within elements
+    html = html.replace(/\n+/g, '\n');
+    
+    // Handle horizontal rules
+    html = html.replace(/^---$/gm, '<hr>');
     
     return html;
 }

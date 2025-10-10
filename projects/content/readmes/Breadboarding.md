@@ -1,3 +1,1 @@
-# Breadboarding
-
-Project description coming soon.
+Various experiments with breadboards and electronics. This is ongoing as I often prototype circuits on a breadboard in other projects before building the final version.

@@ -1,0 +1,1 @@
+Simulating and starting a three-phase induction motor using MATLAB Simulink. The motor is started using a star-delta starter, and the simulation shows the motor's speed and current during startup.

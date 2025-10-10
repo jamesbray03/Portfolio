@@ -1,0 +1,1 @@
+Designing and building the fully functioning DAQ and control system for the UoS rocket test stand with [Project Sunride](https://sunride.space/).

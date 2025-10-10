@@ -1,0 +1,1 @@
+Getting to grips with SQL and databases during my computer science A-Levels by designing a database app.

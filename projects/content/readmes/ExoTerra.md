@@ -1,3 +1,1 @@
-# ExoTerra
-
-Project description coming soon.
+In this self-assigned Unity and C# project, I explored procedural terrain generation, crafting landscapes through algorithmic design. Using Unity, I developed and optimised a terrain generator that uses Perlin noise and the marching cubes algorithm, alongside a tool to edit the terrain.

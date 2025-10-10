@@ -1,3 +1,1 @@
-# AutoTab
-
-Project description coming soon.
+Tool which listens to you play the guitar and creates a tab for you automatically.

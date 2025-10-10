@@ -1,3 +1,1 @@
-# UKSEDS
-
-Project description coming soon.
+UKSEDS is a model rocketry competition, where student teams collaborate to design and build model rockets. I contributed to the design team, where my responsibilities were to model and print the nosecone. Notably, our rocket's design utilised whistles to generate sound, which was used to assess the rocket's Doppler effect. This allowed us to establish a comparative analysis between the accelerometer data and the acceleration determined through Doppler effect measurements. I designed the whistles by iterative trial and improvement based on the aerodynamic properties and the volume of sound produced during wind tunnel tests.

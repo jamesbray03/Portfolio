@@ -1,0 +1,1 @@
+Complex statistic management system for simulating a human brain. This project was created using Unity and C#, and was aimed at exploring how to build advanced statistic systems for games and simulations which can be adapted and expanded for various uses.

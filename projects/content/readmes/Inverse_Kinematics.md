@@ -1,0 +1,1 @@
+Implementation of inverse kinematics algorithms for 2D robotic arms. GUI was built for visualisation and user interaction.

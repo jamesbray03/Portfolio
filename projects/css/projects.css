@@ -123,6 +123,24 @@
     border-radius: 0 0 8px 8px;
 }
 
+.modal-video-container {
+    width: 100%;
+    background: var(--base-1);
+}
+
+.modal-youtube {
+    width: 100%;
+    height: 315px;
+    border-radius: 0 0 8px 8px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .modal-youtube {
+        height: 200px;
+    }
+}
+
 .modal-body {
     padding: 20px;
 }
@@ -139,38 +157,49 @@
 .modal-readme h5,
 .modal-readme h6 {
     color: var(--base-1);
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
 }
 
 .modal-readme h1 {
     font-size: 1.8em;
     border-bottom: 2px solid var(--accent-3);
     padding-bottom: 0.3em;
+    margin-top: 0;
 }
 
 .modal-readme h2 {
     font-size: 1.5em;
     border-bottom: 1px solid var(--base-4);
     padding-bottom: 0.2em;
+    margin-top: 1em;
 }
 
 .modal-readme h3 {
     font-size: 1.3em;
+    margin-top: 0.8em;
 }
 
 .modal-readme p {
-    margin-bottom: 1em;
+    margin-bottom: 0.8em;
+    margin-top: 0;
 }
 
 .modal-readme ul,
 .modal-readme ol {
-    margin-bottom: 1em;
-    padding-left: 2em;
+    margin-bottom: 0.8em;
+    margin-top: 0.4em;
+    padding-left: 1.5em;
 }
 
 .modal-readme li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+.modal-readme hr {
+    border: none;
+    border-top: 1px solid var(--base-4);
+    margin: 1.5em 0;
 }
 
 .modal-readme code {
@@ -247,6 +276,49 @@
     color: var(--accent-3);
 }
 
+.modal-download-bar {
+    position: sticky;
+    bottom: 0;
+    background: var(--base-5);
+    border-top: 1px solid var(--base-4);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-download-button {
+    background: var(--accent-3);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-download-button:hover {
+    background: var(--accent-2);
+    transform: translateY(-1px);
+}
+
+.modal-download-button:active {
+    transform: translateY(0);
+}
+
+.modal-download-button::before {
+    content: "⬇";
+    font-size: 16px;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .project-modal {
@@ -269,5 +341,14 @@
     .modal-title {
         font-size: 20px;
         margin-right: 40px; /* Space for close button */
+    }
+
+    .modal-download-bar {
+        padding: 12px 15px;
+    }
+
+    .modal-download-button {
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }

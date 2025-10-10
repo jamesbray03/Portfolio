@@ -1,0 +1,1 @@
+A classic text adventure game using Python I built in secondary school. It features a branching narrative, player choices, and simple inventory management.

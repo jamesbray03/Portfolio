@@ -1,0 +1,1 @@
+Fancy presentation for the Grumman X29 to practice presentation skills. This was made for a university assignment.

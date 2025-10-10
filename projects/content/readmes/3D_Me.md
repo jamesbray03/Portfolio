@@ -1,0 +1,1 @@
+A bobblehead model of me using an industrial 3D scanner developed during industrial placement at the Advanced Manufacturing Research Centre (AMRC), applying cutting-edge manufacturing technologies. The project involved 3D scanning, mesh processing, and 3D printing, showcasing the capabilities of modern manufacturing techniques.

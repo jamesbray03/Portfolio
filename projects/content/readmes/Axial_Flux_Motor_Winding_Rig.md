@@ -1,0 +1,1 @@
+Designing a rig which guides coils into desired geometry for winding axial flux motors.
