@@ -27,10 +27,10 @@
     <meta property="og:url" content="https://www.jamesbray.uk/CV/" />
     <meta property="og:type" content="website" />
 
-    <link rel="icon" href="/content/images/icon.ico" type="image/x-icon">
-    <link rel="preload" href="content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="icon" href="../content/images/icon.ico" type="image/x-icon">
+    <link rel="preload" href="../content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../CV/css/cv.css">
+    <link rel="stylesheet" href="css/cv.css">
 </head>
 <body>
     <!-- prevent FOUC -->
@@ -41,10 +41,10 @@
     </script> 
     <header>
         <nav class="nav-left">
-            <a href="/" class="nav-link">Home</a>
-            <a href="/CV/index.html" class="nav-link">CV</a>
-            <a href="/projects/index.html" class="nav-link">Projects</a>
-            <a href="/contact/index.html" class="nav-link">Contact</a>
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="index.html" class="nav-link">CV</a>
+            <a href="../projects/index.html" class="nav-link">Projects</a>
+            <a href="../contact/index.html" class="nav-link">Contact</a>
         </nav>
         <button id="mode-toggle" class="mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
     </header>
@@ -70,6 +70,21 @@
 
         <h2>Professional Experience</h2>
         <section>
+            <div class="info-card">
+                <img src="/content/images/sunride.webp" alt="Sunride" class="info-image">
+                <div class="info-content">
+                    <h3>Assistant Project Engineer - <a href="https://www.sunride.space/" target="_blank" rel="noopener noreferrer">Sunride</a></h3>
+                    <p><em>Sept 2024 – May 2026</em></p>
+                    <ul>
+                        <li>Designed avionic systems for the university's first liquid rocket engine test stand</li>
+                        <li>Utilised LabJack DAQ systems to interface sensors and actuators for precise control</li>
+                        <li>Built a SIMULINK fluid model with PID control to regulate fuel and oxidiser flow to engines</li>
+                        <li>Implemented fault detection and safety protocols for rocket engine test procedures</li>
+                        <li>Explored engine gimbaling systems on the test stand to control thrust direction</li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="info-card">
                 <img src="/content/images/amrc.webp" alt="AMRC" class="info-image">
                 <div class="info-content">

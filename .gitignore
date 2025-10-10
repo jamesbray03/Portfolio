@@ -25,5 +25,4 @@
 .idea/
 __pycache__/
 
-# Note: Videos are now tracked with Git LFS (see .gitattributes)
-# Remove the videos/ ignore line so they can be tracked with LFS
+videos/
