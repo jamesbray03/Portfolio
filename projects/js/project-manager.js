@@ -362,37 +362,36 @@ async function loadProjectReadme(safeName, readmeContainer) {
 }
 
 function setupDownload(projectData, downloadBar, downloadButton) {
-    // Use safe_name to construct download path (files are named and stored correctly)
-    const downloadFileName = `${projectData.safe_name}.zip`;
-    
-    // Use GitHub raw content URL to properly serve LFS files
-    // GitHub Pages serves LFS pointer files, but raw.githubusercontent.com serves the actual files
-    const githubUser = 'jamesbray03';
-    const githubRepo = 'Portfolio';
-    const branch = 'main';
-    const downloadPath = `https://github.com/${githubUser}/${githubRepo}/raw/${branch}/projects/content/downloads/${downloadFileName}`;
-    
-    // Check if file exists
-    checkAndSetupDownload(downloadPath, downloadFileName, downloadBar, downloadButton);
+    // Downloads are temporarily disabled.
+    // Keep the DOM elements intact but hide/disable them so the UI remains stable.
+    try {
+        if (downloadBar) downloadBar.style.display = 'none';
+        if (downloadButton) {
+            downloadButton.removeAttribute('href');
+            downloadButton.removeAttribute('download');
+            downloadButton.textContent = 'Downloads disabled';
+            downloadButton.style.pointerEvents = 'none';
+            downloadButton.style.opacity = '0.6';
+        }
+    } catch (e) {
+        console.warn('Error disabling download UI:', e);
+    }
 }
 
-async function checkAndSetupDownload(downloadPath, downloadFileName, downloadBar, downloadButton) {
+async function checkAndSetupDownload(localPath, downloadFileName, downloadBar, downloadButton) {
+    // Downloads temporarily disabled - do not perform network checks.
+    // This is intentionally a no-op so the site won't attempt to fetch/serve zip files.
     try {
-        const response = await fetch(downloadPath, { method: 'HEAD' });
-        
-        if (response.ok) {
-            // File exists, show download bar and set up button
-            downloadButton.href = downloadPath;
-            downloadButton.download = downloadFileName;
-            downloadButton.textContent = 'Download Project';
-            downloadBar.style.display = 'flex';
-        } else {
-            // File doesn't exist, hide download bar
-            downloadBar.style.display = 'none';
+        if (downloadBar) downloadBar.style.display = 'none';
+        if (downloadButton) {
+            downloadButton.removeAttribute('href');
+            downloadButton.removeAttribute('download');
+            downloadButton.textContent = 'Downloads disabled';
+            downloadButton.style.pointerEvents = 'none';
+            downloadButton.style.opacity = '0.6';
         }
-    } catch (error) {
-        console.warn(`Could not check for download file ${downloadFileName}:`, error);
-        downloadBar.style.display = 'none';
+    } catch (e) {
+        console.warn('Error disabling download UI in no-op:', e);
     }
 }
 
