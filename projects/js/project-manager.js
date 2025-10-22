@@ -362,38 +362,28 @@ async function loadProjectReadme(safeName, readmeContainer) {
 }
 
 function setupDownload(projectData, downloadBar, downloadButton) {
-    // Check if download data exists in project metadata
-    if (projectData.download && projectData.download.available && projectData.download.file) {
-        // Use metadata to set up download
-        const downloadPath = `/projects/content/downloads/${projectData.download.file}`;
-        const fileSize = projectData.download.size || '';
-        
-        downloadButton.href = downloadPath;
-        downloadButton.download = projectData.download.file;
-        
-        // Update button text to include file size if available
-        downloadButton.textContent = fileSize ? 
-            `Download Project (${fileSize})` : 
-            'Download Project';
-        
-        downloadBar.style.display = 'flex';
-        
-        console.log(`Download set up for ${projectData.title}: ${downloadPath}`);
-    } else {
-        // Fallback: check if file exists by project title (legacy behavior)
-        checkAndSetupDownloadFallback(projectData.title, downloadBar, downloadButton);
-    }
+    // Use safe_name to construct download path (files are named and stored correctly)
+    const downloadFileName = `${projectData.safe_name}.zip`;
+    
+    // Use GitHub raw content URL to properly serve LFS files
+    // GitHub Pages serves LFS pointer files, but raw.githubusercontent.com serves the actual files
+    const githubUser = 'jamesbray03';
+    const githubRepo = 'Portfolio';
+    const branch = 'main';
+    const downloadPath = `https://github.com/${githubUser}/${githubRepo}/raw/${branch}/projects/content/downloads/${downloadFileName}`;
+    
+    // Check if file exists
+    checkAndSetupDownload(downloadPath, downloadFileName, downloadBar, downloadButton);
 }
 
-async function checkAndSetupDownloadFallback(projectTitle, downloadBar, downloadButton) {
+async function checkAndSetupDownload(downloadPath, downloadFileName, downloadBar, downloadButton) {
     try {
-        const downloadPath = `/projects/content/downloads/${projectTitle}.zip`;
         const response = await fetch(downloadPath, { method: 'HEAD' });
         
         if (response.ok) {
             // File exists, show download bar and set up button
             downloadButton.href = downloadPath;
-            downloadButton.download = `${projectTitle}.zip`;
+            downloadButton.download = downloadFileName;
             downloadButton.textContent = 'Download Project';
             downloadBar.style.display = 'flex';
         } else {
@@ -401,7 +391,7 @@ async function checkAndSetupDownloadFallback(projectTitle, downloadBar, download
             downloadBar.style.display = 'none';
         }
     } catch (error) {
-        console.warn(`Could not check for download file for ${projectTitle}:`, error);
+        console.warn(`Could not check for download file ${downloadFileName}:`, error);
         downloadBar.style.display = 'none';
     }
 }
