@@ -1,1 +1,1 @@
-Demonstration of matrix multiplication and solving linear equations using C
+Demonstration of matrix multiplication and solving linear equations using C, this was my coursework for ACS130
