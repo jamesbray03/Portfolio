@@ -1,1 +1,3 @@
 Leaving presentation for my placement at the [AMRC in Sheffield, UK](https://www.amrc.co.uk/). The presentation covers the work I did during my placement, including 3D scanning, mesh processing, and 3D printing a bobblehead model of myself using industrial equipment. It also highlights the skills and knowledge I gained in advanced manufacturing technologies.
+
+It was a great placement, I got to meet lots of industry professionals and learn about cutting-edge manufacturing processes. I was part of the electrification team, and building a testing container for high voltage partial discharger testing was my main project. This taught me how to manage projects in a professional environment and adhere to safety standards.

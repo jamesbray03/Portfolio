@@ -1,1 +1,3 @@
-Complex statistic management system for simulating a human brain. This project was created using Unity and C#, and was aimed at exploring how to build advanced statistic systems for games and simulations which can be adapted and expanded for various uses.
+I built a complex statistic management system which was designed for any game or simulation, including a balancing system which uses excel macros to give an overview of statistic progression, and I decided on a practice use case of simulating a human brain. 
+
+I also hadn't built a nice UI in a while, so I took the opportunity to create a clean and user-friendly interface for interacting with the brain simulation.

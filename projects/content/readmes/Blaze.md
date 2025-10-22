@@ -1,1 +1,3 @@
-Proof of concept for a small platform game developed in Unity. The game features basic mechanics such as player movement, jumping, and simple enemy interactions. The main feature of this project is the art style, as I created all the art assets to give the game a unique and cohesive visual style.
+This was a proof of concept for a small platform game developed in Unity. The game features basic mechanics such as player movement, jumping, and simple enemy interactions. The main feature of this project is the art style, as I created all the art assets to give the game a unique and cohesive visual style.
+
+The animating and character rigging was a real challenge, but I wanted to develop the animations from scratch so I could learn how it worked.

@@ -1,3 +1,3 @@
-This program is designed to analyse beams by calculating their displacements under specified boundary conditions and loads. It uses FEA in combination with [LML](https://github.com/jamesbray03/Lightweight-Matrix-Library) to calculate results.
+This C program is designed to analyse beams by calculating their displacements under specified boundary conditions and loads. It uses FEA in combination with [LML](https://github.com/jamesbray03/Lightweight-Matrix-Library) (my own custom matrix library) to calculate results.
 
-This solution is for a 2D horizontal beam, where only normal and bending loads and displacements are considered.
+This solution is for a 2D horizontal beam, where only normal and bending loads and displacements are considered. The code splits the beams into multiple elements and uses linear algebra to solve for displacements at each node.

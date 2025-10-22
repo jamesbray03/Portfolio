@@ -1,1 +1,1 @@
-Designing a rig which guides coils into desired geometry for winding axial flux motors.
+Designing a 3D printed rig which guides coils into desired geometry for winding axial flux motors. This geometry was difficult to visualise due to the novel winding technique the part was built for.

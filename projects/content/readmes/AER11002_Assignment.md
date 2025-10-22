@@ -1,1 +1,1 @@
-Evaluate the performance of the ATR42 aircraft with MATLAB
+For this assignment I evaluated the performance of the ATR42 aircraft with parametric MATLAB scripts. This was my introduction to the MATLAB environment and its capabilities for aerospace analysis.

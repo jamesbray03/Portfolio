@@ -1,3 +1,3 @@
 As a small team of students, we were tasked with using limited materials to design and build a powered glider. This glider would be attached to a pole from the wing tip, this allowed for a circular flight path and for us to monitor its performance. I was responsible for the 3D modelling of this glider, as well as assisting in the manufacturing process.
 
-The video shows the gliders controlled flight.
+The video shows the gliders controlled flight, and the glider was good enough to make it to the display case in the aerospace engineering offices of my university.
