@@ -45,8 +45,8 @@ async function loadProjects() {
             }
         });
 
-        // Sort public projects by 'size' (difficulty) descending
-        allPublicProjects.sort((a, b) => (Number(b.size) || 0) - (Number(a.size) || 0));
+        // Sort public projects by 'order' ascending (lower order = higher priority)
+        allPublicProjects.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
 
         setText(publicCounter, publicCount);
         setText(privateCounter, privateCount);

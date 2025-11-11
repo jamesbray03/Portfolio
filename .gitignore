@@ -25,4 +25,9 @@
 .idea/
 __pycache__/
 
+# Local development tools - do not deploy to GitHub Pages
+projects/project_order_manager.py
+projects/update_project_structure.py
+projects/remove_download_fields.py
+
 videos/

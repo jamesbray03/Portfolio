@@ -5,500 +5,445 @@
   },
   "projects": [
     {
-      "title": "2D Beam Solver",
-      "description": "A small 2D beam solver that uses FEA to solve for deflection and stress",
-      "difficulty": 4,
-      "size": 3,
-      "public": true,
-      "safe_name": "2D_Beam_Solver"
-    },
-    {
-      "title": "3D Me",
-      "description": "A bobblehead model of me using an industrial 3D scanner",
-      "difficulty": 2,
-      "size": 3,
-      "public": true,
-      "safe_name": "3D_Me"
-    },
-    {
-      "title": "ACS130 Assignment",
-      "description": "Demonstration of matrix multiplication and solving linear equations using C",
-      "difficulty": 2,
-      "size": 1,
-      "public": true,
-      "safe_name": "ACS130_Assignment"
-    },
-    {
-      "title": "ACS137 Assignment",
-      "description": "Build, simulate and optimise a state-space control system in simulink",
-      "difficulty": 4,
-      "size": 5,
-      "public": true,
-      "safe_name": "ACS137_Assignment"
-    },
-    {
-      "title": "ACS341 Assignment",
-      "description": "Predicting household energy consumption with machine learning",
-      "difficulty": 7,
-      "size": 6,
-      "public": true,
-      "safe_name": "ACS341_Assignment"
-    },
-    {
-      "title": "AER11002 Assignment",
-      "description": "Evaluate the performance of the ATR42 aircraft with MATLAB",
-      "difficulty": 2,
-      "size": 2,
-      "public": true,
-      "safe_name": "AER11002_Assignment"
-    },
-    {
-      "title": "AMRC Presentation",
-      "description": "Leaving presentation for my placement at the AMRC",
-      "difficulty": 6,
-      "size": 8,
-      "public": true,
-      "safe_name": "AMRC_Presentation"
-    },
-    {
-      "title": "ANC Headphones",
-      "description": "",
-      "difficulty": 5,
-      "size": 5,
-      "public": false,
-      "safe_name": "ANC_Headphones"
-    },
-    {
-      "title": "AQA Text Adventures",
-      "description": "A classic text adventure game using Python",
-      "difficulty": 2,
-      "size": 3,
-      "public": true,
-      "safe_name": "AQA_Text_Adventures"
-    },
-    {
-      "title": "Artificial Life",
-      "description": "Advanced cellular automata simulation",
-      "difficulty": 8,
-      "size": 7,
-      "public": true,
-      "safe_name": "Artificial_Life"
-    },
-    {
-      "title": "Artwork",
-      "description": "My various attempts at art over the years",
-      "difficulty": 1,
-      "size": 1,
-      "public": false,
-      "safe_name": "Artwork"
-    },
-    {
-      "title": "ATP Glider",
-      "description": "Design and manufacture of a small 'around the pole' glider",
-      "difficulty": 4,
-      "size": 5,
-      "public": true,
-      "safe_name": "ATP_Glider"
-    },
-    {
-      "title": "AutoTab",
-      "description": "Tool which listens to you play music and creates a tab for you",
-      "difficulty": 4,
-      "size": 2,
-      "public": true,
-      "safe_name": "AutoTab"
-    },
-    {
-      "title": "Axial Flux Motor Winding Rig",
-      "description": "Designing a rig which guides coils into desired geometry",
-      "difficulty": 4,
-      "size": 3,
-      "public": true,
-      "safe_name": "Axial_Flux_Motor_Winding_Rig"
-    },
-    {
-      "title": "Blaze",
-      "description": "Proof of concept for a small platform game",
-      "difficulty": 5,
-      "size": 4,
-      "public": true,
-      "safe_name": "Blaze"
-    },
-    {
-      "title": "Brain Simulator",
-      "description": "Complex statistic management system for simulating a human",
-      "difficulty": 8,
-      "size": 6,
-      "public": true,
-      "safe_name": "Brain_Simulator"
-    },
-    {
-      "title": "Breadboarding",
-      "description": "Various experiments with breadboards and electronics",
-      "difficulty": 3,
-      "size": 2,
-      "public": true,
-      "safe_name": "Breadboarding"
-    },
-    {
-      "title": "Chemical Chaos",
-      "description": "Submission to Brackey's Game Jam 2021.2, hitting top 50 out of 1702 entries",
-      "difficulty": 6,
-      "size": 8,
-      "public": true,
-      "safe_name": "Chemical_Chaos"
-    },
-    {
-      "title": "Control System Analyser",
-      "description": "Small program to produce plots and metrics for control systems",
-      "difficulty": 3,
-      "size": 3,
-      "public": true,
-      "safe_name": "Control_System_Analyser"
-    },
-    {
-      "title": "Desktop PR Set",
-      "description": "Tiny barbell set for keeping track of powerlifting PRs",
-      "difficulty": 3,
-      "size": 3,
-      "public": true,
-      "safe_name": "Desktop_PR_Set"
-    },
-    {
-      "title": "Doughnut Tutorial",
-      "description": "The classic blender doughnut tutorial",
-      "difficulty": 8,
-      "size": 4,
-      "public": true,
-      "safe_name": "Doughnut_Tutorial"
-    },
-    {
-      "title": "EEE223 Assignment",
-      "description": "Simulating and starting a three-phase induction motor",
-      "difficulty": 6,
-      "size": 3,
-      "public": true,
-      "safe_name": "EEE223_Assignment"
-    },
-    {
-      "title": "Espresso Set",
-      "description": "Coffee machine accessories for a DeLonghi coffee machine",
-      "difficulty": 4,
-      "size": 6,
-      "public": true,
-      "safe_name": "Espresso_Set"
-    },
-    {
-      "title": "ExoTerra",
-      "description": "Terrain generation, manipulation and exploration game",
-      "difficulty": 8,
-      "size": 9,
-      "public": true,
-      "safe_name": "ExoTerra"
-    },
-    {
-      "title": "EYH Moving Seabins",
-      "description": "'Engineering you're hired' week consisting of a sustainablility project",
-      "difficulty": 5,
-      "size": 5,
-      "public": true,
-      "safe_name": "EYH_Moving_Seabins"
-    },
-    {
-      "title": "Flight Simulator",
-      "description": "A flying game to get to grips with unity",
-      "difficulty": 4,
-      "size": 3,
-      "public": true,
-      "safe_name": "Flight_Simulator"
-    },
-    {
-      "title": "Graphics Engine",
-      "description": "Custom graphics engine built from scratch",
-      "difficulty": 9,
-      "size": 8,
-      "public": true,
-      "safe_name": "Graphics_Engine"
-    },
-    {
-      "title": "Grumman X29 Presentation",
-      "description": "Fancy presentation for the Grumman X29 to practice presentation skills",
-      "difficulty": 2,
-      "size": 3,
-      "public": true,
-      "safe_name": "Grumman_X29_Presentation"
-    },
-    {
-      "title": "Guitar Looper",
-      "description": "Simple looping software for making short songs",
-      "difficulty": 4,
-      "size": 2,
-      "public": false,
-      "safe_name": "Guitar_Looper"
-    },
-    {
-      "title": "Gyro Balancing",
-      "description": "Test app using a phones gyroscope in unity",
-      "difficulty": 2,
-      "size": 3,
-      "public": true,
-      "safe_name": "Gyro_Balancing"
-    },
-    {
-      "title": "Inverse Kinematics",
-      "description": "Implementation of inverse kinematics algorithms for robotic arms",
-      "difficulty": 5,
-      "size": 2,
-      "public": true,
-      "safe_name": "Inverse_Kinematics"
-    },
-    {
-      "title": "Iontotherapy Machine",
-      "description": "Various experiments with breadboards and electronics",
-      "difficulty": 6,
-      "size": 5,
-      "public": false,
-      "safe_name": "Iontotherapy_Machine"
-    },
-    {
-      "title": "IR Camera",
-      "description": "DIY wii remote using IR camera and 4 positioning LEDs",
-      "difficulty": 8,
-      "size": 5,
-      "public": true,
-      "safe_name": "IR_Camera"
-    },
-    {
-      "title": "Strava API",
-      "description": "",
-      "difficulty": 5,
-      "size": 4,
-      "public": false,
-      "safe_name": "LabVIEW_experiments"
-    },
-    {
-      "title": "Lasercut Models",
-      "description": "Star Wars models designed without any 3D CAD software",
-      "difficulty": 7,
-      "size": 4,
-      "public": true,
-      "safe_name": "Lasercut_Models"
-    },
-    {
-      "title": "Lightweight Matrix Library",
-      "description": "Matrix operation library for C, used in my graphics engine",
-      "difficulty": 6,
-      "size": 6,
-      "public": true,
-      "safe_name": "Lightweight_Matrix_Library"
-    },
-    {
-      "title": "Loose Ends",
-      "description": "Short detective puzzle game built over a few days",
-      "difficulty": 6,
-      "size": 7,
-      "public": true,
-      "safe_name": "Loose_Ends"
-    },
-    {
-      "title": "Mark II Floor Plan",
-      "description": "",
-      "difficulty": 2,
-      "size": 2,
-      "public": false,
-      "safe_name": "Mark_II_Floor_Plan"
-    },
-    {
-      "title": "Maze Horror",
-      "description": "Procedural mansion maze horror with jumpscares and puzzles",
-      "difficulty": 7,
-      "size": 6,
-      "public": true,
-      "safe_name": "Maze_Horror"
-    },
-    {
-      "title": "Mimic",
-      "description": "Attempt at an eerie rhythm game played against a lurking creature",
-      "difficulty": 2,
-      "size": 2,
-      "public": true,
-      "safe_name": "Mimic"
-    },
-    {
-      "title": "Multipack Image Generator",
-      "description": "Python tool to generate images for multipack products",
-      "difficulty": 4,
-      "size": 2,
-      "public": true,
-      "safe_name": "Multipack_Image_Generator"
-    },
-    {
-      "title": "Partial Discharge Test Rig",
-      "description": "Testing enclosure for partial discharge of high voltage motor coils",
-      "difficulty": 4,
-      "size": 9,
-      "public": true,
-      "safe_name": "Partial_Discharge_Test_Rig"
-    },
-    {
-      "title": "Planet Simulator",
-      "description": "A simple orbit simulation of various alien planets around a sun",
-      "difficulty": 3,
-      "size": 4,
-      "public": true,
-      "safe_name": "Planet_Simulator"
-    },
-    {
-      "title": "PSO Projects",
-      "description": "Various particle swarm optimisation projects",
-      "difficulty": 6,
-      "size": 3,
-      "public": true,
-      "safe_name": "PSO_Projects"
-    },
-    {
-      "title": "Quadcopter",
-      "description": "Built a quadcopter than won lightest weight out of 31 teams",
-      "difficulty": 8,
-      "size": 10,
-      "public": true,
-      "safe_name": "Quadcopter"
-    },
-    {
-      "title": "Raindrops",
-      "description": "Procedural runner game dodging raindrops on a MicroBit",
-      "difficulty": 3,
-      "size": 2,
-      "public": true,
-      "safe_name": "Raindrops"
-    },
-    {
-      "title": "Rapid Access",
-      "description": "Customisable shortcut and hotkey app for Windows",
-      "difficulty": 7,
-      "size": 7,
-      "public": true,
-      "safe_name": "Rapid_Access"
-    },
-    {
-      "title": "Raycasting",
-      "description": "The classic raycasting algorithm with a pseudo-3D rendering engine",
-      "difficulty": 5,
-      "size": 5,
-      "public": true,
-      "safe_name": "Raycasting"
-    },
-    {
-      "title": "Resume",
-      "description": "",
-      "difficulty": 5,
-      "size": 5,
-      "public": false,
-      "safe_name": "Resume"
-    },
-    {
       "title": "Rocket Engine Control System",
       "description": "Designing and building the DAQ and control system for the UoS rocket test stand",
-      "difficulty": 7,
-      "size": 10,
       "public": true,
-      "safe_name": "Rocket_Engine_Control_System"
-    },
-    {
-      "title": "Shadowbot",
-      "description": "Building and coding a two-wheeled robot to avoid obstacles",
-      "difficulty": 4,
-      "size": 4,
-      "public": true,
-      "safe_name": "Shadowbot"
-    },
-    {
-      "title": "Slinky Stators",
-      "description": "Studying the feasibility of manufature of slinky stator geometries",
-      "difficulty": 9,
-      "size": 6,
-      "public": true,
-      "safe_name": "Slinky_Stators"
-    },
-    {
-      "title": "SQL Database",
-      "description": "Getting to grips with SQL and databases by designing a database app",
-      "difficulty": 5,
-      "size": 6,
-      "public": true,
-      "safe_name": "SQL_Database"
-    },
-    {
-      "title": "Strava API",
-      "description": "",
-      "difficulty": 5,
-      "size": 5,
-      "public": false,
-      "safe_name": "Strava_API"
-    },
-    {
-      "title": "Sunfire Throttling Simulation",
-      "description": "Building a simulation and tuning a control system for engine throttling",
-      "difficulty": 8,
-      "size": 5,
-      "public": true,
-      "safe_name": "Sunfire_Throttling_Simulation"
-    },
-    {
-      "title": "The Chase - Revision Edition",
-      "description": "A revision game based on the chase that my sister asked me for during her A-Levels",
-      "difficulty": 4,
-      "size": 2,
-      "public": true,
-      "safe_name": "The_Chase_Revision_Edition"
-    },
-    {
-      "title": "Topology Optimisation with FEA",
-      "description": "The project submitted for my A-Level computer science coursework",
-      "difficulty": 10,
-      "size": 10,
-      "public": true,
-      "safe_name": "Topology_Optimisation_with_FEA"
-    },
-    {
-      "title": "Track and Trace",
-      "description": "A COVID-19 track and trace app to measure proximity between students",
-      "difficulty": 5,
-      "size": 5,
-      "public": true,
-      "safe_name": "Track_and_Trace"
-    },
-    {
-      "title": "Truss Analysis",
-      "description": "2D truss editor and analyser using the finite element method",
-      "difficulty": 8,
-      "size": 7,
-      "public": true,
-      "safe_name": "Truss_Analysis"
-    },
-    {
-      "title": "Turbojet Engine",
-      "description": "Building a self sustaining turbojet engine from a car turbo",
-      "difficulty": 10,
-      "size": 10,
-      "public": true,
-      "safe_name": "Turbojet_Engine"
-    },
-    {
-      "title": "UKSEDS",
-      "description": "Building a whistling rocket for a student rocketry competition",
-      "difficulty": 8,
-      "size": 8,
-      "public": true,
-      "safe_name": "UKSEDS"
+      "safe_name": "Rocket_Engine_Control_System",
+      "order": 0
     },
     {
       "title": "VTOL Quadplane",
       "description": "Designing and building all avionic systems for a search and rescue quadplane",
-      "difficulty": 9,
-      "size": 10,
       "public": true,
-      "safe_name": "VTOL_Quadplane"
+      "safe_name": "VTOL_Quadplane",
+      "order": 1
+    },
+    {
+      "title": "Turbojet Engine",
+      "description": "Building a self sustaining turbojet engine from a car turbo",
+      "public": true,
+      "safe_name": "Turbojet_Engine",
+      "order": 2
+    },
+    {
+      "title": "Quadcopter",
+      "description": "Built a quadcopter than won lightest weight out of 31 teams",
+      "public": true,
+      "safe_name": "Quadcopter",
+      "order": 3
+    },
+    {
+      "title": "UKSEDS",
+      "description": "Building a whistling rocket for a student rocketry competition",
+      "public": true,
+      "safe_name": "UKSEDS",
+      "order": 4
+    },
+    {
+      "title": "SWIFT",
+      "description": "Building digital twin simulation for drone swarm computer vision",
+      "public": true,
+      "safe_name": "SWIFT",
+      "order": 5
+    },
+    {
+      "title": "SWIFT_lite",
+      "description": "Building digital twin simulation for a drone swarm navigations algorithms",
+      "public": true,
+      "safe_name": "SWIFT_lite",
+      "order": 6
+    },
+    {
+      "title": "Partial Discharge Test Rig",
+      "description": "Testing enclosure for partial discharge of high voltage motor coils",
+      "public": true,
+      "safe_name": "Partial_Discharge_Test_Rig",
+      "order": 7
+    },
+    {
+      "title": "Topology Optimisation with FEA",
+      "description": "The project submitted for my A-Level computer science coursework",
+      "public": true,
+      "safe_name": "Topology_Optimisation_with_FEA",
+      "order": 8
+    },
+    {
+      "title": "Artificial Life",
+      "description": "Advanced cellular automata simulation",
+      "public": true,
+      "safe_name": "Artificial_Life",
+      "order": 9
+    },
+    {
+      "title": "ATP Glider",
+      "description": "Design and manufacture of a small 'around the pole' glider",
+      "public": true,
+      "safe_name": "ATP_Glider",
+      "order": 10
+    },
+    {
+      "title": "Blaze",
+      "description": "Proof of concept for a small platform game",
+      "public": true,
+      "safe_name": "Blaze",
+      "order": 11
+    },
+    {
+      "title": "ExoTerra",
+      "description": "Terrain generation, manipulation and exploration game",
+      "public": true,
+      "safe_name": "ExoTerra",
+      "order": 12
+    },
+    {
+      "title": "Graphics Engine",
+      "description": "Custom graphics engine built from scratch",
+      "public": true,
+      "safe_name": "Graphics_Engine",
+      "order": 13
+    },
+    {
+      "title": "Chemical Chaos",
+      "description": "Submission to Brackey's Game Jam 2021.2, hitting top 50 out of 1702 entries",
+      "public": true,
+      "safe_name": "Chemical_Chaos",
+      "order": 14
+    },
+    {
+      "title": "Slinky Stators",
+      "description": "Studying the feasibility of manufature of slinky stator geometries",
+      "public": true,
+      "safe_name": "Slinky_Stators",
+      "order": 15
+    },
+    {
+      "title": "Rapid Access",
+      "description": "Customisable shortcut and hotkey app for Windows",
+      "public": true,
+      "safe_name": "Rapid_Access",
+      "order": 16
+    },
+    {
+      "title": "Brain Simulator",
+      "description": "Complex statistic management system for simulating a human",
+      "public": true,
+      "safe_name": "Brain_Simulator",
+      "order": 17
+    },
+    {
+      "title": "Sunfire Throttling Simulation",
+      "description": "Building a simulation and tuning a control system for engine throttling",
+      "public": true,
+      "safe_name": "Sunfire_Throttling_Simulation",
+      "order": 18
+    },
+    {
+      "title": "Maze Horror",
+      "description": "Procedural mansion maze horror with jumpscares and puzzles",
+      "public": true,
+      "safe_name": "Maze_Horror",
+      "order": 19
+    },
+    {
+      "title": "AMRC Presentation",
+      "description": "Leaving presentation for my placement at the AMRC",
+      "public": true,
+      "safe_name": "AMRC_Presentation",
+      "order": 20
+    },
+    {
+      "title": "Loose Ends",
+      "description": "Short detective puzzle game built over a few days",
+      "public": true,
+      "safe_name": "Loose_Ends",
+      "order": 21
+    },
+    {
+      "title": "Doughnut Tutorial",
+      "description": "The classic blender doughnut tutorial",
+      "public": true,
+      "safe_name": "Doughnut_Tutorial",
+      "order": 22
+    },
+    {
+      "title": "ACS341 Assignment",
+      "description": "Predicting household energy consumption with machine learning",
+      "public": true,
+      "safe_name": "ACS341_Assignment",
+      "order": 23
+    },
+    {
+      "title": "Axial Flux Motor Winding Rig",
+      "description": "Designing a rig which guides coils into desired geometry",
+      "public": true,
+      "safe_name": "Axial_Flux_Motor_Winding_Rig",
+      "order": 24
+    },
+    {
+      "title": "PSO Projects",
+      "description": "Various particle swarm optimisation projects",
+      "public": true,
+      "safe_name": "PSO_Projects",
+      "order": 25
+    },
+    {
+      "title": "Inverse Kinematics",
+      "description": "Implementation of inverse kinematics algorithms for robotic arms",
+      "public": true,
+      "safe_name": "Inverse_Kinematics",
+      "order": 26
+    },
+    {
+      "title": "Raycasting",
+      "description": "The classic raycasting algorithm with a pseudo-3D rendering engine",
+      "public": true,
+      "safe_name": "Raycasting",
+      "order": 27
+    },
+    {
+      "title": "IR Camera",
+      "description": "DIY wii remote using IR camera and 4 positioning LEDs",
+      "public": true,
+      "safe_name": "IR_Camera",
+      "order": 28
+    },
+    {
+      "title": "Control System Analyser",
+      "description": "Small program to produce plots and metrics for control systems",
+      "public": true,
+      "safe_name": "Control_System_Analyser",
+      "order": 29
+    },
+    {
+      "title": "Espresso Set",
+      "description": "Coffee machine accessories for a DeLonghi coffee machine",
+      "public": true,
+      "safe_name": "Espresso_Set",
+      "order": 30
+    },
+    {
+      "title": "EEE223 Assignment",
+      "description": "Simulating and starting a three-phase induction motor",
+      "public": true,
+      "safe_name": "EEE223_Assignment",
+      "order": 31
+    },
+    {
+      "title": "Lasercut Models",
+      "description": "Star Wars models designed without any 3D CAD software",
+      "public": true,
+      "safe_name": "Lasercut_Models",
+      "order": 32
+    },
+    {
+      "title": "Flight Simulator",
+      "description": "A flying game to get to grips with unity",
+      "public": true,
+      "safe_name": "Flight_Simulator",
+      "order": 33
+    },
+    {
+      "title": "3D Me",
+      "description": "A bobblehead model of me using an industrial 3D scanner",
+      "public": true,
+      "safe_name": "3D_Me",
+      "order": 34
+    },
+    {
+      "title": "Lightweight Matrix Library",
+      "description": "Matrix operation library for C, used in my graphics engine",
+      "public": true,
+      "safe_name": "Lightweight_Matrix_Library",
+      "order": 35
+    },
+    {
+      "title": "Multipack Image Generator",
+      "description": "Python tool to generate images for multipack products",
+      "public": true,
+      "safe_name": "Multipack_Image_Generator",
+      "order": 36
+    },
+    {
+      "title": "Shadowbot",
+      "description": "Building and coding a two-wheeled robot to avoid obstacles",
+      "public": true,
+      "safe_name": "Shadowbot",
+      "order": 37
+    },
+    {
+      "title": "The Chase - Revision Edition",
+      "description": "A revision game based on the chase that my sister asked me for during her A-Levels",
+      "public": true,
+      "safe_name": "The_Chase_Revision_Edition",
+      "order": 38
+    },
+    {
+      "title": "Track and Trace",
+      "description": "A COVID-19 track and trace app to measure proximity between students",
+      "public": true,
+      "safe_name": "Track_and_Trace",
+      "order": 39
+    },
+    {
+      "title": "Grumman X29 Presentation",
+      "description": "Fancy presentation for the Grumman X29 to practice presentation skills",
+      "public": true,
+      "safe_name": "Grumman_X29_Presentation",
+      "order": 40
+    },
+    {
+      "title": "EYH Moving Seabins",
+      "description": "'Engineering you're hired' week consisting of a sustainablility project",
+      "public": true,
+      "safe_name": "EYH_Moving_Seabins",
+      "order": 41
+    },
+    {
+      "title": "AutoTab",
+      "description": "Tool which listens to you play music and creates a tab for you",
+      "public": true,
+      "safe_name": "AutoTab",
+      "order": 42
+    },
+    {
+      "title": "Gyro Balancing",
+      "description": "Test app using a phones gyroscope in unity",
+      "public": true,
+      "safe_name": "Gyro_Balancing",
+      "order": 43
+    },
+    {
+      "title": "Desktop PR Set",
+      "description": "Tiny barbell set for keeping track of powerlifting PRs",
+      "public": true,
+      "safe_name": "Desktop_PR_Set",
+      "order": 44
+    },
+    {
+      "title": "Truss Analysis",
+      "description": "2D truss editor and analyser using the finite element method",
+      "public": true,
+      "safe_name": "Truss_Analysis",
+      "order": 45
+    },
+    {
+      "title": "ACS130 Assignment",
+      "description": "Demonstration of matrix multiplication and solving linear equations using C",
+      "public": true,
+      "safe_name": "ACS130_Assignment",
+      "order": 46
+    },
+    {
+      "title": "Planet Simulator",
+      "description": "A simple orbit simulation of various alien planets around a sun",
+      "public": true,
+      "safe_name": "Planet_Simulator",
+      "order": 47
+    },
+    {
+      "title": "AER11002 Assignment",
+      "description": "Evaluate the performance of the ATR42 aircraft with MATLAB",
+      "public": true,
+      "safe_name": "AER11002_Assignment",
+      "order": 48
+    },
+    {
+      "title": "SQL Database",
+      "description": "Getting to grips with SQL and databases by designing a database app",
+      "public": true,
+      "safe_name": "SQL_Database",
+      "order": 49
+    },
+    {
+      "title": "AQA Text Adventures",
+      "description": "A classic text adventure game using Python",
+      "public": true,
+      "safe_name": "AQA_Text_Adventures",
+      "order": 50
+    },
+    {
+      "title": "Raindrops",
+      "description": "Procedural runner game dodging raindrops on a MicroBit",
+      "public": true,
+      "safe_name": "Raindrops",
+      "order": 51
+    },
+    {
+      "title": "Breadboarding",
+      "description": "Various experiments with breadboards and electronics",
+      "public": true,
+      "safe_name": "Breadboarding",
+      "order": 52
+    },
+    {
+      "title": "ACS137 Assignment",
+      "description": "Build, simulate and optimise a state-space control system in simulink",
+      "public": true,
+      "safe_name": "ACS137_Assignment",
+      "order": 53
+    },
+    {
+      "title": "2D Beam Solver",
+      "description": "A small 2D beam solver that uses FEA to solve for deflection and stress",
+      "public": false,
+      "safe_name": "2D_Beam_Solver",
+      "order": 0
+    },
+    {
+      "title": "ANC Headphones",
+      "description": "",
+      "public": false,
+      "safe_name": "ANC_Headphones",
+      "order": 1
+    },
+    {
+      "title": "Artwork",
+      "description": "My various attempts at art over the years",
+      "public": false,
+      "safe_name": "Artwork",
+      "order": 2
+    },
+    {
+      "title": "Guitar Looper",
+      "description": "Simple looping software for making short songs",
+      "public": false,
+      "safe_name": "Guitar_Looper",
+      "order": 3
+    },
+    {
+      "title": "Iontotherapy Machine",
+      "description": "Various experiments with breadboards and electronics",
+      "public": false,
+      "safe_name": "Iontotherapy_Machine",
+      "order": 4
+    },
+    {
+      "title": "Strava API",
+      "description": "",
+      "public": false,
+      "safe_name": "LabVIEW_experiments",
+      "order": 5
+    },
+    {
+      "title": "Mark II Floor Plan",
+      "description": "",
+      "public": false,
+      "safe_name": "Mark_II_Floor_Plan",
+      "order": 6
+    },
+    {
+      "title": "Resume",
+      "description": "",
+      "public": false,
+      "safe_name": "Resume",
+      "order": 7
+    },
+    {
+      "title": "Strava API",
+      "description": "",
+      "public": false,
+      "safe_name": "Strava_API",
+      "order": 8
     }
   ]
 }
