@@ -1,0 +1,3 @@
+Alora will be an AI-powered e-commerce platform that automatically generates, validates, and publishes high-quality digital products. The AI pipeline analyses market trends, creates products, and handles the entire journey from idea to storefront with minimal human intervention.
+
+Unfortunately unfinished due to time constraints, to be continued...

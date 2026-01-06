@@ -1,170 +1,205 @@
+/**
+ * Project Manager - Portfolio Website
+ * ====================================
+ * Handles loading, filtering, and displaying projects with:
+ * - Category filtering with animated tabs
+ * - Adaptive media display (YouTube, PDF, carousel, thumbnail)
+ * - Fast fade animations for filtering
+ * - Download button support
+ */
+
+// Global state
+let allProjects = [];
+let currentCategory = 'all';
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+    loadProjects();
+    setupCategoryFilters();
+});
+
+/**
+ * Load projects from the generated JSON file
+ */
 async function loadProjects() {
     const container = document.getElementById('project-container');
-    const publicCounter = document.getElementById('public-count');
-    const privateCounter = document.getElementById('private-count');
-
-    let publicCount = 0;
-    let privateCount = 0;
-    let allPublicProjects = []; // Renamed to be more specific
-
-    // Helper to safely update text content
-    const setText = (element, text) => {
-        if (element) {
-            element.textContent = text;
-        }
-    };
+    const visibleCount = document.getElementById('visible-count');
+    const totalCount = document.getElementById('total-count');
 
     try {
-        // Fetch the master projects file which now contains all project data
-        const indexResponse = await fetch('content/projects_master.json');
-        if (!indexResponse.ok) {
-            throw new Error(`Failed to load projects_master.json: ${indexResponse.status} ${indexResponse.statusText}`);
+        const response = await fetch('content/projects_data.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load projects: ${response.status}`);
         }
-        const allProjectsDataContainer = await indexResponse.json();
-
-        if (!allProjectsDataContainer.projects || !Array.isArray(allProjectsDataContainer.projects)) {
-            console.error('Invalid project list structure in projects_master.json:', allProjectsDataContainer);
-            if (container) container.innerHTML = '<p>Error loading projects: Invalid data structure.</p>';
-            return;
-        }
-
-        const rawProjectsData = allProjectsDataContainer.projects;
-
-        // Filter and count public/private
-        rawProjectsData.forEach(data => {
-            if (!data) {
-                console.warn('Encountered null project data in projects_master.json.');
-                return;
-            }
-
-            if (data.public === true) {
-                publicCount++;
-                allPublicProjects.push(data);
-            } else {
-                privateCount++;
-            }
-        });
-
-        // Sort public projects by 'order' ascending (lower order = higher priority)
-        allPublicProjects.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
-
-        setText(publicCounter, publicCount);
-        setText(privateCounter, privateCount);
-
-        if (container) {
-            if (allPublicProjects.length === 0) {
-                container.innerHTML = rawProjectsData.length > 0 ?
-                    '<p>No public projects available at the moment.</p>' :
-                    '<p>No projects found.</p>';
-            } else {
-                container.innerHTML = ''; // Clear any previous message
-            }
-        }
-
-
-        // Render the first batch of public projects
-        const batchSize = 10;
-        renderProjectBatch(allPublicProjects.slice(0, batchSize));
-
-        // Lazy load additional public projects on scroll
-        let batchStart = batchSize;
-        if (allPublicProjects.length > batchStart) {
-            const scrollListener = () => {
-                // Check if container is still in DOM (e.g., user hasn't navigated away)
-                if (!document.body.contains(container)) {
-                     window.removeEventListener('scroll', scrollListener);
-                     return;
-                }
-
-                if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 150) { // Trigger a bit earlier
-                    if (batchStart < allPublicProjects.length) {
-                        const nextBatch = allPublicProjects.slice(batchStart, batchStart + batchSize);
-                        renderProjectBatch(nextBatch);
-                        batchStart += batchSize;
-                        if (batchStart >= allPublicProjects.length) {
-                            window.removeEventListener('scroll', scrollListener);
-                        }
-                    } else {
-                        window.removeEventListener('scroll', scrollListener);
-                    }
-                }
-            };
-            window.addEventListener('scroll', scrollListener, { passive: true });
-        }
-
+        
+        const data = await response.json();
+        allProjects = data.projects.filter(p => p.public === true);
+        
+        // Update counts
+        if (totalCount) totalCount.textContent = allProjects.length;
+        if (visibleCount) visibleCount.textContent = allProjects.length;
+        
+        // Render all projects initially
+        renderProjects(allProjects);
+        
     } catch (err) {
-        console.error('Failed to load or process projects:', err);
+        console.error('Failed to load projects:', err);
         if (container) {
-            container.innerHTML = `<p>Error loading projects: ${err.message}. Please try again later.</p>`;
+            container.innerHTML = `<p class="error-message">Error loading projects: ${err.message}</p>`;
         }
     }
 }
 
-function renderProjectBatch(projectsToRender) {
+/**
+ * Setup category filter tab click handlers
+ */
+function setupCategoryFilters() {
+    const tabs = document.querySelectorAll('.category-tab');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const category = tab.dataset.category;
+            
+            // Update active tab
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Filter projects
+            filterByCategory(category);
+        });
+    });
+}
+
+/**
+ * Filter projects by category with fast fade animation
+ */
+function filterByCategory(category) {
+    currentCategory = category;
     const container = document.getElementById('project-container');
-    if (!container) {
-        console.error("Project container not found for rendering batch.");
+    const visibleCount = document.getElementById('visible-count');
+    
+    // Get filtered projects
+    const filtered = category === 'all' 
+        ? allProjects 
+        : allProjects.filter(p => p.category === category);
+    
+    // Update count
+    if (visibleCount) visibleCount.textContent = filtered.length;
+    
+    // Animate out existing cards
+    const cards = container.querySelectorAll('.project-card');
+    cards.forEach(card => {
+        card.classList.add('fade-out');
+    });
+    
+    // After quick fade, update content
+    setTimeout(() => {
+        renderProjects(filtered);
+        
+        // Animate in new cards
+        requestAnimationFrame(() => {
+            const newCards = container.querySelectorAll('.project-card');
+            newCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 30}ms`;
+                card.classList.add('fade-in');
+            });
+        });
+    }, 150);
+}
+
+/**
+ * Render project cards to the container
+ */
+function renderProjects(projects) {
+    const container = document.getElementById('project-container');
+    if (!container) return;
+    
+    if (projects.length === 0) {
+        container.innerHTML = '<p class="no-projects">No projects in this category.</p>';
         return;
     }
-    // Use a document fragment for performance
+    
+    container.innerHTML = '';
     const fragment = document.createDocumentFragment();
-
-    projectsToRender.forEach(data => {
-        const card = createProjectCard(data);
-        if (card) { // createProjectCard might return null on critical error
-            fragment.appendChild(card);
-        }
+    
+    projects.forEach(project => {
+        const card = createProjectCard(project);
+        if (card) fragment.appendChild(card);
     });
-
+    
     container.appendChild(fragment);
 }
 
+/**
+ * Create a project card element
+ */
 function createProjectCard(data) {
-    if (!data) return null; // Should not happen if filtered earlier
-
     const card = document.createElement('div');
     card.className = 'project-card';
-
+    card.dataset.category = data.category || 'other';
+    
     const titleText = data.title || 'Unnamed Project';
-
-    const titleElement = document.createElement('h3');
-    titleElement.textContent = titleText;
-
-    const descriptionElement = document.createElement('p');
-    descriptionElement.textContent = data.description || 'No description provided.';
-
+    
+    // Thumbnail
     const imageElement = document.createElement('img');
-    // Use safe_name to construct thumbnail path
     const thumbnailName = `${data.safe_name}.webp`;
     imageElement.src = `content/thumbnails/${thumbnailName}`;
     imageElement.alt = `${titleText} thumbnail`;
     imageElement.className = 'project-thumbnail';
     imageElement.loading = 'lazy';
-
     imageElement.onerror = function() {
-        // Handle broken images
-        console.warn(`Failed to load image: ${this.src}.`);
-        this.alt = `${titleText} (thumbnail not available)`;
+        this.src = '../content/images/placeholder.webp';
+        this.alt = `${titleText} (no thumbnail)`;
     };
-
-    // Add click handler to open modal
-    card.addEventListener('click', () => {
-        openProjectModal(data);
-    });
-
+    
+    // Category badge
+    const badge = document.createElement('span');
+    badge.className = `category-badge ${data.category || 'other'}`;
+    badge.textContent = getCategoryLabel(data.category);
+    
+    // Title
+    const titleElement = document.createElement('h3');
+    titleElement.textContent = titleText;
+    
+    // Description
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = data.description || 'No description provided.';
+    
+    // Click handler
+    card.addEventListener('click', () => openProjectModal(data));
+    
     card.appendChild(imageElement);
+    card.appendChild(badge);
     card.appendChild(titleElement);
     card.appendChild(descriptionElement);
-
+    
     return card;
 }
 
-// Modal functionality
-function createModal() {
-    if (document.getElementById('project-modal')) {
-        return; // Modal already exists
-    }
+/**
+ * Get human-readable category label
+ */
+function getCategoryLabel(category) {
+    const labels = {
+        'academic': 'Academic',
+        'hardware': 'Hardware',
+        'games': 'Games & Sims',
+        'applications': 'Apps',
+        'other': 'Other'
+    };
+    return labels[category] || 'Other';
+}
 
+// ============================================
+// Modal Functionality
+// ============================================
+
+/**
+ * Create the modal element if it doesn't exist
+ */
+function createModal() {
+    if (document.getElementById('project-modal')) return;
+    
     const modal = document.createElement('div');
     modal.id = 'project-modal';
     modal.className = 'project-modal';
@@ -175,42 +210,30 @@ function createModal() {
                 <h2 class="modal-title" id="modal-title"></h2>
                 <button class="modal-close" id="modal-close">&times;</button>
             </div>
-            <div class="modal-video-container" id="modal-video-container" style="display: none;">
-                <iframe class="modal-youtube" id="modal-youtube" 
-                    width="100%" height="315" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    style="display: none;">
-                </iframe>
-                <video class="modal-video" id="modal-video" controls loop muted style="display: none;">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="modal-media-container" id="modal-media-container">
+                <!-- Dynamic media content goes here -->
             </div>
             <div class="modal-body">
                 <div class="modal-readme" id="modal-readme"></div>
             </div>
-            <div class="modal-download-bar" id="modal-download-bar" style="display: none;">
+            <div class="modal-footer" id="modal-footer" style="display: none;">
                 <a class="modal-download-button" id="modal-download-button" href="#" download>
-                    Download Project
+                    📥 Download Project
                 </a>
             </div>
         </div>
     `;
-
+    
     document.body.appendChild(modal);
-
-    // Add event listeners
+    
+    // Event listeners
     const closeBtn = modal.querySelector('#modal-close');
     closeBtn.addEventListener('click', closeProjectModal);
-
+    
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeProjectModal();
-        }
+        if (e.target === modal) closeProjectModal();
     });
-
-    // Close on Escape key
+    
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeProjectModal();
@@ -218,111 +241,256 @@ function createModal() {
     });
 }
 
+/**
+ * Open the project modal with adaptive media display
+ */
 async function openProjectModal(projectData) {
     createModal();
     
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
-    const modalVideoContainer = document.getElementById('modal-video-container');
-    const modalYoutube = document.getElementById('modal-youtube');
-    const modalVideo = document.getElementById('modal-video');
+    const mediaContainer = document.getElementById('modal-media-container');
     const modalReadme = document.getElementById('modal-readme');
-    const modalDownloadBar = document.getElementById('modal-download-bar');
+    const modalFooter = document.getElementById('modal-footer');
     const modalDownloadButton = document.getElementById('modal-download-button');
-
+    
     // Set title
     modalTitle.textContent = projectData.title || 'Unnamed Project';
-
-    // Load YouTube video if available
-    const youtubeVideoId = await loadYouTubeVideo(projectData.title);
     
-    if (youtubeVideoId) {
-        // Show YouTube video with autoplay and loop
-        const embedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&loop=1&playlist=${youtubeVideoId}&mute=1&controls=1&modestbranding=1&rel=0`;
-        modalYoutube.src = embedUrl;
-        modalYoutube.style.display = 'block';
-        modalVideoContainer.style.display = 'block';
-        modalVideo.style.display = 'none';
+    // Setup adaptive media
+    await setupModalMedia(projectData, mediaContainer);
+    
+    // Load README
+    await loadProjectReadme(projectData.safe_name, modalReadme);
+    
+    // Setup download button
+    if (projectData.has_download && projectData.download_file) {
+        modalDownloadButton.href = `content/downloads/${projectData.download_file}`;
+        modalDownloadButton.download = projectData.download_file;
+        modalFooter.style.display = 'flex';
     } else {
-        // Fall back to local video if no YouTube video
-        const videoPath = `/videos/${projectData.title}.mp4`;
-        modalVideo.src = videoPath;
-        modalVideo.style.display = 'block';
-        modalVideoContainer.style.display = 'block';
-        modalYoutube.style.display = 'none';
-        
-        // Handle video load error
-        modalVideo.onerror = function() {
-            console.warn(`Video not found: ${videoPath}`);
-            modalVideoContainer.style.display = 'none';
-        };
+        modalFooter.style.display = 'none';
     }
-
-    // Load README content
-    const safeName = projectData.safe_name || projectData.title.replace(/\s+/g, '_').replace(/[^A-Za-z0-9_]/g, '_');
-    console.log('Project title:', projectData.title);
-    console.log('Project safe_name:', projectData.safe_name);
-    console.log('Using safeName:', safeName);
-    loadProjectReadme(safeName, modalReadme);
-
-    // Check for downloadable file and set up download button
-    setupDownload(projectData, modalDownloadBar, modalDownloadButton);
-
+    
     // Show modal
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
 }
 
-function closeProjectModal() {
-    const modal = document.getElementById('project-modal');
-    const modalVideo = document.getElementById('modal-video');
-    const modalYoutube = document.getElementById('modal-youtube');
+/**
+ * Setup the modal media based on available content
+ */
+async function setupModalMedia(projectData, container) {
+    container.innerHTML = '';
+    container.style.display = 'block';
     
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
-        
-        // Pause video
-        if (modalVideo) {
-            modalVideo.pause();
+    const mediaType = projectData.media_type;
+    
+    if (mediaType === 'youtube_gallery' && projectData.youtube && projectData.gallery_images?.length > 0) {
+        // YouTube video + gallery images in carousel
+        createMixedCarousel(projectData, container);
+    } else if (mediaType === 'youtube' && projectData.youtube) {
+        // YouTube video only
+        const videoId = extractYouTubeVideoId(projectData.youtube);
+        if (videoId) {
+            const iframe = document.createElement('iframe');
+            iframe.className = 'modal-youtube';
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&rel=0`;
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            container.appendChild(iframe);
         }
-        
-        // Stop YouTube video by clearing src
-        if (modalYoutube) {
-            modalYoutube.src = '';
-        }
+    } else if (mediaType === 'pdf' && projectData.pdf_file) {
+        // PDF viewer
+        const pdfViewer = document.createElement('iframe');
+        pdfViewer.className = 'modal-pdf';
+        pdfViewer.src = `content/downloads/${projectData.pdf_file}`;
+        container.appendChild(pdfViewer);
+    } else if (mediaType === 'gallery' && projectData.gallery_images?.length > 0) {
+        // Image carousel
+        createCarousel(projectData, container);
+    } else if (projectData.has_thumbnail) {
+        // Fallback to thumbnail
+        const img = document.createElement('img');
+        img.className = 'modal-thumbnail';
+        img.src = `content/thumbnails/${projectData.safe_name}.webp`;
+        img.alt = projectData.title;
+        container.appendChild(img);
+    } else {
+        container.style.display = 'none';
     }
 }
 
-// Load YouTube video URL for a project
-async function loadYouTubeVideo(projectTitle) {
-    try {
-        const response = await fetch('content/youtube_links.json');
-        if (!response.ok) {
-            console.warn('YouTube links file not found');
-            return null;
-        }
-        
-        const data = await response.json();
-        
-        // Look for project directly in the JSON (skip _instructions)
-        const youtubeUrl = data[projectTitle];
-        
-        if (!youtubeUrl || youtubeUrl.startsWith('_')) {
-            return null;
-        }
-        
-        // Extract video ID from various YouTube URL formats
-        const videoId = extractYouTubeVideoId(youtubeUrl);
-        return videoId;
-        
-    } catch (error) {
-        console.warn('Failed to load YouTube links:', error);
-        return null;
+/**
+ * Create an image carousel for gallery images
+ */
+function createCarousel(projectData, container) {
+    const carousel = document.createElement('div');
+    carousel.className = 'carousel';
+    
+    const images = projectData.gallery_images;
+    let currentIndex = 0;
+    
+    // Image container
+    const imgContainer = document.createElement('div');
+    imgContainer.className = 'carousel-images';
+    
+    const img = document.createElement('img');
+    img.className = 'carousel-image';
+    img.src = `content/gallery/${projectData.safe_name}/${images[0]}`;
+    img.alt = `${projectData.title} - Image 1`;
+    imgContainer.appendChild(img);
+    
+    // Navigation buttons
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'carousel-btn prev';
+    prevBtn.innerHTML = '❮';
+    prevBtn.onclick = (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateCarousel();
+    };
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'carousel-btn next';
+    nextBtn.innerHTML = '❯';
+    nextBtn.onclick = (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
+    };
+    
+    // Dots indicator
+    const dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    images.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+        dot.onclick = (e) => {
+            e.stopPropagation();
+            currentIndex = i;
+            updateCarousel();
+        };
+        dots.appendChild(dot);
+    });
+    
+    function updateCarousel() {
+        img.src = `content/gallery/${projectData.safe_name}/${images[currentIndex]}`;
+        img.alt = `${projectData.title} - Image ${currentIndex + 1}`;
+        dots.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
     }
+    
+    carousel.appendChild(prevBtn);
+    carousel.appendChild(imgContainer);
+    carousel.appendChild(nextBtn);
+    carousel.appendChild(dots);
+    
+    container.appendChild(carousel);
 }
 
-// Extract YouTube video ID from URL
+/**
+ * Create a mixed carousel with YouTube video as first slide and gallery images
+ */
+function createMixedCarousel(projectData, container) {
+    const carousel = document.createElement('div');
+    carousel.className = 'carousel';
+    
+    const images = projectData.gallery_images;
+    const videoId = extractYouTubeVideoId(projectData.youtube);
+    const totalSlides = 1 + images.length; // YouTube + images
+    let currentIndex = 0;
+    
+    // Media container (holds both video and images)
+    const mediaContainer = document.createElement('div');
+    mediaContainer.className = 'carousel-images';
+    
+    // YouTube iframe (first slide)
+    const iframe = document.createElement('iframe');
+    iframe.className = 'carousel-youtube';
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&rel=0`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    
+    // Image element (hidden initially)
+    const img = document.createElement('img');
+    img.className = 'carousel-image';
+    img.style.display = 'none';
+    
+    mediaContainer.appendChild(iframe);
+    mediaContainer.appendChild(img);
+    
+    // Navigation buttons
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'carousel-btn prev';
+    prevBtn.innerHTML = '❮';
+    prevBtn.onclick = (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateMixedCarousel();
+    };
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'carousel-btn next';
+    nextBtn.innerHTML = '❯';
+    nextBtn.onclick = (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateMixedCarousel();
+    };
+    
+    // Dots indicator (first dot is for video)
+    const dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+        if (i === 0) {
+            dot.innerHTML = '▶'; // Video indicator
+            dot.style.fontSize = '8px';
+        }
+        dot.onclick = (e) => {
+            e.stopPropagation();
+            currentIndex = i;
+            updateMixedCarousel();
+        };
+        dots.appendChild(dot);
+    }
+    
+    function updateMixedCarousel() {
+        if (currentIndex === 0) {
+            // Show YouTube video
+            iframe.style.display = 'block';
+            img.style.display = 'none';
+            // Restart video if coming back to it
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&rel=0`;
+        } else {
+            // Show image
+            iframe.style.display = 'none';
+            iframe.src = ''; // Stop video playback
+            img.style.display = 'block';
+            const imageIndex = currentIndex - 1;
+            img.src = `content/gallery/${projectData.safe_name}/${images[imageIndex]}`;
+            img.alt = `${projectData.title} - Image ${imageIndex + 1}`;
+        }
+        
+        dots.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+    
+    carousel.appendChild(prevBtn);
+    carousel.appendChild(mediaContainer);
+    carousel.appendChild(nextBtn);
+    carousel.appendChild(dots);
+    
+    container.appendChild(carousel);
+}
+
+/**
+ * Extract YouTube video ID from URL
+ */
 function extractYouTubeVideoId(url) {
     const patterns = [
         /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
@@ -331,163 +499,120 @@ function extractYouTubeVideoId(url) {
     
     for (const pattern of patterns) {
         const match = url.match(pattern);
-        if (match && match[1]) {
-            return match[1];
-        }
+        if (match && match[1]) return match[1];
     }
-    
-    console.warn('Could not extract YouTube video ID from URL:', url);
     return null;
 }
 
+/**
+ * Close the project modal
+ */
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Stop any playing videos
+        const iframe = modal.querySelector('iframe');
+        if (iframe) iframe.src = '';
+    }
+}
+
+/**
+ * Load README content for a project
+ */
 async function loadProjectReadme(safeName, readmeContainer) {
-    readmeContainer.innerHTML = '<div class="modal-loading">Loading README...</div>';
+    readmeContainer.innerHTML = '<div class="modal-loading">Loading...</div>';
     
     try {
-        const readmePath = `/projects/content/readmes/${safeName}.md`;
-        const response = await fetch(readmePath);
+        const response = await fetch(`content/readmes/${safeName}.md`);
         
         if (!response.ok) {
-            throw new Error(`README not found: ${response.status}`);
+            throw new Error('README not found');
         }
         
-        const markdownContent = await response.text();
-        const htmlContent = parseMarkdown(markdownContent);
-        readmeContainer.innerHTML = htmlContent;
+        const markdown = await response.text();
+        readmeContainer.innerHTML = parseMarkdown(markdown);
         
     } catch (error) {
         console.warn(`Failed to load README for ${safeName}:`, error);
-        readmeContainer.innerHTML = '<div class="modal-error">README not available for this project.</div>';
+        readmeContainer.innerHTML = '<div class="modal-error">No README available.</div>';
     }
 }
 
-function setupDownload(projectData, downloadBar, downloadButton) {
-    // Downloads are temporarily disabled.
-    // Keep the DOM elements intact but hide/disable them so the UI remains stable.
-    try {
-        if (downloadBar) downloadBar.style.display = 'none';
-        if (downloadButton) {
-            downloadButton.removeAttribute('href');
-            downloadButton.removeAttribute('download');
-            downloadButton.textContent = 'Downloads disabled';
-            downloadButton.style.pointerEvents = 'none';
-            downloadButton.style.opacity = '0.6';
-        }
-    } catch (e) {
-        console.warn('Error disabling download UI:', e);
-    }
-}
-
-async function checkAndSetupDownload(localPath, downloadFileName, downloadBar, downloadButton) {
-    // Downloads temporarily disabled - do not perform network checks.
-    // This is intentionally a no-op so the site won't attempt to fetch/serve zip files.
-    try {
-        if (downloadBar) downloadBar.style.display = 'none';
-        if (downloadButton) {
-            downloadButton.removeAttribute('href');
-            downloadButton.removeAttribute('download');
-            downloadButton.textContent = 'Downloads disabled';
-            downloadButton.style.pointerEvents = 'none';
-            downloadButton.style.opacity = '0.6';
-        }
-    } catch (e) {
-        console.warn('Error disabling download UI in no-op:', e);
-    }
-}
-
-// Simple markdown parser
+/**
+ * Simple Markdown parser
+ */
 function parseMarkdown(markdown) {
     let html = markdown;
     
-    // Headers (process first)
+    // Headers
     html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
     html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
     html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
     
-    // Bold (process before other formatting)
+    // Bold & Italic
     html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
     html = html.replace(/__(.*?)__/gim, '<strong>$1</strong>');
-    
-    // Italic
     html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
     html = html.replace(/_(.*?)_/gim, '<em>$1</em>');
     
-    // Code blocks
+    // Code
     html = html.replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>');
-    
-    // Inline code
     html = html.replace(/`(.*?)`/gim, '<code>$1</code>');
     
-    // Links
+    // Links & Images
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, '<img src="$2" alt="$1">');
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
     
-    // Images
-    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, '<img src="$2" alt="$1">');
-    
-    // Handle lists - both bullet points and dashes
+    // Lists
     const lines = html.split('\n');
     let inList = false;
     let processedLines = [];
     
-    for (let i = 0; i < lines.length; i++) {
-        let line = lines[i].trim();
-        const isListItem = /^[\*\-\+] (.*)/.test(line);
+    for (let line of lines) {
+        const trimmed = line.trim();
+        const isListItem = /^[\*\-\+] (.*)/.test(trimmed);
         
         if (isListItem) {
             if (!inList) {
                 processedLines.push('<ul>');
                 inList = true;
             }
-            line = line.replace(/^[\*\-\+] (.*)/, '<li>$1</li>');
-        } else if (inList && line === '') {
-            // Empty line in list, continue list
+            processedLines.push(trimmed.replace(/^[\*\-\+] (.*)/, '<li>$1</li>'));
+        } else if (inList && trimmed === '') {
             continue;
-        } else if (inList && line !== '') {
-            // End of list
+        } else if (inList && trimmed !== '') {
             processedLines.push('</ul>');
             inList = false;
-        }
-        
-        if (line !== '' || !inList) {
-            processedLines.push(line);
+            processedLines.push(trimmed);
+        } else {
+            processedLines.push(trimmed);
         }
     }
     
-    // Close list if it was still open
-    if (inList) {
-        processedLines.push('</ul>');
-    }
+    if (inList) processedLines.push('</ul>');
     
     html = processedLines.join('\n');
     
-    // Handle paragraphs - split by double newlines but preserve structure
+    // Paragraphs
     const sections = html.split('\n\n');
-    const processedSections = [];
-    
-    for (let section of sections) {
+    const processed = sections.map(section => {
         section = section.trim();
-        if (section === '') continue;
-        
-        // Don't wrap headers, lists, code blocks, or horizontal rules in paragraphs
+        if (!section) return '';
         if (section.startsWith('<h') || section.startsWith('<ul') || 
-            section.startsWith('<pre') || section.startsWith('---') ||
-            section.includes('<ul>') || section.includes('<h')) {
-            processedSections.push(section);
-        } else if (section.includes('<br>')) {
-            // Already has line breaks, don't add paragraph
-            processedSections.push(section);
-        } else {
-            // Regular text paragraph
-            processedSections.push(`<p>${section}</p>`);
+            section.startsWith('<pre') || section.includes('<ul>') || 
+            section.includes('<h')) {
+            return section;
         }
-    }
+        return `<p>${section}</p>`;
+    });
     
-    html = processedSections.join('\n\n');
+    html = processed.join('\n\n');
     
-    // Clean up extra line breaks within elements
-    html = html.replace(/\n+/g, '\n');
-    
-    // Handle horizontal rules
+    // Horizontal rules
     html = html.replace(/^---$/gm, '<hr>');
     
     return html;

@@ -1,0 +1,1 @@
+Particle Swarm Optimization (PSO) is an optimisation algorithm that mimics the collective behavior of a swarm of particles as they explore a search space to find optimal solutions. I reuse this code for various optimisation problems.

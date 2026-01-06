@@ -1,0 +1,84 @@
+# Project Display Order
+# =====================
+# Each line is a project folder name (with spaces, as in the filesystem).
+# Projects are displayed in this order on the website.
+# Move lines up/down to change order.
+# New projects are automatically added at the end.
+# Deleted projects are automatically removed.
+#
+# Run: python scripts/manage_order.py
+# to sync this file with existing projects.
+#
+
+Rocket Engine Control System
+SWIFT_lite
+VTOL Quadplane
+UKSEDS
+Quadcopter
+SWIFT
+Turbojet Engine
+Graphics Engine
+Partial Discharge Test Rig
+Alora
+Topology Optimisation with FEA
+Rapid Control Prototyping
+STM32F4Discovery Board
+Artificial Life
+Slinky Stators
+Chemical Chaos
+ELE448 Coursework
+Sunfire Throttling Simulation
+ACS341 Assignment
+Axial Flux Motor Winding Rig
+Rapid Access
+ExoTerra
+ATP Glider
+Blaze
+AER324 Assignment
+Flight Simulator
+AER325 Assignment
+Shadowbot
+Board Game
+Doughnut Tutorial
+AMRC Presentation
+Loose Ends
+Maze Horror
+Brain Simulator
+Lasercut Models
+Multipack Image Generator
+Lightweight Matrix Library
+EYH Moving Seabins
+Truss Analysis
+Planet Simulator
+IR Camera
+PSO Projects
+Inverse Kinematics
+Track and Trace
+Mark II Floor Plan
+3D Me
+Breadboarding
+EEE223 Assignment
+Raycasting
+ACS137 Assignment
+The Chase - Revision Edition
+Espresso Set
+AER11002 Assignment
+AQA Text Adventures
+ANC Headphones
+Artwork
+AutoTab
+Control System Analyser
+Desktop PR Set
+Grumman X29 Presentation
+Guitar Looper
+Gyro Balancing
+Head Tracking for Perspective
+Iontotherapy Machine
+2D Beam Solver
+Raindrops
+Resume
+SQL Database
+Strava API
+ACS130 Assignment
+Mimic
+.mypy_cache

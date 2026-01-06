@@ -1,0 +1,1 @@
+2D truss editor and analyser using the finite element method. This was a pre-university project to learn more about structural engineering and the finite element method.

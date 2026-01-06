@@ -315,8 +315,316 @@
 }
 
 .modal-download-button::before {
-    content: "⬇";
+    content: "";
+}
+
+/* ===================== */
+/* Category Filter Tabs */
+/* ===================== */
+
+.category-filter-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.category-filter {
+    display: inline-flex;
+    gap: 6px;
+    padding: 8px 12px;
+    background: var(--base-5);
+    border-radius: 32px;
+    box-shadow: 0 0 16px var(--base-3);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.category-filter::-webkit-scrollbar {
+    display: none;
+}
+
+.category-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--base-2);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.category-tab:hover {
+    background: var(--base-4);
+    color: var(--base-1);
+}
+
+.category-tab.active {
+    background: var(--accent-3);
+    color: white;
+}
+
+.category-tab .tab-icon {
     font-size: 16px;
+}
+
+.category-tab .tab-label {
+    font-family: inherit;
+}
+
+/* ===================== */
+/* Category Badges */
+/* ===================== */
+
+.category-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-badge.academic {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+}
+
+.category-badge.hardware {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.category-badge.games {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a855f7;
+}
+
+.category-badge.applications {
+    background: rgba(249, 115, 22, 0.15);
+    color: #f97316;
+}
+
+.category-badge.other {
+    background: rgba(107, 114, 128, 0.15);
+    color: #6b7280;
+}
+
+.dark-mode .category-badge.academic {
+    background: rgba(59, 130, 246, 0.25);
+    color: #60a5fa;
+}
+
+.dark-mode .category-badge.hardware {
+    background: rgba(34, 197, 94, 0.25);
+    color: #4ade80;
+}
+
+.dark-mode .category-badge.games {
+    background: rgba(168, 85, 247, 0.25);
+    color: #c084fc;
+}
+
+.dark-mode .category-badge.applications {
+    background: rgba(249, 115, 22, 0.25);
+    color: #fb923c;
+}
+
+.dark-mode .category-badge.other {
+    background: rgba(107, 114, 128, 0.25);
+    color: #9ca3af;
+}
+
+/* ===================== */
+/* Media Indicators */
+/* ===================== */
+
+.media-indicators {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.media-indicators .indicator {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* ===================== */
+/* Card Animations */
+/* ===================== */
+
+.project-card {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.15s ease, transform 0.3s ease;
+}
+
+.project-card.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.project-card.fade-in {
+    animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.no-projects {
+    text-align: center;
+    color: var(--base-3);
+    padding: 40px;
+    font-size: 16px;
+}
+
+.project-counts {
+    color: var(--base-3);
+    font-size: 14px;
+}
+
+/* ===================== */
+/* Carousel */
+/* ===================== */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    background: var(--base-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-images {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-image {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.carousel-youtube {
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-height: 400px;
+    border: none;
+    border-radius: 8px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.carousel-dot.active {
+    background: white;
+}
+
+/* ===================== */
+/* Modal Media */
+/* ===================== */
+
+.modal-media-container {
+    width: 100%;
+    background: var(--base-4);
+}
+
+.modal-youtube {
+    width: 100%;
+    height: 315px;
+    border: none;
+}
+
+.modal-pdf {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.modal-thumbnail {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.modal-footer {
+    position: sticky;
+    bottom: 0;
+    background: var(--base-5);
+    border-top: 1px solid var(--base-4);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 0 0 12px 12px;
 }
 
 /* Mobile responsiveness */
@@ -340,15 +648,42 @@
     
     .modal-title {
         font-size: 20px;
-        margin-right: 40px; /* Space for close button */
+        margin-right: 40px;
     }
 
-    .modal-download-bar {
+    .modal-footer {
         padding: 12px 15px;
     }
 
     .modal-download-button {
         padding: 8px 16px;
         font-size: 13px;
+    }
+    
+    .category-tab {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .category-tab .tab-icon {
+        font-size: 14px;
+    }
+    
+    .modal-youtube {
+        height: 200px;
+    }
+    
+    .modal-pdf {
+        height: 300px;
+    }
+    
+    .carousel-image {
+        max-height: 250px;
+    }
+    
+    .carousel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
     }
 }

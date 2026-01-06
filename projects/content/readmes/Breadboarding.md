@@ -1,1 +1,1 @@
-Various experiments with breadboards and electronics. This is ongoing as I often prototype circuits on a breadboard in other projects before building the final version.
+I have spent a lot of time working with breadboards in various other projects, but I thought I would try and figure out how to build some simple circuits from scratch.

@@ -51,8 +51,33 @@
     </header>
     <main>
         <h1>Projects</h1>
-        <p>Public: <span id="public-count">0</span>, Private: <span id="private-count">0</span></p>
-        <p>Here are all the various projects I've worked on over the years, feel free to browse through. More video content coming soon.</p>
+        <p class="project-counts">Showing <span id="visible-count">0</span> of <span id="total-count">0</span> projects</p>
+        <p>Here are all the various projects I've worked on over the years, feel free to browse through.</p>
+        
+        <!-- Category Filter Tabs -->
+        <div class="category-filter-wrapper">
+            <div class="category-filter">
+                <button class="category-tab active" data-category="all">
+                    <span class="tab-label">All</span>
+                </button>
+                <button class="category-tab" data-category="academic">
+                    <span class="tab-label">Academic</span>
+                </button>
+                <button class="category-tab" data-category="hardware">
+                    <span class="tab-label">Hardware</span>
+                </button>
+                <button class="category-tab" data-category="games">
+                    <span class="tab-label">Games & Sims</span>
+                </button>
+                <button class="category-tab" data-category="applications">
+                    <span class="tab-label">Applications</span>
+                </button>
+                <button class="category-tab" data-category="other">
+                    <span class="tab-label">Other</span>
+                </button>
+            </div>
+        </div>
+        
         <hr class="divider">
         <div>
             <script src="js/project-manager.js"></script>

@@ -1,3 +1,3 @@
-A bobblehead model of me using an industrial 3D scanner developed during industrial placement at the Advanced Manufacturing Research Centre (AMRC), applying cutting-edge manufacturing technologies. The project involved 3D scanning, point cloud to mesh processing, and 3D printing.
+At the AMRC I had access to a high resolution 3D scanner. I used it to create a digital model of myself while we were calibrating it and took the opportunity to print a bobblehead.
 
-I thought it'd be funny to give myself a massive head and a pen spring neck, which worked beautifully.
+It took a good while to get used to the point cloud processing software and cleaning up the mesh in blender but I eventually got a good enough model to print.

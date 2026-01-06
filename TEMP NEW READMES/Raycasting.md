@@ -1,0 +1,1 @@
+The classic raycasting algorithm with a pseudo-3D rendering engine.

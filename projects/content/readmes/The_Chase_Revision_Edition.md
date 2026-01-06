@@ -1,1 +1,3 @@
-A revision game based on the chase that my sister asked me for during her A-Levels, she utilised this to help her revise for her exams, and went from a grade E to a B.
+# The Chase - Revision Edition
+
+Project description coming soon.

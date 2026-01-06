@@ -1,0 +1,1 @@
+Designing and building all avionic systems for a search and rescue quadplane. I led the design and integration of the full avionics system, including power distribution, flight controllers, GPS, telemetry, and sensors. Our team successfully built and flew the VTOL quadplane, demonstrating my skills in systems engineering, embedded systems, and teamwork.

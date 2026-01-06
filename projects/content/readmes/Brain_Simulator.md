@@ -1,3 +1,3 @@
-I built a complex statistic management system which was designed for any game or simulation, including a balancing system which uses excel macros to give an overview of statistic progression, and I decided on a practice use case of simulating a human brain. 
+I set out to create a universal statistic management system for games, where developers have to balance so many statistics that managing them becomes a chore. I chose the human brain to attempt to model, with stats for memory, focus, energy, happiness, and more. I used custom macros in excel to parse my own formulas and predict statistic movement over time, allowing me to see which multipliers and constants needed changing to make the game fair.
 
-I also hadn't built a nice UI in a while, so I took the opportunity to create a clean and user-friendly interface for interacting with the brain simulation.
+I ended up getting a bit carried away with pretty UI as well.
