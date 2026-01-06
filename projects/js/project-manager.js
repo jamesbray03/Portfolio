@@ -137,9 +137,30 @@ function createProjectCard(data) {
     const card = document.createElement('div');
     card.className = 'project-card';
     card.dataset.category = data.category || 'other';
-    
+
     const titleText = data.title || 'Unnamed Project';
-    
+
+    // Header (date + category)
+    const header = document.createElement('div');
+    header.className = 'project-card-header';
+
+    // Date
+    const dateElement = document.createElement('span');
+    dateElement.className = 'project-date';
+    if (data.date && data.date.trim()) {
+        dateElement.textContent = formatDate(data.date);
+    } else {
+        dateElement.textContent = '';
+    }
+
+    // Category badge
+    const badge = document.createElement('span');
+    badge.className = `category-badge ${data.category || 'other'}`;
+    badge.textContent = getCategoryLabel(data.category);
+
+    header.appendChild(dateElement);
+    header.appendChild(badge);
+
     // Thumbnail
     const imageElement = document.createElement('img');
     const thumbnailName = `${data.safe_name}.webp`;
@@ -151,29 +172,40 @@ function createProjectCard(data) {
         this.src = '../content/images/placeholder.webp';
         this.alt = `${titleText} (no thumbnail)`;
     };
-    
-    // Category badge
-    const badge = document.createElement('span');
-    badge.className = `category-badge ${data.category || 'other'}`;
-    badge.textContent = getCategoryLabel(data.category);
-    
+
     // Title
     const titleElement = document.createElement('h3');
     titleElement.textContent = titleText;
-    
+
     // Description
     const descriptionElement = document.createElement('p');
     descriptionElement.textContent = data.description || 'No description provided.';
-    
+
     // Click handler
     card.addEventListener('click', () => openProjectModal(data));
-    
+
+    // Build card: header above image
+    card.appendChild(header);
     card.appendChild(imageElement);
-    card.appendChild(badge);
     card.appendChild(titleElement);
     card.appendChild(descriptionElement);
-    
+
     return card;
+}
+
+/**
+ * Format date from YYYY-MM to readable format
+ */
+function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const [year, month] = dateStr.split('-');
+    if (!year) return '';
+    if (!month) return year;
+    
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+                   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const monthName = months[parseInt(month) - 1];
+    return `${monthName} ${year}`;
 }
 
 /**
