@@ -117,15 +117,20 @@
 
 .modal-close {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 20px;
     background: none;
     border: none;
     font-size: 28px;
     cursor: pointer;
     color: var(--base-3);
-    padding: 5px;
-    line-height: 1;
+    padding: 0;
+    line-height: 24px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-close:hover {
@@ -630,20 +635,22 @@
 }
 
 .pdf-fallback {
-    padding: 40px 20px;
-    text-align: center;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--base-1);
 }
 
 .pdf-download-link {
     display: inline-block;
-    margin-top: 12px;
     padding: 10px 20px;
     background: var(--accent-1);
     color: var(--base-5);
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
+    line-height: 1.5;
 }
 
 .pdf-download-link:hover {
@@ -719,7 +726,15 @@
     }
     
     .pdf-fallback {
-        padding: 20px 10px;
+        height: 160px;
+    }
+    
+    .modal-close {
+        top: 12px;
+        right: 15px;
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
     }
     
     .carousel-image {

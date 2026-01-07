@@ -348,7 +348,6 @@ async function setupModalMedia(projectData, container) {
         const fallback = document.createElement('div');
         fallback.className = 'pdf-fallback';
         fallback.innerHTML = `
-            <p>Unable to display PDF inline.</p>
             <a href="${pdfPath}" target="_blank" class="pdf-download-link">Open PDF in new tab</a>
         `;
         pdfViewer.appendChild(fallback);
