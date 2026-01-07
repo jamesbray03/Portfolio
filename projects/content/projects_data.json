@@ -1,7 +1,7 @@
 {
   "metadata": {
     "description": "Auto-generated project data for portfolio website",
-    "generated": "2026-01-06T16:39:58.767447",
+    "generated": "2026-01-07T10:56:54.889158",
     "total_projects": 72
   },
   "categories": [
@@ -76,7 +76,7 @@
     },
     {
       "title": "SWIFT_lite",
-      "description": "Building digital twin simulation for a drone swarm navigations algorithms",
+      "description": "Building digital twin simulation for a drone swarm navigation algorithms",
       "category": "applications",
       "public": true,
       "youtube": "",
@@ -381,8 +381,8 @@
       "safe_name": "Artificial_Life",
       "has_thumbnail": true,
       "has_readme": true,
-      "has_download": true,
-      "download_file": "Artificial-Life-Setup.zip",
+      "has_download": false,
+      "download_file": null,
       "has_pdf": false,
       "pdf_file": null,
       "gallery_images": [],
@@ -464,7 +464,7 @@
       "description": "Building a simulation and tuning a control system for engine throttling",
       "category": "games",
       "public": true,
-      "youtube": "https://youtube.com/shorts/SXqXBJcBN04",
+      "youtube": "",
       "date": "2024-03",
       "notes": "",
       "folder_name": "Sunfire Throttling Simulation",
@@ -481,7 +481,7 @@
         "Screenshot 2026-01-06 130240.png"
       ],
       "has_gallery": true,
-      "media_type": "youtube_gallery",
+      "media_type": "gallery",
       "order": 17
     },
     {

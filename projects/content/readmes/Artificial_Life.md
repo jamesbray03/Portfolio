@@ -1,1 +1,3 @@
 Dive into the mesmerizing world of Cellular Automata Simulation, where simple rules lead to complex and beautiful patterns. Controlling parameters to 2 simple normal distributions, you have the potential to find undiscovered life forms and stable patterns. This interactive simulation allows you to explore the fascinating behaviour of cellular automata through a visually engaging and dynamic display.
+
+Download form [here](https://jamesbray03.itch.io/artificial-life)

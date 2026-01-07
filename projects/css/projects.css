@@ -635,28 +635,23 @@
 }
 
 .pdf-fallback {
+    display: none;
     height: 200px;
-    display: flex;
     align-items: center;
     justify-content: center;
     color: var(--base-1);
-}
-
-/* Hide fallback by default, only show if object fails */
-.modal-pdf .pdf-fallback {
-    display: none;
+    background: var(--base-4);
 }
 
 /* On mobile, hide PDF object and show fallback button */
 @media (max-width: 768px) {
     .modal-pdf {
-        display: none;
+        display: none !important;
     }
     
     .pdf-fallback {
         display: flex !important;
         height: 160px;
-        background: var(--base-4);
     }
 }
 
