@@ -333,11 +333,28 @@ async function setupModalMedia(projectData, container) {
             container.appendChild(iframe);
         }
     } else if (mediaType === 'pdf' && projectData.pdf_file) {
-        // PDF viewer
-        const pdfViewer = document.createElement('iframe');
+        // PDF viewer with mobile-friendly fallback
+        const pdfPath = `content/downloads/${projectData.pdf_file}`;
+        const pdfContainer = document.createElement('div');
+        pdfContainer.className = 'pdf-viewer-container';
+        
+        // Use object tag for better mobile support
+        const pdfViewer = document.createElement('object');
         pdfViewer.className = 'modal-pdf';
-        pdfViewer.src = `content/downloads/${projectData.pdf_file}`;
-        container.appendChild(pdfViewer);
+        pdfViewer.data = pdfPath;
+        pdfViewer.type = 'application/pdf';
+        
+        // Fallback link for devices that can't display PDF inline
+        const fallback = document.createElement('div');
+        fallback.className = 'pdf-fallback';
+        fallback.innerHTML = `
+            <p>Unable to display PDF inline.</p>
+            <a href="${pdfPath}" target="_blank" class="pdf-download-link">Open PDF in new tab</a>
+        `;
+        pdfViewer.appendChild(fallback);
+        
+        pdfContainer.appendChild(pdfViewer);
+        container.appendChild(pdfContainer);
     } else if (mediaType === 'gallery' && projectData.gallery_images?.length > 0) {
         // Image carousel
         createCarousel(projectData, container);

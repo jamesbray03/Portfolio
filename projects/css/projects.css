@@ -54,6 +54,7 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 8px;
+    margin-top: -4px;
 }
 
 .project-date {
@@ -616,10 +617,37 @@
     border: none;
 }
 
+.pdf-viewer-container {
+    width: 100%;
+    background: var(--base-4);
+}
+
 .modal-pdf {
     width: 100%;
     height: 500px;
     border: none;
+    display: block;
+}
+
+.pdf-fallback {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--base-1);
+}
+
+.pdf-download-link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: var(--accent-1);
+    color: var(--base-5);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.pdf-download-link:hover {
+    background: var(--accent-2);
 }
 
 .modal-thumbnail {
@@ -687,7 +715,11 @@
     }
     
     .modal-pdf {
-        height: 300px;
+        height: 400px;
+    }
+    
+    .pdf-fallback {
+        padding: 20px 10px;
     }
     
     .carousel-image {
