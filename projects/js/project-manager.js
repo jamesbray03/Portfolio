@@ -338,21 +338,21 @@ async function setupModalMedia(projectData, container) {
         const pdfContainer = document.createElement('div');
         pdfContainer.className = 'pdf-viewer-container';
         
-        // Use object tag for better mobile support
+        // Use object tag for desktop
         const pdfViewer = document.createElement('object');
         pdfViewer.className = 'modal-pdf';
         pdfViewer.data = pdfPath;
         pdfViewer.type = 'application/pdf';
         
-        // Fallback link for devices that can't display PDF inline
+        // Fallback link for mobile and devices that can't display PDF inline
         const fallback = document.createElement('div');
         fallback.className = 'pdf-fallback';
         fallback.innerHTML = `
             <a href="${pdfPath}" target="_blank" class="pdf-download-link">Open PDF in new tab</a>
         `;
-        pdfViewer.appendChild(fallback);
         
         pdfContainer.appendChild(pdfViewer);
+        pdfContainer.appendChild(fallback);
         container.appendChild(pdfContainer);
     } else if (mediaType === 'gallery' && projectData.gallery_images?.length > 0) {
         // Image carousel

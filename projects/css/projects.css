@@ -642,6 +642,24 @@
     color: var(--base-1);
 }
 
+/* Hide fallback by default, only show if object fails */
+.modal-pdf .pdf-fallback {
+    display: none;
+}
+
+/* On mobile, hide PDF object and show fallback button */
+@media (max-width: 768px) {
+    .modal-pdf {
+        display: none;
+    }
+    
+    .pdf-fallback {
+        display: flex !important;
+        height: 160px;
+        background: var(--base-4);
+    }
+}
+
 .pdf-download-link {
     display: inline-block;
     padding: 10px 20px;
@@ -719,14 +737,6 @@
     
     .modal-youtube {
         height: 200px;
-    }
-    
-    .modal-pdf {
-        height: 400px;
-    }
-    
-    .pdf-fallback {
-        height: 160px;
     }
     
     .modal-close {
