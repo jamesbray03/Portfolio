@@ -1,8 +1,8 @@
 {
   "metadata": {
     "description": "Auto-generated project data for portfolio website",
-    "generated": "2026-01-07T10:56:54.889158",
-    "total_projects": 72
+    "generated": "2026-01-16T11:12:26.095066",
+    "total_projects": 73
   },
   "categories": [
     {
@@ -352,21 +352,21 @@
       "title": "STM32F4Discovery Board",
       "description": "Developing a real time operating system for an embedded system",
       "category": "academic",
-      "public": false,
+      "public": true,
       "youtube": "",
       "date": "2026-01",
       "notes": "",
       "folder_name": "STM32F4Discovery Board",
       "safe_name": "STM32F4Discovery_Board",
-      "has_thumbnail": false,
+      "has_thumbnail": true,
       "has_readme": true,
       "has_download": false,
       "download_file": null,
-      "has_pdf": false,
-      "pdf_file": null,
+      "has_pdf": true,
+      "pdf_file": "main.pdf",
       "gallery_images": [],
       "has_gallery": false,
-      "media_type": "none",
+      "media_type": "pdf",
       "order": 12
     },
     {
@@ -1692,6 +1692,27 @@
       "has_gallery": false,
       "media_type": "none",
       "order": 71
+    },
+    {
+      "title": "Trading Bot",
+      "description": "",
+      "category": "other",
+      "public": false,
+      "youtube": "",
+      "date": "",
+      "notes": "",
+      "folder_name": "Trading Bot",
+      "safe_name": "Trading_Bot",
+      "has_thumbnail": false,
+      "has_readme": true,
+      "has_download": false,
+      "download_file": null,
+      "has_pdf": false,
+      "pdf_file": null,
+      "gallery_images": [],
+      "has_gallery": false,
+      "media_type": "none",
+      "order": 72
     }
   ]
 }

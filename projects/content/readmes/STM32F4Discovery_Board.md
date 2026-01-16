@@ -1,12 +1,1 @@
-# STM32F4Discovery Board
-
-## Overview
-Add a description of your project here.
-
-## Features
-- Feature 1
-- Feature 2
-
-## Technologies Used
-- Technology 1
-- Technology 2
+Real-time embedded operating system on the STM32F4Discovery board with a two-axis tilt switch featuring visual and audio feedback (and a bonus musical feature).
