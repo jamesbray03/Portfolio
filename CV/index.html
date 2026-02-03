@@ -71,6 +71,22 @@
         <h2>Professional Experience</h2>
         <section>
             <div class="info-card">
+                <img src="/content/images/XPRIZE.webp" alt="XPRIZE WILDFIRE" class="info-image">
+                <div class="info-content">
+                    <h3>XPRIZE WILDFIRE - <a href="https://aura-xprize.com/" target="_blank" rel="noopener noreferrer">XPRIZE AURA</a></h3>
+                    <p><em>Sept 2025 – Dec 2025</em></p>
+                    <ul>
+                        <li>Developed a full stack drone navigation system for swarm management and coordination</li>
+                        <li>Communicated progress and technical details to cross-functional teams in Bristol and Sheffield</li>
+                        <li>Built a 3D swarm simulation environment for fire detection computer vision testing</li>
+                        <li>Contributed to an academic paper outlining the novel optimisation methodology I developed</li>
+                        <li>Unfortunately the project was discontinued as we didn't proceed into the finals</li>
+                        <li>See SWIFT and SWIFT_lite on my <a href="../projects/index.html">project page</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
                 <img src="/content/images/sunride.webp" alt="Sunride" class="info-image">
                 <div class="info-content">
                     <h3>Propulsion Avionics Engineer - <a href="https://www.sunride.space/" target="_blank" rel="noopener noreferrer">Sunride</a></h3>
@@ -81,6 +97,7 @@
                         <li>Built a SIMULINK fluid model with PID control to regulate fuel and oxidiser flow to engines</li>
                         <li>Implemented fault detection and safety protocols for rocket engine test procedures</li>
                         <li>Explored engine gimbaling systems on the test stand to control thrust direction</li>
+                        <li>See Rocket Engine Control System and Sunfire Throttling Sim on my <a href="../projects/index.html">project page</a></li>
                     </ul>
                 </div>
             </div>
@@ -127,22 +144,62 @@
                     <h3>Aerospace Engineering Degree MEng - <a href="https://www.sheffield.ac.uk/" target="_blank" rel="noopener noreferrer">University of Sheffield</a></h3>
                     <p><em>Sep 2022 – Present</em></p>
                     <p>Five-year course with a year in industry, currently in 3rd year. Predicted first-class.</p>
-                    <ul>
-                        <strong>Relevant completed modules:</strong>
-                        <ul>
-                            <li>Quadcopter Project: Control lead on a quadcopter project which won lightest in the cohort</li>
-                            <li>Electrical Energy Management: Studied electrical infrastructure and motor performance</li>
-                            <li>Systems Engineering: Built and coded a search robot in C with obstacle avoidance</li>
-                            <li>Control Systems: Analysed and designed basic control methods for various systems</li>
-                        </ul>
-                        <strong>Relevant current modules:</strong>
-                        <ul>
-                            <li>Space Systems Engineering: Exploring the concepts of space system and mission design</li>
-                            <li>VTOL Quad Plane: Leading all avionics aspects of the quad plane</li>
-                            <li>State-space Control: Learning how to implement state-space control for MIMO systems</li>
-                            <li>Machine Learning: Studying regression, classification, and reinforcement learning</li>
-                        </ul>
-                    </ul>
+                    <p style="margin-top: 1rem;">This is an avionics-based aerospace engineering degree, focusing on the integration of electronic systems and control theory with aerospace applications.</p>
+                    
+                    <div class="modules-dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span>Modules</span>
+                            <span class="dropdown-arrow">▼</span>
+                        </div>
+                        <div class="dropdown-content">
+                            <ul>
+                                <strong>Year 4</strong>
+                                <ul>
+                                    <li>Data Modelling and Machine Intelligence (83.3%)</li>
+                                    <li>Aerospace Final Year Project (in progress)</li>
+                                    <li>Mobile Robotics and Autonomous Systems (in progress)</li>
+                                    <li>Multisensor Decision Systems (in progress)</li>
+                                    <li>Rapid Control Prototyping (73.8%)</li>
+                                    <li>Real-Time Embedded Systems (76.3%)</li>
+                                </ul>
+                                <strong>Year 3</strong>
+                                <ul>
+                                    <li>Accounting and Law for Engineers (80%)</li>
+                                    <li>Aerodynamic Design (76%)</li>
+                                    <li>Aero Propulsion (66%)</li>
+                                    <li>Aircraft Design (65%)</li>
+                                    <li>Aircraft Dynamics and Control (85%)</li>
+                                    <li>Digital Signal Processing (73%)</li>
+                                    <li>Machine Learning (71%)</li>
+                                    <li>Managing Engineering Projects and Teams (76%)</li>
+                                    <li>Space Systems Engineering (74%)</li>
+                                    <li>State-Space Control Design (92%)</li>
+                                    <li>Aerospace Design III (73%)</li>
+                                </ul>
+                                <strong>Year 2</strong>
+                                <ul>
+                                    <li>Aeromechanics (62%)</li>
+                                    <li>Aerostructures (58%)</li>
+                                    <li>Control Systems Design and Analysis (77%)</li>
+                                    <li>Electrical Energy Management and Conversion (85%)</li>
+                                    <li>Design Build Test (DBT) (69%)</li>
+                                    <li>Introduction to Systems Engineering & Software (95%)</li>
+                                    <li>Mathematics for Aerospace Engineers (71%)</li>
+                                    <li>Signals, Systems and Communications (82%)</li>
+                                </ul>
+                                <strong>Year 1</strong>
+                                <ul>
+                                    <li>Aerospace Aerodynamics and Thermodynamics (66%)</li>
+                                    <li>Aerospace Engineering Design, Build and Test (68%)</li>
+                                    <li>Engineering Statics and Dynamics (68%)</li>
+                                    <li>Introduction to Aerospace Electrical and Electronic Circuits (51%)</li>
+                                    <li>Introduction to Aerospace Materials (66%)</li>
+                                    <li>Introduction to Systems Analysis and Control (76%)</li>
+                                    <li>Mathematics (Electrical and Aerospace) (78%)</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -214,6 +271,15 @@
         <div style="height: 100px;"></div>
     </footer>
 
+    <script>
+        function toggleDropdown(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.dropdown-arrow');
+            
+            content.classList.toggle('open');
+            arrow.classList.toggle('open');
+        }
+    </script>
     <script src="../js/dark-mode.js"></script>
 </body>
 </html>
