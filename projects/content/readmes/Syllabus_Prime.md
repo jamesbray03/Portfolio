@@ -1,0 +1,3 @@
+A utilitsation of OpenClaw to help with my academic time and content management. Utilising a VPS, custom Blackboard scraper, Google Cloud Calendar integration, and a local LLM to save token usage, this bot spares me so much time figuring out where things are and when to do them. The scraper makes it so easy to get all the content I need for my courses, as opposed to downloading one by one from Blackboard.
+
+Lots of cyber-security measures were put in place due to OpenClaw's... openness. Taught me alot. Also it named itself, don't judge.

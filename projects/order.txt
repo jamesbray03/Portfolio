@@ -17,6 +17,7 @@ UKSEDS
 Quadcopter
 SWIFT
 Turbojet Engine
+Syllabus Prime
 Graphics Engine
 Partial Discharge Test Rig
 Alora
@@ -83,3 +84,7 @@ ACS130 Assignment
 Mimic
 .mypy_cache
 Trading Bot
+AI Receptionist
+ELE434 Mobile Robotics and Autonomous Systems
+ELE450 Multisensor and Decision Systems
+StitchScript
