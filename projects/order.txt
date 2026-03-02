@@ -24,6 +24,7 @@ Alora
 Topology Optimisation with FEA
 Rapid Control Prototyping
 STM32F4Discovery Board
+Blackboard Scraper
 Artificial Life
 Slinky Stators
 Chemical Chaos

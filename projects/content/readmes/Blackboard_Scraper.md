@@ -1,0 +1,1 @@
+Application which allows students to log in to blackboard and download all of their course materials in one shot. It also has a built in text extractor which can extract text from PDFs and images, and save it in a separate folder for easy searching.
