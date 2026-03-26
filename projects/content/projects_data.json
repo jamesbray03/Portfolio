@@ -1,7 +1,7 @@
 {
   "metadata": {
     "description": "Auto-generated project data for portfolio website",
-    "generated": "2026-03-02T21:57:10.341982",
+    "generated": "2026-03-26T11:36:47.740334",
     "total_projects": 79
   },
   "categories": [
@@ -135,33 +135,6 @@
       "order": 2
     },
     {
-      "title": "UKSEDS",
-      "description": "Building a whistling rocket for a student rocketry competition",
-      "category": "hardware",
-      "public": true,
-      "youtube": "https://www.youtube.com/watch?v=kddr30-bBHY",
-      "date": "2024-09",
-      "notes": "",
-      "folder_name": "UKSEDS",
-      "safe_name": "UKSEDS",
-      "has_thumbnail": true,
-      "has_readme": true,
-      "has_download": false,
-      "download_file": null,
-      "has_pdf": false,
-      "pdf_file": null,
-      "gallery_images": [
-        "CAD cross section.png",
-        "CAD.png",
-        "IMG_4599.jpg",
-        "Launch Day.png",
-        "Nosecone CAD.png"
-      ],
-      "has_gallery": true,
-      "media_type": "youtube_gallery",
-      "order": 3
-    },
-    {
       "title": "Quadcopter",
       "description": "Built a quadcopter than won lightest weight out of 31 teams",
       "category": "hardware",
@@ -184,7 +157,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 4
+      "order": 3
     },
     {
       "title": "SWIFT",
@@ -205,7 +178,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 5
+      "order": 4
     },
     {
       "title": "Turbojet Engine",
@@ -233,7 +206,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 6
+      "order": 5
     },
     {
       "title": "Syllabus Prime",
@@ -256,7 +229,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 7
+      "order": 6
     },
     {
       "title": "Graphics Engine",
@@ -273,12 +246,39 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "Graphics Engine Presentation.pdf",
+      "pdf_file": "Graphics_Engine.pdf",
       "gallery_images": [
         "Coding Setup.jpg"
       ],
       "has_gallery": true,
       "media_type": "pdf",
+      "order": 7
+    },
+    {
+      "title": "UKSEDS",
+      "description": "Building a whistling rocket for a student rocketry competition",
+      "category": "hardware",
+      "public": true,
+      "youtube": "https://www.youtube.com/watch?v=kddr30-bBHY",
+      "date": "2024-09",
+      "notes": "",
+      "folder_name": "UKSEDS",
+      "safe_name": "UKSEDS",
+      "has_thumbnail": true,
+      "has_readme": true,
+      "has_download": false,
+      "download_file": null,
+      "has_pdf": false,
+      "pdf_file": null,
+      "gallery_images": [
+        "CAD cross section.png",
+        "CAD.png",
+        "IMG_4599.jpg",
+        "Launch Day.png",
+        "Nosecone CAD.png"
+      ],
+      "has_gallery": true,
+      "media_type": "youtube_gallery",
       "order": 8
     },
     {
@@ -345,7 +345,7 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "Development Documentation.pdf",
+      "pdf_file": "Topology_Optimisation_with_FEA.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
@@ -353,7 +353,7 @@
     },
     {
       "title": "Rapid Control Prototyping",
-      "description": "Desinging a controller for a 3-DOF helicopter system",
+      "description": "Designing a controller for a 3-DOF helicopter system",
       "category": "academic",
       "public": true,
       "youtube": "",
@@ -366,7 +366,7 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "main.pdf",
+      "pdf_file": "Rapid_Control_Prototyping.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
@@ -387,7 +387,7 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "main.pdf",
+      "pdf_file": "STM32F4Discovery_Board.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
@@ -450,7 +450,7 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "Feasibility of the Manufacture of Slinky Stator Geometries.pdf",
+      "pdf_file": "Slinky_Stators.pdf",
       "gallery_images": [
         "image (5).png",
         "IMG_8635.PNG",
@@ -461,30 +461,28 @@
       "order": 16
     },
     {
-      "title": "Chemical Chaos",
-      "description": "Submission to Brackey's Game Jam 2021.2, hitting top 50 out of 1702 entries",
-      "category": "games",
+      "title": "Sensor Fusion and Fault Detection",
+      "description": "Using an Extended Kalman Filter to generate clean predictions",
+      "category": "academic",
       "public": true,
-      "youtube": "https://youtu.be/FprhCmi_Nek",
-      "date": "2021-09",
+      "youtube": "",
+      "date": "2020-03",
       "notes": "",
-      "folder_name": "Chemical Chaos",
-      "safe_name": "Chemical_Chaos",
+      "folder_name": "ELE450 Multisensor and Decision Systems",
+      "safe_name": "ELE450_Multisensor_and_Decision_Systems",
       "has_thumbnail": true,
       "has_readme": true,
       "has_download": false,
       "download_file": null,
-      "has_pdf": false,
-      "pdf_file": null,
-      "gallery_images": [
-        "Screenshot 2021-08-28 215323.png"
-      ],
-      "has_gallery": true,
-      "media_type": "youtube_gallery",
+      "has_pdf": true,
+      "pdf_file": "ELE450_Multisensor_and_Decision_Systems.pdf",
+      "gallery_images": [],
+      "has_gallery": false,
+      "media_type": "pdf",
       "order": 17
     },
     {
-      "title": "ELE448 Coursework",
+      "title": "Machine Learning with QSAR Data",
       "description": "Training and validation of a QSAR biodegradability prediction model",
       "category": "academic",
       "public": true,
@@ -498,7 +496,7 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "report.pdf",
+      "pdf_file": "ELE448_Coursework.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
@@ -530,7 +528,30 @@
       "order": 19
     },
     {
-      "title": "ACS341 Assignment",
+      "title": "Chemical Chaos",
+      "description": "Submission to Brackey's Game Jam 2021.2, hitting top 50 out of 1702 entries",
+      "category": "games",
+      "public": true,
+      "youtube": "https://youtu.be/FprhCmi_Nek",
+      "date": "2021-09",
+      "notes": "",
+      "folder_name": "Chemical Chaos",
+      "safe_name": "Chemical_Chaos",
+      "has_thumbnail": true,
+      "has_readme": true,
+      "has_download": false,
+      "download_file": null,
+      "has_pdf": false,
+      "pdf_file": null,
+      "gallery_images": [
+        "Screenshot 2021-08-28 215323.png"
+      ],
+      "has_gallery": true,
+      "media_type": "youtube_gallery",
+      "order": 20
+    },
+    {
+      "title": "Machine Learning with Energy Data",
       "description": "Predicting household energy consumption with machine learning",
       "category": "academic",
       "public": true,
@@ -544,11 +565,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "ACS341 Report.pdf",
+      "pdf_file": "ACS341_Assignment.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 20
+      "order": 21
     },
     {
       "title": "Axial Flux Motor Winding Rig",
@@ -575,7 +596,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 21
+      "order": 22
     },
     {
       "title": "Rapid Access",
@@ -596,7 +617,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 22
+      "order": 23
     },
     {
       "title": "ExoTerra",
@@ -629,7 +650,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 23
+      "order": 24
     },
     {
       "title": "ATP Glider",
@@ -646,11 +667,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "GDP ATP Report.pdf",
+      "pdf_file": "ATP_Glider.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 24
+      "order": 25
     },
     {
       "title": "Blaze",
@@ -671,10 +692,10 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 25
+      "order": 26
     },
     {
-      "title": "AER324 Assignment",
+      "title": "Aircraft Dynamics and Control",
       "description": "Evaluation and comparison of the flight dynamics of a Cessna 172",
       "category": "academic",
       "public": true,
@@ -688,11 +709,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "AER324 Coursework-1.pdf",
+      "pdf_file": "AER324_Assignment.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 26
+      "order": 27
     },
     {
       "title": "Flight Simulator",
@@ -713,10 +734,10 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 27
+      "order": 28
     },
     {
-      "title": "AER325 Assignment",
+      "title": "Aerofoil Design",
       "description": "Design and evaluation of an aerofoil for a MAV",
       "category": "academic",
       "public": true,
@@ -730,11 +751,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "AER325 Assignment-1.pdf",
+      "pdf_file": "AER325_Assignment.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 28
+      "order": 29
     },
     {
       "title": "Shadowbot",
@@ -757,7 +778,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 29
+      "order": 30
     },
     {
       "title": "Board Game",
@@ -778,7 +799,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 30
+      "order": 31
     },
     {
       "title": "Doughnut Tutorial",
@@ -801,7 +822,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 31
+      "order": 32
     },
     {
       "title": "AMRC Presentation",
@@ -818,11 +839,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "My Placement.pdf",
+      "pdf_file": "AMRC_Presentation.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 32
+      "order": 33
     },
     {
       "title": "Loose Ends",
@@ -845,7 +866,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 33
+      "order": 34
     },
     {
       "title": "Maze Horror",
@@ -870,7 +891,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 34
+      "order": 35
     },
     {
       "title": "Brain Simulator",
@@ -893,7 +914,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 35
+      "order": 36
     },
     {
       "title": "Lasercut Models",
@@ -918,7 +939,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 36
+      "order": 37
     },
     {
       "title": "Multipack Image Generator",
@@ -939,7 +960,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 37
+      "order": 38
     },
     {
       "title": "Lightweight Matrix Library",
@@ -960,7 +981,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 38
+      "order": 39
     },
     {
       "title": "EYH Moving Seabins",
@@ -977,11 +998,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "Technical Bid.pdf",
+      "pdf_file": "EYH_Moving_Seabins.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 39
+      "order": 40
     },
     {
       "title": "Truss Analysis",
@@ -1005,7 +1026,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 40
+      "order": 41
     },
     {
       "title": "Planet Simulator",
@@ -1029,7 +1050,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 41
+      "order": 42
     },
     {
       "title": "IR Camera",
@@ -1050,7 +1071,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 42
+      "order": 43
     },
     {
       "title": "PSO Projects",
@@ -1074,7 +1095,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 43
+      "order": 44
     },
     {
       "title": "Inverse Kinematics",
@@ -1095,7 +1116,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 44
+      "order": 45
     },
     {
       "title": "Track and Trace",
@@ -1116,7 +1137,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 45
+      "order": 46
     },
     {
       "title": "Mark II Floor Plan",
@@ -1141,7 +1162,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 46
+      "order": 47
     },
     {
       "title": "3D Me",
@@ -1165,7 +1186,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 47
+      "order": 48
     },
     {
       "title": "Breadboarding",
@@ -1188,10 +1209,10 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 48
+      "order": 49
     },
     {
-      "title": "EEE223 Assignment",
+      "title": "3 Phase Induction Motor Control",
       "description": "Simulating and starting a three-phase induction motor",
       "category": "academic",
       "public": true,
@@ -1205,11 +1226,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "EEE223 - Assignment (Sem 1).pdf",
+      "pdf_file": "EEE223_Assignment.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 49
+      "order": 50
     },
     {
       "title": "Raycasting",
@@ -1233,10 +1254,10 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 50
+      "order": 51
     },
     {
-      "title": "ACS137 Assignment",
+      "title": "State-Space Control",
       "description": "Build, simulate and optimise a state-space control system in simulink",
       "category": "academic",
       "public": true,
@@ -1257,7 +1278,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 51
+      "order": 52
     },
     {
       "title": "The Chase - Revision Edition",
@@ -1278,7 +1299,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 52
+      "order": 53
     },
     {
       "title": "Espresso Set",
@@ -1303,7 +1324,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 53
+      "order": 54
     },
     {
       "title": "AER11002 Assignment",
@@ -1324,7 +1345,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 54
+      "order": 55
     },
     {
       "title": "AQA Text Adventures",
@@ -1345,7 +1366,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 55
+      "order": 56
     },
     {
       "title": "ANC Headphones",
@@ -1366,7 +1387,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 56
+      "order": 57
     },
     {
       "title": "Artwork",
@@ -1394,7 +1415,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 57
+      "order": 58
     },
     {
       "title": "AutoTab",
@@ -1415,7 +1436,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 58
+      "order": 59
     },
     {
       "title": "Control System Analyser",
@@ -1438,7 +1459,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 59
+      "order": 60
     },
     {
       "title": "Desktop PR Set",
@@ -1459,7 +1480,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 60
+      "order": 61
     },
     {
       "title": "Grumman X29 Presentation",
@@ -1476,11 +1497,11 @@
       "has_download": false,
       "download_file": null,
       "has_pdf": true,
-      "pdf_file": "Grumman X-29.pdf",
+      "pdf_file": "Grumman_X29_Presentation.pdf",
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 61
+      "order": 62
     },
     {
       "title": "Guitar Looper",
@@ -1501,7 +1522,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 62
+      "order": 63
     },
     {
       "title": "Gyro Balancing",
@@ -1522,7 +1543,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 63
+      "order": 64
     },
     {
       "title": "Head Tracking for Perspective",
@@ -1543,7 +1564,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 64
+      "order": 65
     },
     {
       "title": "Iontotherapy Machine",
@@ -1566,7 +1587,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 65
+      "order": 66
     },
     {
       "title": "2D Beam Solver",
@@ -1587,7 +1608,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 66
+      "order": 67
     },
     {
       "title": "Raindrops",
@@ -1608,7 +1629,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 67
+      "order": 68
     },
     {
       "title": "Resume",
@@ -1631,7 +1652,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 68
+      "order": 69
     },
     {
       "title": "SQL Database",
@@ -1652,7 +1673,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 69
+      "order": 70
     },
     {
       "title": "Strava API",
@@ -1673,10 +1694,10 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 70
+      "order": 71
     },
     {
-      "title": "ACS130 Assignment",
+      "title": "Basic C Manipulation",
       "description": "Demonstration of matrix multiplication and solving linear equations using C",
       "category": "academic",
       "public": false,
@@ -1694,7 +1715,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 71
+      "order": 72
     },
     {
       "title": "Mimic",
@@ -1715,7 +1736,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 72
+      "order": 73
     },
     {
       "title": ".mypy_cache",
@@ -1736,7 +1757,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 73
+      "order": 74
     },
     {
       "title": "Trading Bot",
@@ -1757,7 +1778,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 74
+      "order": 75
     },
     {
       "title": "AI Receptionist",
@@ -1778,7 +1799,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 75
+      "order": 76
     },
     {
       "title": "ELE434 Mobile Robotics and Autonomous Systems",
@@ -1790,27 +1811,6 @@
       "notes": "",
       "folder_name": "ELE434 Mobile Robotics and Autonomous Systems",
       "safe_name": "ELE434_Mobile_Robotics_and_Autonomous_Systems",
-      "has_thumbnail": false,
-      "has_readme": true,
-      "has_download": false,
-      "download_file": null,
-      "has_pdf": false,
-      "pdf_file": null,
-      "gallery_images": [],
-      "has_gallery": false,
-      "media_type": "none",
-      "order": 76
-    },
-    {
-      "title": "ELE450 Multisensor and Decision Systems",
-      "description": "",
-      "category": "other",
-      "public": false,
-      "youtube": "",
-      "date": "",
-      "notes": "",
-      "folder_name": "ELE450 Multisensor and Decision Systems",
-      "safe_name": "ELE450_Multisensor_and_Decision_Systems",
       "has_thumbnail": false,
       "has_readme": true,
       "has_download": false,

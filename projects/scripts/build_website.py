@@ -131,7 +131,7 @@ def get_project_data(project_folder: Path) -> dict:
     # Check for PDF files
     pdfs = list(portfolio_folder.glob("*.pdf"))
     data['has_pdf'] = len(pdfs) > 0
-    data['pdf_file'] = pdfs[0].name if pdfs else None
+    data['pdf_file'] = f"{safe_name}.pdf" if pdfs else None
     
     # Check for gallery images (only in images/ folder, not thumbnail)
     images_folder = portfolio_folder / "images"
@@ -189,9 +189,9 @@ def copy_assets(project_folder: Path, project_data: dict):
             zip_dst = OUTPUT_DOWNLOADS / zip_file.name
             shutil.copy2(zip_file, zip_dst)
     
-    # Copy PDF files
+    # Copy PDF files (renamed to safe_name to avoid collisions)
     for pdf_file in portfolio_folder.glob("*.pdf"):
-        pdf_dst = OUTPUT_DOWNLOADS / pdf_file.name
+        pdf_dst = OUTPUT_DOWNLOADS / f"{safe_name}.pdf"
         shutil.copy2(pdf_file, pdf_dst)
     
     # Copy gallery images

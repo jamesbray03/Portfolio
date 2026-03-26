@@ -13,12 +13,12 @@
 Rocket Engine Control System
 SWIFT_lite
 VTOL Quadplane
-UKSEDS
 Quadcopter
 SWIFT
 Turbojet Engine
 Syllabus Prime
 Graphics Engine
+UKSEDS
 Partial Discharge Test Rig
 Alora
 Topology Optimisation with FEA
@@ -27,9 +27,10 @@ STM32F4Discovery Board
 Blackboard Scraper
 Artificial Life
 Slinky Stators
-Chemical Chaos
+ELE450 Multisensor and Decision Systems
 ELE448 Coursework
 Sunfire Throttling Simulation
+Chemical Chaos
 ACS341 Assignment
 Axial Flux Motor Winding Rig
 Rapid Access
@@ -87,5 +88,4 @@ Mimic
 Trading Bot
 AI Receptionist
 ELE434 Mobile Robotics and Autonomous Systems
-ELE450 Multisensor and Decision Systems
 StitchScript
