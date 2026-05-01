@@ -1,8 +1,8 @@
 {
   "metadata": {
     "description": "Auto-generated project data for portfolio website",
-    "generated": "2026-03-26T11:36:47.740334",
-    "total_projects": 79
+    "generated": "2026-05-01T15:57:57.368541",
+    "total_projects": 80
   },
   "categories": [
     {
@@ -415,6 +415,29 @@
       "order": 14
     },
     {
+      "title": "Automated Display Logger",
+      "description": "Saving hours of lab work with automatic data extraction",
+      "category": "applications",
+      "public": true,
+      "youtube": "",
+      "date": "2026-05",
+      "notes": "",
+      "folder_name": "Automated Display Logger",
+      "safe_name": "Automated_Display_Logger",
+      "has_thumbnail": true,
+      "has_readme": true,
+      "has_download": false,
+      "download_file": null,
+      "has_pdf": false,
+      "pdf_file": null,
+      "gallery_images": [
+        "Screenshot 2026-05-01 155445.png"
+      ],
+      "has_gallery": true,
+      "media_type": "gallery",
+      "order": 15
+    },
+    {
       "title": "Artificial Life",
       "description": "Advanced cellular automata simulation",
       "category": "games",
@@ -433,7 +456,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 15
+      "order": 16
     },
     {
       "title": "Slinky Stators",
@@ -458,7 +481,7 @@
       ],
       "has_gallery": true,
       "media_type": "pdf",
-      "order": 16
+      "order": 17
     },
     {
       "title": "Sensor Fusion and Fault Detection",
@@ -466,7 +489,7 @@
       "category": "academic",
       "public": true,
       "youtube": "",
-      "date": "2020-03",
+      "date": "2026-03",
       "notes": "",
       "folder_name": "ELE450 Multisensor and Decision Systems",
       "safe_name": "ELE450_Multisensor_and_Decision_Systems",
@@ -479,7 +502,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 17
+      "order": 18
     },
     {
       "title": "Machine Learning with QSAR Data",
@@ -500,7 +523,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 18
+      "order": 19
     },
     {
       "title": "Sunfire Throttling Simulation",
@@ -525,7 +548,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 19
+      "order": 20
     },
     {
       "title": "Chemical Chaos",
@@ -548,7 +571,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 20
+      "order": 21
     },
     {
       "title": "Machine Learning with Energy Data",
@@ -569,7 +592,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 21
+      "order": 22
     },
     {
       "title": "Axial Flux Motor Winding Rig",
@@ -596,7 +619,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 22
+      "order": 23
     },
     {
       "title": "Rapid Access",
@@ -617,7 +640,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 23
+      "order": 24
     },
     {
       "title": "ExoTerra",
@@ -650,7 +673,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 24
+      "order": 25
     },
     {
       "title": "ATP Glider",
@@ -671,7 +694,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 25
+      "order": 26
     },
     {
       "title": "Blaze",
@@ -692,7 +715,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 26
+      "order": 27
     },
     {
       "title": "Aircraft Dynamics and Control",
@@ -713,7 +736,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 27
+      "order": 28
     },
     {
       "title": "Flight Simulator",
@@ -734,7 +757,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 28
+      "order": 29
     },
     {
       "title": "Aerofoil Design",
@@ -755,7 +778,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 29
+      "order": 30
     },
     {
       "title": "Shadowbot",
@@ -778,7 +801,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 30
+      "order": 31
     },
     {
       "title": "Board Game",
@@ -799,7 +822,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 31
+      "order": 32
     },
     {
       "title": "Doughnut Tutorial",
@@ -822,7 +845,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 32
+      "order": 33
     },
     {
       "title": "AMRC Presentation",
@@ -843,7 +866,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 33
+      "order": 34
     },
     {
       "title": "Loose Ends",
@@ -866,7 +889,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 34
+      "order": 35
     },
     {
       "title": "Maze Horror",
@@ -891,7 +914,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 35
+      "order": 36
     },
     {
       "title": "Brain Simulator",
@@ -914,7 +937,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 36
+      "order": 37
     },
     {
       "title": "Lasercut Models",
@@ -939,7 +962,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 37
+      "order": 38
     },
     {
       "title": "Multipack Image Generator",
@@ -960,7 +983,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 38
+      "order": 39
     },
     {
       "title": "Lightweight Matrix Library",
@@ -981,7 +1004,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 39
+      "order": 40
     },
     {
       "title": "EYH Moving Seabins",
@@ -1002,7 +1025,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 40
+      "order": 41
     },
     {
       "title": "Truss Analysis",
@@ -1026,7 +1049,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 41
+      "order": 42
     },
     {
       "title": "Planet Simulator",
@@ -1050,7 +1073,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 42
+      "order": 43
     },
     {
       "title": "IR Camera",
@@ -1071,7 +1094,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 43
+      "order": 44
     },
     {
       "title": "PSO Projects",
@@ -1095,7 +1118,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 44
+      "order": 45
     },
     {
       "title": "Inverse Kinematics",
@@ -1116,7 +1139,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 45
+      "order": 46
     },
     {
       "title": "Track and Trace",
@@ -1137,7 +1160,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 46
+      "order": 47
     },
     {
       "title": "Mark II Floor Plan",
@@ -1162,7 +1185,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 47
+      "order": 48
     },
     {
       "title": "3D Me",
@@ -1186,7 +1209,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 48
+      "order": 49
     },
     {
       "title": "Breadboarding",
@@ -1209,7 +1232,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 49
+      "order": 50
     },
     {
       "title": "3 Phase Induction Motor Control",
@@ -1230,7 +1253,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 50
+      "order": 51
     },
     {
       "title": "Raycasting",
@@ -1254,7 +1277,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 51
+      "order": 52
     },
     {
       "title": "State-Space Control",
@@ -1278,7 +1301,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 52
+      "order": 53
     },
     {
       "title": "The Chase - Revision Edition",
@@ -1299,7 +1322,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 53
+      "order": 54
     },
     {
       "title": "Espresso Set",
@@ -1324,7 +1347,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 54
+      "order": 55
     },
     {
       "title": "AER11002 Assignment",
@@ -1345,7 +1368,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 55
+      "order": 56
     },
     {
       "title": "AQA Text Adventures",
@@ -1366,7 +1389,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 56
+      "order": 57
     },
     {
       "title": "ANC Headphones",
@@ -1387,7 +1410,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 57
+      "order": 58
     },
     {
       "title": "Artwork",
@@ -1415,7 +1438,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 58
+      "order": 59
     },
     {
       "title": "AutoTab",
@@ -1436,7 +1459,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 59
+      "order": 60
     },
     {
       "title": "Control System Analyser",
@@ -1459,7 +1482,7 @@
       ],
       "has_gallery": true,
       "media_type": "youtube_gallery",
-      "order": 60
+      "order": 61
     },
     {
       "title": "Desktop PR Set",
@@ -1480,7 +1503,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 61
+      "order": 62
     },
     {
       "title": "Grumman X29 Presentation",
@@ -1501,7 +1524,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "pdf",
-      "order": 62
+      "order": 63
     },
     {
       "title": "Guitar Looper",
@@ -1522,7 +1545,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 63
+      "order": 64
     },
     {
       "title": "Gyro Balancing",
@@ -1543,7 +1566,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 64
+      "order": 65
     },
     {
       "title": "Head Tracking for Perspective",
@@ -1564,7 +1587,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 65
+      "order": 66
     },
     {
       "title": "Iontotherapy Machine",
@@ -1587,7 +1610,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 66
+      "order": 67
     },
     {
       "title": "2D Beam Solver",
@@ -1608,7 +1631,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 67
+      "order": 68
     },
     {
       "title": "Raindrops",
@@ -1629,7 +1652,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 68
+      "order": 69
     },
     {
       "title": "Resume",
@@ -1652,7 +1675,7 @@
       ],
       "has_gallery": true,
       "media_type": "gallery",
-      "order": 69
+      "order": 70
     },
     {
       "title": "SQL Database",
@@ -1673,7 +1696,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 70
+      "order": 71
     },
     {
       "title": "Strava API",
@@ -1694,7 +1717,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 71
+      "order": 72
     },
     {
       "title": "Basic C Manipulation",
@@ -1715,7 +1738,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "youtube",
-      "order": 72
+      "order": 73
     },
     {
       "title": "Mimic",
@@ -1736,7 +1759,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "thumbnail",
-      "order": 73
+      "order": 74
     },
     {
       "title": ".mypy_cache",
@@ -1757,7 +1780,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 74
+      "order": 75
     },
     {
       "title": "Trading Bot",
@@ -1778,7 +1801,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 75
+      "order": 76
     },
     {
       "title": "AI Receptionist",
@@ -1799,7 +1822,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 76
+      "order": 77
     },
     {
       "title": "ELE434 Mobile Robotics and Autonomous Systems",
@@ -1820,7 +1843,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 77
+      "order": 78
     },
     {
       "title": "StitchScript",
@@ -1841,7 +1864,7 @@
       "gallery_images": [],
       "has_gallery": false,
       "media_type": "none",
-      "order": 78
+      "order": 79
     }
   ]
 }

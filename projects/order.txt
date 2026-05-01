@@ -25,6 +25,7 @@ Topology Optimisation with FEA
 Rapid Control Prototyping
 STM32F4Discovery Board
 Blackboard Scraper
+Automated Display Logger
 Artificial Life
 Slinky Stators
 ELE450 Multisensor and Decision Systems

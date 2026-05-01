@@ -1,0 +1,1 @@
+My mates and I were spending hours in labs trying to get enough data for dissertation projects, and having to note each individual data point down was preventing us from acquiring enough data. So I built this app which parses a video of a seven segment display into a timestamped CSV file.
