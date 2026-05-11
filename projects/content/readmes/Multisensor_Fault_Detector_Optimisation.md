@@ -1,0 +1,1 @@
+Following the multisensor fusion project, I used a multiobjective optimisation technique to fine tune the hyperparameters of a CUSUM automatic fault detection algorithm. 
