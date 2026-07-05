@@ -68,8 +68,8 @@
 /* ---------- education cards: compact logo layout ---------- */
 .edu-card { align-items: flex-start; }
 .edu-card .info-image {
-    width: 84px;
-    height: 84px;
+    width: 200px;
+    height: 200px;
     border-radius: 10px;
 }
 .edu-card .info-content > p { max-width: 60rem; }

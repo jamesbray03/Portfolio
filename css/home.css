@@ -3,7 +3,7 @@
    ============================================================ */
 
 /* wider canvas so the hero (incl. side photos) sits inside the margins */
-main { max-width: 1200px; }
+main { max-width: 1100px; }
 
 /* ---------- hero ---------- */
 .hero {
@@ -16,18 +16,25 @@ main { max-width: 1200px; }
     padding: 3rem 0 2rem;
 }
 
-/* faint engineering grid behind the hero, fading out radially */
+/* faint engineering grid behind the hero, fading out radially.
+   FIXED size (not vw) + its own GPU layer: window resize no longer
+   re-rasterises the masked gradient every frame, and it doesn't repaint
+   on scroll. The radial mask fades it out well inside these bounds. */
 .hero::before {
     content: '';
     position: absolute;
-    inset: -64px -30vw 0;
+    top: -64px;
+    left: 50%;
+    width: 1700px;
+    height: 780px;
+    transform: translateX(-50%) translateZ(0);
     z-index: -1;
     background-image:
         linear-gradient(var(--line) 1px, transparent 1px),
         linear-gradient(90deg, var(--line) 1px, transparent 1px);
     background-size: 44px 44px;
-    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 35%, black 20%, transparent 72%);
-    mask-image: radial-gradient(ellipse 70% 80% at 50% 35%, black 20%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse 42% 68% at 50% 50%, black 22%, transparent 74%);
+    mask-image: radial-gradient(ellipse 42% 68% at 50% 50%, black 22%, transparent 74%);
     opacity: 0.55;
     pointer-events: none;
 }
@@ -74,18 +81,32 @@ main { max-width: 1200px; }
 
 /* ---------- hero visual: portrait + flanking photos ---------- */
 .hero-visual {
-    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* group is right-justified against the page margin, not centred in the column */
+    justify-content: flex-end;
     min-height: 380px;
     animation: hero-rise 0.7s var(--ease) 0.12s both;
+}
+
+/* the three images move as one unit; their relative positions never change */
+.hero-group {
+    position: relative;
+    /* portrait size + how far each side photo is offset from the portrait centre.
+       Fixed px (no vw) so the photos never shrink with the page width. */
+    --portrait: 320px;
+    --side-offset: calc(150px + 200px);
+    /* the group box is only as wide as the portrait, so flex-end lands the
+       PORTRAIT edge on the page margin — but the right photo overhangs it.
+       Shift the whole cluster left by that overhang so the RIGHT photo's edge
+       meets the same margin as the rest of the page content. */
+    transform: translateX(calc(10% + -1 * (var(--side-offset) - var(--portrait) / 2)));
 }
 
 .hero-portrait-wrap {
     position: relative;
     z-index: 2;
-    width: clamp(230px, 24vw, 320px);
+    width: var(--portrait);
     aspect-ratio: 1;
 }
 
@@ -103,24 +124,29 @@ main { max-width: 1200px; }
     position: absolute;
     top: 50%;
     z-index: 1;
-    width: clamp(200px, 18vw, 270px);
+    width: 270px;
     height: auto;
-    opacity: 0.55;
+    opacity: 0.85;
     filter: saturate(0.85);
     transform: translateY(-42%);
     /* soften edges into the background */
     -webkit-mask-image: radial-gradient(ellipse 70% 64% at 50% 50%, black 42%, transparent 80%);
     mask-image: radial-gradient(ellipse 70% 64% at 50% 50%, black 42%, transparent 80%);
-    transition: opacity var(--fade) ease;
+    /* fade in/out as they appear/disappear on resize (opacity, not display) */
+    transition: opacity var(--fade) ease, visibility var(--fade) ease;
     pointer-events: none;
     user-select: none;
 }
-.hero-side-left  { left: calc(50% - clamp(105px, 11vw, 150px) - clamp(150px, 14vw, 200px)); }
-.hero-side-right { right: calc(50% - clamp(105px, 11vw, 150px) - clamp(150px, 14vw, 200px)); }
+.hero-side-left  { left:  calc(50% - var(--side-offset)); }
+.hero-side-right { right: calc(50% - var(--side-offset)); }
 
-/* hide them when the hero columns get tight (they'd bleed into text) */
-@media (max-width: 1150px) {
-    .hero-side { display: none; }
+/* When the hero columns get tight, fade the side photos out and centre the
+   portrait halfway between the hero text's right edge and the page edge —
+   i.e. the visual column's centre, pulled left by half the 2rem grid gap. */
+@media (max-width: 1000px) {
+    .hero-side { opacity: 0; visibility: hidden; }
+    .hero-visual { justify-content: center; }
+    .hero-group { transform: translateX(-1rem); }
 }
 
 /* ---------- responsive hero ---------- */
@@ -132,8 +158,9 @@ main { max-width: 1200px; }
         padding-top: 2rem;
         text-align: center;
     }
-    .hero-visual { order: -1; min-height: auto; }
+    .hero-visual { order: -1; min-height: auto; justify-content: center; }
     .hero-side { display: none; }
+    .hero-group { transform: none; }   /* centred column — drop the shift */
     .hero-text { text-align: center; }
     .hero-tagline { margin-left: auto; margin-right: auto; }
     .hero-actions { justify-content: center; }

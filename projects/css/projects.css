@@ -25,9 +25,10 @@ main { max-width: 1180px; }
     z-index: 100;
     margin: 1.2rem -1.5rem 1.8rem;
     padding: 0.7rem 1.5rem;
-    background: color-mix(in srgb, var(--bg) 82%, transparent);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    contain: layout paint;
 }
 
 .category-filter {
