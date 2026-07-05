@@ -12,48 +12,64 @@
 
     gtag('config', 'G-QLL5PR2D52');
     </script>
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="description" content="My background, resume, and projects all in one place." />
     <meta name="keywords" content="James Bray, portfolio, projects, aerospace engineering, web development, contact" />
     <meta name="author" content="James Bray" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0a0d13" />
 
     <meta property="og:title" content="James Bray – Thanks" />
     <meta property="og:description" content="My background, resume, and projects all in one place." />
     <meta property="og:image" content="content/images/cover.webp" />
     <meta property="og:url" content="https://www.jamesbray.uk/thanks" />
     <meta property="og:type" content="website" />
-    
+
     <link rel="icon" href="../../content/images/icon.ico" type="image/x-icon">
-    <link rel="preload" href="content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="../../content/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="../../content/fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="../../content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../css/base.css" />
 </head>
 <body>
+    <!-- apply light theme pre-paint (dark is default) -->
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light-mode');
+        }
+    </script>
     <header>
         <nav class="nav-left">
-            <a href="/" class="nav-link">Home</a>
-            <a href="/CV/index.html" class="nav-link">CV</a>
-            <a href="/projects/index.html" class="nav-link">Projects</a>
-            <a href="/contact/index.html" class="nav-link">Contact</a>
+            <a href="/" class="brand">JB<span class="brand-slash">/</span></a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/CV/index.html" class="nav-link">CV</a>
+                <a href="/projects/index.html" class="nav-link">Projects</a>
+                <a href="/contact/index.html" class="nav-link">Contact</a>
+            </div>
         </nav>
-        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        <div class="header-right">
+            <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light mode">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+        </div>
     </header>
 
-    <main>
+    <main style="text-align: center; padding-top: 5rem; padding-bottom: 6rem;">
+        <p class="kicker" style="justify-content: center;">Message received</p>
         <h1>Thanks!</h1>
-        <p class="subtitle">I'll get back to you as soon as I can :)</p>
-        <a href="/" class="button">Home</a>
+        <p style="color: var(--text-dim); font-size: 1.05rem;">I'll get back to you as soon as I can :)</p>
+        <a href="/" class="button" style="margin-top: 1rem;">Home</a>
     </main>
 
     <footer>
         <p>© 2026 James Bray. All rights reserved.</p>
         <p>Hosted on GitHub Pages, built from scratch.</p>
-        <div style="height: 100px;"></div>
     </footer>
 
-    <script src="../js/dark-mode.js"></script>
+    <script src="../../js/dark-mode.js"></script>
 </body>
 </html>

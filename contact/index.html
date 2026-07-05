@@ -12,62 +12,84 @@
 
     gtag('config', 'G-QLL5PR2D52');
     </script>
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="description" content="My background, resume, and projects all in one place." />
     <meta name="keywords" content="James Bray, portfolio, projects, aerospace engineering, web development, contact" />
     <meta name="author" content="James Bray" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0a0d13" />
 
     <meta property="og:title" content="James Bray – Contact" />
     <meta property="og:description" content="My background, resume, and projects all in one place." />
     <meta property="og:image" content="content/images/cover.webp" />
     <meta property="og:url" content="https://www.jamesbray.uk/contact/" />
     <meta property="og:type" content="website" />
-    
+
     <link rel="icon" href="../content/images/icon.ico" type="image/x-icon">
+    <link rel="preload" href="../content/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="../content/fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href="../content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body>
-    <!-- prevent FOUC -->
+    <!-- apply light theme pre-paint (dark is default) -->
     <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light-mode');
         }
-    </script> 
+    </script>
     <header>
         <nav class="nav-left">
-            <a href="../index.html" class="nav-link">Home</a>
-            <a href="../CV/index.html" class="nav-link">CV</a>
-            <a href="../projects/index.html" class="nav-link">Projects</a>
-            <a href="index.html" class="nav-link">Contact</a>
+            <a href="../index.html" class="brand">JB<span class="brand-slash">/</span></a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../CV/index.html" class="nav-link">CV</a>
+                <a href="../projects/index.html" class="nav-link">Projects</a>
+                <a href="index.html" class="nav-link active">Contact</a>
+            </div>
         </nav>
-        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        <div class="header-right">
+            <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light mode">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+        </div>
     </header>
 
-    <main>
-        <h1>Contact Me</h1>
-        <p class="subtitle">Let's work together, or just say hi!</p>
+    <main class="contact-main">
+        <div class="page-head">
+            <p class="kicker">Comms</p>
+            <h1>Contact Me</h1>
+            <p class="page-sub">Let's work together, or just say hi!</p>
+            <span class="status-line"><span class="status-dot"></span>Available for contracts</span>
+        </div>
 
         <form class="contact-form" action="https://formsubmit.co/jamesbray03@protonmail.com" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required class="text-area">
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+            <div class="form-field">
+                <label for="cf-name" class="mono-label">Name</label>
+                <input id="cf-name" type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-field">
+                <label for="cf-email" class="mono-label">Email</label>
+                <input id="cf-email" type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-field">
+                <label for="cf-message" class="mono-label">Message</label>
+                <textarea id="cf-message" name="message" rows="6" placeholder="Your Message" required></textarea>
+            </div>
             <input type="hidden" name="_captcha" value="false">
             <button type="submit" class="button">Send Message</button>
-        </form>     
+        </form>
 
-        <p>or connect with me on <a href=https://www.linkedin.com/in/jamesbray03/>LinkedIn</a></p>
+        <p class="contact-alt">or connect with me on <a href="https://www.linkedin.com/in/jamesbray03/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </main>
 
     <footer>
         <p>© 2026 James Bray. All rights reserved.</p>
         <p>Hosted on GitHub Pages, built from scratch.</p>
-        <div style="height: 100px;"></div>
     </footer>
 
     <script src="../js/dark-mode.js"></script>
