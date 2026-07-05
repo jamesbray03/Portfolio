@@ -1,60 +1,223 @@
-.profile-pic {
-    width: 240px;
-    height: 240px;
-    max-width: 100%;
-    border-radius: 50%;
+/* ============================================================
+   HOME — hero, about grid, highlights
+   ============================================================ */
+
+/* wider canvas so the hero (incl. side photos) sits inside the margins */
+main { max-width: 1100px; }
+
+/* ---------- hero ---------- */
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 2rem;
+    min-height: min(78vh, 640px);
+    padding: 3rem 0 2rem;
+}
+
+/* faint engineering grid behind the hero, fading out radially.
+   FIXED size (not vw) + its own GPU layer: window resize no longer
+   re-rasterises the masked gradient every frame, and it doesn't repaint
+   on scroll. The radial mask fades it out well inside these bounds. */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -64px;
+    left: 50%;
+    width: 1700px;
+    height: 780px;
+    transform: translateX(-50%) translateZ(0);
+    z-index: -1;
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse 42% 68% at 50% 50%, black 22%, transparent 74%);
+    mask-image: radial-gradient(ellipse 42% 68% at 50% 50%, black 22%, transparent 74%);
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.hero-text {
+    text-align: left;
+    animation: hero-rise 0.7s var(--ease) both;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.8rem, 6.5vw, 4.2rem);
+    letter-spacing: -0.03em;
+    margin: 0 0 0.1em;
+}
+
+.hero-role {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0 0 0.8em;
+}
+
+.hero-tagline {
+    /* wrap early: keep the line no wider than the "James Bray" title */
+    max-width: 21rem;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    margin-bottom: 1.4em;
+}
+
+.hero-status { margin-bottom: 1.6rem; }
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+@keyframes hero-rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* ---------- hero visual: portrait + flanking photos ---------- */
+.hero-visual {
+    display: flex;
+    align-items: center;
+    /* group is right-justified against the page margin, not centred in the column */
+    justify-content: flex-end;
+    min-height: 380px;
+    animation: hero-rise 0.7s var(--ease) 0.12s both;
+}
+
+/* the three images move as one unit; their relative positions never change */
+.hero-group {
+    position: relative;
+    /* portrait size + how far each side photo is offset from the portrait centre.
+       Fixed px (no vw) so the photos never shrink with the page width. */
+    --portrait: 320px;
+    --side-offset: calc(150px + 200px);
+    /* the group box is only as wide as the portrait, so flex-end lands the
+       PORTRAIT edge on the page margin — but the right photo overhangs it.
+       Shift the whole cluster left by that overhang so the RIGHT photo's edge
+       meets the same margin as the rest of the page content. */
+    transform: translateX(calc(10% + -1 * (var(--side-offset) - var(--portrait) / 2)));
+}
+
+.hero-portrait-wrap {
+    position: relative;
+    z-index: 2;
+    width: var(--portrait);
+    aspect-ratio: 1;
+}
+
+.hero-portrait {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: 1rem;
-    box-shadow: 0 0 16px var(--base-3);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media (max-width: 768px) {
-    .profile-pic {
-        width: 180px;
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-pic {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-    vertical-align: middle;
-    fill: var(--base1);
-    filter: invert(0);
-}
-.icon-button {
-    display: inline-block;
-    background-color: var(--base-5);
-    border: none;
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    margin: 10px 10px;
-    cursor: pointer;
-    color: var(--base-1);
-    box-shadow: 0 0 8px var(--base-3);
-    font-size: 1rem;
-    text-align: center;
-    line-height: 48px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid var(--line-strong);
+    display: block;
 }
 
-.icon-button:hover {
-    background-color: var(--accent-1);
-    color: var(--base-1);
+/* flanking action photos (transparent PNGs, decorative) */
+.hero-side {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 270px;
+    height: auto;
+    opacity: 0.85;
+    filter: saturate(0.85);
+    transform: translateY(-42%);
+    /* soften edges into the background */
+    -webkit-mask-image: radial-gradient(ellipse 70% 64% at 50% 50%, black 42%, transparent 80%);
+    mask-image: radial-gradient(ellipse 70% 64% at 50% 50%, black 42%, transparent 80%);
+    /* fade in/out as they appear/disappear on resize (opacity, not display) */
+    transition: opacity var(--fade) ease, visibility var(--fade) ease;
+    pointer-events: none;
+    user-select: none;
+}
+.hero-side-left  { left:  calc(50% - var(--side-offset)); }
+.hero-side-right { right: calc(50% - var(--side-offset)); }
+
+/* When the hero columns get tight, fade the side photos out and centre the
+   portrait halfway between the hero text's right edge and the page edge —
+   i.e. the visual column's centre, pulled left by half the 2rem grid gap. */
+@media (max-width: 1000px) {
+    .hero-side { opacity: 0; visibility: hidden; }
+    .hero-visual { justify-content: center; }
+    .hero-group { transform: translateX(-1rem); }
 }
 
-.dark-mode .icon {
-    filter: invert(1);
+/* ---------- responsive hero ---------- */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        min-height: auto;
+        padding-top: 2rem;
+        text-align: center;
+    }
+    .hero-visual { order: -1; min-height: auto; justify-content: center; }
+    .hero-side { display: none; }
+    .hero-group { transform: none; }   /* centred column — drop the shift */
+    .hero-text { text-align: center; }
+    .hero-tagline { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .hero-text .kicker { justify-content: center; }
 }
+
+/* ---------- about ---------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    text-align: left;
+}
+
+.about-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.5rem 1.4rem;
+    box-shadow: var(--card-shadow);
+    transition: border-color var(--fade) ease, background-color var(--fade) ease,
+                transform 0.25s var(--ease), box-shadow var(--fade) ease;
+}
+.about-card:hover {
+    border-color: var(--line-strong);
+    background: var(--bg-hover);
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.about-index {
+    position: absolute;
+    top: 1.3rem;
+    right: 1.4rem;
+    color: var(--accent);
+    opacity: 0.6;
+    margin: 0;
+}
+
+.about-card h3 { margin-bottom: 0.6em; }
+.about-card p:last-child { margin-bottom: 0; }
+.about-card ul { margin-bottom: 0; padding-left: 1.1rem; }
+.about-card li { font-size: 0.95rem; }
+
+@media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- section link ---------- */
+.section-link {
+    margin: 2rem 0 0;
+    color: var(--text-faint);
+}
+
+/* ---------- highlights ---------- */
+.highlights-section .info-card ul {
+    padding-left: 1.1rem;
+}
+.highlights-section .info-content h3 { margin-top: 0.2em; }
