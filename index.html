@@ -12,14 +12,14 @@
 
     gtag('config', 'G-QLL5PR2D52');
     </script>
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="description" content="My background, resume, and projects all in one place." />
     <meta name="keywords" content="James Bray, portfolio, projects, aerospace engineering, web development, contact" />
     <meta name="author" content="James Bray" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#0a0d13" />
 
     <meta property="og:title" content="James Bray – Home" />
     <meta property="og:description" content="My background, resume, and projects all in one place." />
@@ -28,152 +28,184 @@
     <meta property="og:type" content="website" />
 
     <link rel="icon" href="content/images/icon.ico" type="image/x-icon">
+    <link rel="preload" href="content/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="content/fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href="content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/content/images/profile.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="/content/images/centre_raw.png" as="image" type="image/png" fetchpriority="high" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
-    <!-- prevent FOUC -->
+    <!-- apply light theme pre-paint (dark is default) -->
     <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark-mode');
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light-mode');
         }
-    </script>   
+    </script>
     <header>
         <nav class="nav-left">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="CV/index.html" class="nav-link">CV</a>
-            <a href="projects/index.html" class="nav-link">Projects</a>
-            <a href="contact/index.html" class="nav-link">Contact</a>
+            <a href="index.html" class="brand">JB<span class="brand-slash">/</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="CV/index.html" class="nav-link">CV</a>
+                <a href="projects/index.html" class="nav-link">Projects</a>
+                <a href="contact/index.html" class="nav-link">Contact</a>
+            </div>
         </nav>
-        <button id="mode-toggle" class="mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
-    </header>
-    <main>
-        <br>
-        <img src="/content/images/profile.webp" alt="Profile Picture" class="profile-pic" width="240" height="240" fetchpriority="high" loading="eager" decoding="sync">
-        <h1>James Bray</h1>
-        <p class="subtitle">Portfolio Website</p>
-        <div class="button-container">
-            <button class="icon-button" aria-label="GitHub">
-                <a href="https://github.com/jamesbray03" target="_blank" rel="noopener noreferrer">
-                    <img src="content/images/github.webp" alt="GitHub Icon" class="icon" style="display: block; margin: 0 auto;">
-                </a>
-            </button>
-            <button class="icon-button" aria-label="LinkedIn">
-                <a href="https://www.linkedin.com/in/jamesbray03/" target="_blank" rel="noopener noreferrer">
-                    <img src="content/images/linkedin.webp" alt="LinkedIn Icon" class="icon" style="display: block; margin: 0 auto;">
-                </a>
-            </button>
-            <button class="icon-button" aria-label="Email">
-                <a href="contact/index.html">
-                    <img src="content/images/email.webp" alt="Email Icon" class="icon" style="display: block; margin: 0 auto;">
-                </a>
+        <div class="header-right">
+            <button id="mode-toggle" class="mode-toggle" aria-label="Toggle light mode">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
             </button>
         </div>
-        <hr class="divider">
-        <br>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="kicker">Aerospace R&amp;D — UAV Systems</p>
+                <h1>James Bray</h1>
+                <p class="hero-role">R&amp;D Contractor</p>
+                <p class="hero-tagline">
+                    I design, prototype, and deploy end-to-end systems — from firmware to flight.
+                </p>
+                <div class="hero-status">
+                    <span class="status-line"><span class="status-dot"></span>Available for contracts</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="contact/index.html" class="button">Get in touch</a>
+                    <a href="projects/index.html" class="button-ghost">View projects</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="false">
+                <div class="hero-group">
+                    <img src="/content/images/left.png" alt="" class="hero-side hero-side-left" aria-hidden="true" decoding="async">
+                    <div class="hero-portrait-wrap">
+                        <img src="/content/images/centre_raw.png" alt="James Bray" class="hero-portrait" width="360" height="360" fetchpriority="high" loading="eager">
+                    </div>
+                    <img src="/content/images/right.png" alt="" class="hero-side hero-side-right" aria-hidden="true" decoding="async">
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="about-section">
-            <h2>About Me</h2>
-            <div class="info-card">
-                <div class="info-content">
+            <div class="section-head reveal">
+                <div>
+                    <p class="kicker">01 — About</p>
+                    <h2>About Me</h2>
+                </div>
+                <p class="section-side-link">See more of my background on my <a href="CV/index.html">CV page</a></p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <p class="mono-label about-index">01</p>
                     <h3>Background</h3>
                     <p>
-                        I am a Systems Engineer and Aerospace MEng graduate specialising in the integration of physical hardware and complex software. I have a range of past projects and upcoming contracts, giving me a wide field of applicable knowledge, making me highly adaptable to new challenges. I work well in cross-disciplinary teams, moving between high-level system design and detailed technical work to deliver high quality results.
+                        I am an Aerospace MEng graduate specialising in UAV system software. I have a range of past projects and upcoming contracts, giving me a wide field of applicable knowledge across the stack.
                     </p>
-                    <p style="margin-bottom: 1.5rem;"></p>
+                </div>
+                <div class="about-card reveal">
+                    <p class="mono-label about-index">02</p>
+                    <h3>What I Do</h3>
                     <p>
-                        If you think there's a place for me in your team, feel free to reach out to me via my <a href="contact/index.html">contact form</a></p>
+                        I design, prototype, and deploy end-to-end engineering systems. Operating across the full workflow, I integrate complex firmware with physical hardware, build real-time embedded systems, and lead teams.
+                    </p>
+                </div>
+                <div class="about-card reveal">
+                    <p class="mono-label about-index">03</p>
+                    <h3>What's Next?</h3>
+                    <p>
+                        I'm taking on short-term, high-impact R&amp;D contracts to build a wide skill set and network across the industry before I advance into long term goals.
+                    </p>
+                    <p>
+                        Eventually, when the time is right, I'd like my own company focused on future-facing, meaningful projects. Until then, I am helping engineering teams solve their hardest problems.
                     </p>
                 </div>
             </div>
-        
-            <div class="info-card">
+        </section>
+
+        <section class="highlights-section">
+            <div class="section-head reveal">
+                <div>
+                    <p class="kicker">02 — Featured</p>
+                    <h2>Highlighted Projects</h2>
+                </div>
+                <p class="section-side-link">See more of my projects on my <a href="projects/index.html">project page</a></p>
+            </div>
+
+            <div class="info-card reveal">
+                <img src="content/images/XPRIZE_highlight.webp" alt="XPRIZE thumbnail" class="info-image">
                 <div class="info-content">
-                    <h3>What I Do</h3>
-                    <p>
-                        I design, prototype, and deploy end-to-end systems. My proficiencies allow me to operate across the entire engineering workflow:
-                    </p>
+                    <div class="card-head">
+                        <h3>Autonomous UAV Swarm for Wildfire Response</h3>
+                        <p class="card-date">Sep 2025 – May 2026</p>
+                    </div>
                     <ul>
-                        <li><strong>Cross-Disciplinary R&D</strong> - building and integrating complex software with physical systems</li>
-                        <li><strong>Full-Stack Software & Simulation</strong> - working from firmware to UI, building cohesive architectures</li>
-                        <li><strong>Embedded Systems & Controls</strong> - designing real-time control loops and robust firmware</li>
-                        <li><strong>System Optimisation</strong> - breaking apart systems to locate and eliminate bottlenecks and improve performance</li>
-                        <li><strong>AI automation tools</strong> - developing advanced agentic systems to produce excellent products and workflows</li>
+                        <li>Wrote my Masters Dissertation on novel approaches to wildfire searching with swarms</li>
+                        <li>Deployed in Alaska to implement and test my code on a fleet of autonomous UAVs</li>
+                        <li>Engineered a novel thermal detection refinement method to localise fires with 1m accuracy</li>
+                        <li>Profiled system architecture to identify critical network bottlenecks and mitigate them</li>
+                        <li>Conducted rapid hardware-in-the-loop testing cycles in a 38h non-stop development sprint</li>
+                        <li>Contributed to an academic paper on sensor methodology and optimisation techniques</li>
                     </ul>
                 </div>
             </div>
-        
-            <div class="info-card">
+            <div class="info-card reveal">
+                <img src="content/images/VTOL highlight.webp" alt="VTOL Quadplane thumbnail" class="info-image">
                 <div class="info-content">
-                    <h3>What’s Next?</h3>
-                    <p>
-                        I'm currently looking to take on short-term, high-impact R&D contracts. I want to work on a variety of projects in my early career, building up a wide skillset and network across the industry before I advance into long term goals.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                    <p>
-                        Eventually, when the time is right, I'd like my own company focused on future-facing, meaningful projects. Until then, I am helping engineering teams solve their hardest problems, one system at a time.
-                    </p>
+                    <div class="card-head">
+                        <h3>VTOL Quadplane Design Build and Test</h3>
+                        <p class="card-date">Sep 2024 – May 2025</p>
+                    </div>
+                    <ul>
+                        <li>Led the design and integration of the full avionics system for a modular VTOL UAV platform</li>
+                        <li>Designed open-plan, modular electronics layout with accessible connections for maintainability</li>
+                        <li>Implemented ironbird avionics testbed to verify systems before final integration</li>
+                        <li>Supported system-level integration ensuring plug-and-play compatibility across subsystems</li>
+                        <li>Optimised cooling layout by externally mounting ESCs and positioning components for airflow</li>
+                        <li>Collaborated cross-functionally with flight dynamics, structures, and integration teams</li>
+                    </ul>
                 </div>
             </div>
-            <p>See more of my background on my <a href="CV/index.html">CV page</a></p>
+            <div class="info-card reveal">
+                <img src="content/images/Quadcopter highlight.webp" alt="Quadcopter thumbnail" class="info-image">
+                <div class="info-content">
+                    <div class="card-head">
+                        <h3>Quadcopter Design Build and Test</h3>
+                        <p class="card-date">Sep 2023 – May 2024</p>
+                    </div>
+                    <ul>
+                        <li>Won the contract for the lightest flying drone out of a cohort of 31 teams</li>
+                        <li>Led control team, optimising flight behaviour through PID controller BetaFlight</li>
+                        <li>Used Google Sheets to analyse and predict motor performance with different components</li>
+                        <li>Modelled a digital twin in Fusion 360 to ensure consistency during manufacture</li>
+                        <li>Used topology optimisation to optimise the strength-to-weight ratio of the frame</li>
+                        <li>Manufactured drone using laser cut or 3D printed parts, and soldered electronics</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-card reveal">
+                <img src="content/images/UKSEDS highlight.webp" alt="UKSEDS thumbnail" class="info-image">
+                <div class="info-content">
+                    <div class="card-head">
+                        <h3>UKSEDS Student Rocketry Competition</h3>
+                        <p class="card-date">Sep 2022 – May 2023</p>
+                    </div>
+                    <ul>
+                        <li>Designed and 3D printed a whistling rocket nosecone using Fusion 360 and Prusa</li>
+                        <li>Developed an avionics bay using Teensy 4.1, GPS, IMU, and environmental sensors</li>
+                        <li>Managed a £300 budget across design, avionics, and recovery systems</li>
+                        <li>Produced a full technical report and performance evaluation for the UKSEDS competition</li>
+                        <li>Simulated flight dynamics using OpenRocket to ensure maximum apogee</li>
+                        <li>Handled subteam conflicts regarding rocket dimensions and features</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-
-        <br>
-        <h2>Highlighted Projects</h2>
-
-        <div class="info-card">
-            <img src="content/images/VTOL highlight.webp" alt="VTOL Quadplane thumbnail" class="info-image">
-            <div class="info-content">
-                <h3>VTOL Quadplane Design Build and Test</h3>
-                <p><em>Sep 2024 – May 2025</em></p>
-                <ul>
-                    <li>Led the design and integration of the full avionics system for a modular VTOL UAV platform</li>
-                    <li>Designed open-plan, modular electronics layout with accessible connections for maintainability</li>
-                    <li>Implemented ironbird avionics testbed to verify systems before final integration</li>
-                    <li>Supported system-level integration ensuring plug-and-play compatibility across subsystems</li>
-                    <li>Optimised cooling layout by externally mounting ESCs and positioning components for airflow</li>
-                    <li>Collaborated cross-functionally with flight dynamics, structures, and integration teams</li>
-                </ul>
-            </div>
-        </div>
-        <div class="info-card">
-            <img src="content/images/Quadcopter highlight.webp" alt="Quadcopter thumbnail" class="info-image">
-            <div class="info-content">
-                <h3>Quadcopter Design Build and Test</h3>
-                <p><em>Sep 2023 – May 2024</em></p>
-                <ul>
-                    <li>Won the contract for the lightest flying drone out of a cohort of 31 teams</li>
-                    <li>Led control team, optimising flight behaviour through PID controller BetaFlight</li>
-                    <li>Used Google Sheets to analyse and predict motor performance with different components</li>
-                    <li>Modelled a digital twin in Fusion 360 to ensure consistency during manufacture</li>
-                    <li>Used topology optimisation to optimise the strength-to-weight ratio of the frame</li>
-                    <li>Manufactured drone using laser cut or 3D printed parts, and soldered electronics</li>
-                </ul>
-            </div>
-        </div>
-        <div class="info-card">
-            <img src="content/images/UKSEDS highlight.webp" alt="UKSEDS thumbnail" class="info-image">
-            <div class="info-content">
-                <h3>UKSEDS Student Rocketry Competition</h3>
-                <p><em>Sep 2022 – May 2023</em></p>
-                <ul>
-                    <li>Designed and 3D printed a whistling rocket nosecone using Fusion 360 and Prusa</li>
-                    <li>Developed an avionics bay using Teensy 4.1, GPS, IMU, and environmental sensors</li>
-                    <li>Managed a £300 budget across design, avionics, and recovery systems</li>
-                    <li>Produced a full technical report and performance evaluation for the UKSEDS competition</li>
-                    <li>Simulated flight dynamics using OpenRocket to ensure maximum apogee</li>
-                    <li>Handled subteam conflicts regarding rocket dimensions and features</li>
-                </ul>
-            </div>
-        </div>
-        <p>See more of my projects on my <a href="projects/index.html">project page</a></p>
     </main>
 
     <footer>
         <p>© 2026 James Bray. All rights reserved.</p>
         <p>Hosted on GitHub Pages, built from scratch.</p>
-        <div style="height: 100px;"></div>
     </footer>
 
     <script src="js/dark-mode.js"></script>
