@@ -1,0 +1,9 @@
+Working in Alaska with a last minute team of mosquitos and engineers that worked tirelessly through the eternal sunshine, I competed in the XPRIZE finals competition to build the best autonomous wildfire response system in the world.
+
+The task was to build a system that could autonomously detect, localise, and extinguish three fires that may ignite within a 1,000 square kilometer area over an 8-hour period, without any human intervention, using a swarm of fully autonomous drones... and we did it.
+
+My main role was to develop software that bridged the gap between the University of Sheffield's thermal detection and CV verification methods and the University of Bristol's autonomous drone control system. I accomplished this and also built new algorithms which allowed a drone to spot and localise a fire within 1m accuracy, then improve that method to run >90% faster than before by identifying the network bottleneck and then moving the compute to the edge instead. With only 6 weeks however, a small team, and limited resources, my contributions were to spread across the whole project from 'payload specialist' to 'DJ' to 'fire starter', (bringing the balloons, tunes, and flumes).
+
+After the 38 hour no stop, no sleep, sprint towards the final, we were able to push a solution that was not only robust, but fast and scalable, winning over investors, judges, and hopefully winning the title.
+
+I have never worked with such a great team with not a single conflict, redundancy, or wasted effort. Everyone was at the top of their game and loved playing it; I am so happy to have been a part of that. Looking forward to what the future brings with these phenomenal people.

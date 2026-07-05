@@ -11,15 +11,16 @@
 #
 
 Masters Dissertation
-SWIFT_lite
+XPRIZE finals
 Rocket Engine Control System
 VTOL Quadplane
 Turbojet Engine
+SWIFT_lite
 Quadcopter
 SWIFT
+UKSEDS
 Syllabus Prime
 Graphics Engine
-UKSEDS
 Partial Discharge Test Rig
 Alora
 Topology Optimisation with FEA
@@ -93,3 +94,4 @@ AI Receptionist
 ELE434 Mobile Robotics and Autonomous Systems
 StitchScript
 Wildbridge 2
+Campaign
