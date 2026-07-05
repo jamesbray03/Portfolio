@@ -28,7 +28,6 @@ main { max-width: 1180px; }
     background: color-mix(in srgb, var(--bg) 82%, transparent);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
 }
 
 .category-filter {
@@ -49,7 +48,7 @@ main { max-width: 1180px; }
     border-radius: 999px;
     padding: 0.42rem 1rem;
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    transition: color var(--fade) ease, border-color var(--fade) ease, background-color var(--fade) ease;
 }
 .category-tab:hover {
     color: var(--text);
@@ -77,12 +76,14 @@ main { max-width: 1180px; }
     border-radius: var(--radius);
     padding: 1rem 1rem 1.2rem;
     cursor: pointer;
-    transition: border-color 0.25s ease, background-color 0.25s ease,
-                transform 0.25s var(--ease);
+    box-shadow: var(--card-shadow);
+    transition: border-color var(--fade) ease, background-color var(--fade) ease,
+                transform 0.25s var(--ease), box-shadow var(--fade) ease;
 }
 .project-card:hover {
     border-color: var(--accent-line);
     background: var(--bg-hover);
+    box-shadow: var(--card-shadow-hover);
     transform: translateY(-3px);
 }
 
@@ -128,7 +129,8 @@ html.light-mode .category-badge.applications { color: #c47b12; }
 
 .project-thumbnail {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    /* thumbnails are authored 4:3 — matching box means no cropping */
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 7px;
     border: 1px solid var(--line);
@@ -191,7 +193,7 @@ html.light-mode .category-badge.applications { color: #c47b12; }
     backdrop-filter: blur(6px);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition: opacity var(--fade) ease, visibility var(--fade) ease;
 }
 html.light-mode .project-modal { background: rgba(23, 28, 36, 0.45); }
 
@@ -247,7 +249,7 @@ html.light-mode .project-modal { background: rgba(23, 28, 36, 0.45); }
     border: 1px solid var(--line);
     border-radius: 8px;
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition: color var(--fade) ease, border-color var(--fade) ease;
 }
 .modal-close:hover { color: var(--text); border-color: var(--accent-line); }
 
@@ -338,7 +340,7 @@ html.light-mode .project-modal { background: rgba(23, 28, 36, 0.45); }
     border: 1px solid var(--line-strong);
     border-radius: 50%;
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    transition: color var(--fade) ease, border-color var(--fade) ease, background-color var(--fade) ease;
 }
 .carousel-btn:hover { color: var(--accent); border-color: var(--accent-line); }
 .carousel-btn.prev { left: 0.7rem; }
@@ -362,7 +364,7 @@ html.light-mode .project-modal { background: rgba(23, 28, 36, 0.45); }
     align-items: center;
     justify-content: center;
     color: var(--text-faint);
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: background-color var(--fade) ease, transform var(--fade) ease;
 }
 .carousel-dot:hover { transform: scale(1.3); }
 .carousel-dot.active { background: var(--accent); color: var(--accent); }
