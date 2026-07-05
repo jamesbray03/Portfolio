@@ -1,1 +1,0 @@
-Building a simulink simulation for tuning a control system for liquid rocket engine throttling for the University of Sheffield's test stand with [Project Sunride](https://sunride.space/).

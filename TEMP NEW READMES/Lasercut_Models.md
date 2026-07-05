@@ -1,1 +1,0 @@
-3D lasercut models designed during A-levels without any 3D CAD software. I didn't have access to any CAD software at the time, so I designed these models in my head and fixed faults through a few iterations.

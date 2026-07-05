@@ -1,1 +1,0 @@
-A self-assigned summer project where I built a working jet engine that could hopefully burn without aided air input. It consists of a combustion chamber that distributes air and gas for an optimal stoichiometric mixture, and a car's turbocharger, which provides air intake and exhaust for the combustion chamber.

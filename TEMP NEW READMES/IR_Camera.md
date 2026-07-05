@@ -1,1 +1,0 @@
-During GCSEs I built a DIY wii remote using IR camera and 4 positioning LEDs. This system runs on a Raspberry Pi 2B and streams the IR camera feed to a monitor where the positions of the LEDs are tracked and used to control the mouse pointer.

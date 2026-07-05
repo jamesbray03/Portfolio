@@ -1,1 +1,0 @@
-Designed and constructed a functional and safety certified testing enclosure for partial discharge of 20kV+ motor coils for the [AMRC](https://www.amrc.co.uk/).

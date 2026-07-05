@@ -1,1 +1,0 @@
-A simple orbit simulation of various alien planets around a sun

@@ -1,1 +1,0 @@
-As a team, we were tasked with building and writing code for navigating a two-wheeled robot through a series of obstacles towards an infrared beacon. After designing and soldering a controller circuit, we wrote a C script which was embedded in a PIC controller.

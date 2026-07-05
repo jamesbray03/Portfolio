@@ -1,1 +1,0 @@
-Procedural runner game dodging raindrops on a MicroBit. This was developed when I was 12 years old and was first introduced to programming.
