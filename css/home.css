@@ -107,6 +107,7 @@ main { max-width: 1100px; }
     position: relative;
     z-index: 2;
     width: var(--portrait);
+    max-width: 100%;   /* don't overflow narrow phones (portrait is a fixed 320px) */
     aspect-ratio: 1;
 }
 

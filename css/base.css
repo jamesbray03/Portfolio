@@ -104,7 +104,10 @@ html.light-mode {
 /* ---------- reset / ground ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* overflow-x: hidden here (universal support; on <html> it does NOT break the
+   sticky header) is the cross-browser guard against sideways scroll — some
+   mobile engines ignore `overflow-x: clip`, so body's clip alone isn't enough. */
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
     margin: 0;
