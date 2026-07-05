@@ -115,6 +115,10 @@ body {
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     transition: background-color var(--fade) ease, color var(--fade) ease;
+    /* the hero's decorative grid + flanking photos are wider than the
+       viewport by design; clip the horizontal overhang so the page can't
+       scroll sideways. `clip` (not `hidden`) keeps the sticky header working. */
+    overflow-x: clip;
 }
 
 ::selection { background: var(--accent); color: var(--accent-contrast); }
