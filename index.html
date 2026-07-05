@@ -29,7 +29,7 @@
 
     <link rel="icon" href="content/images/icon.ico" type="image/x-icon">
     <link rel="preload" href="content/fonts/HarmonyOS.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/content/images/profile.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="/content/images/centre.png" as="image" type="image/png" fetchpriority="high" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/home.css" />
 </head>
@@ -50,27 +50,33 @@
         <button id="mode-toggle" class="mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
     </header>
     <main>
-        <br>
-        <img src="/content/images/profile.webp" alt="Profile Picture" class="profile-pic" width="240" height="240" fetchpriority="high" loading="eager" decoding="sync">
-        <h1>James Bray</h1>
-        <p class="subtitle">Portfolio Website</p>
-        <div class="button-container">
-            <button class="icon-button" aria-label="GitHub">
-                <a href="https://github.com/jamesbray03" target="_blank" rel="noopener noreferrer">
-                    <img src="content/images/github.webp" alt="GitHub Icon" class="icon" style="display: block; margin: 0 auto;">
-                </a>
-            </button>
-            <button class="icon-button" aria-label="LinkedIn">
-                <a href="https://www.linkedin.com/in/jamesbray03/" target="_blank" rel="noopener noreferrer">
-                    <img src="content/images/linkedin.webp" alt="LinkedIn Icon" class="icon" style="display: block; margin: 0 auto;">
-                </a>
-            </button>
-            <button class="icon-button" aria-label="Email">
-                <a href="contact/index.html">
-                    <img src="content/images/email.webp" alt="Email Icon" class="icon" style="display: block; margin: 0 auto;">
-                </a>
-            </button>
-        </div>
+        <section class="hero">
+            <!-- decorative flanking photos (transparent PNGs); fade out on narrow screens -->
+            <img src="/content/images/left.png" alt="" class="hero-side hero-left" aria-hidden="true" decoding="async">
+            <img src="/content/images/right.png" alt="" class="hero-side hero-right" aria-hidden="true" decoding="async">
+            <div class="hero-centre">
+                <img src="/content/images/centre.png" alt="James Bray" class="profile-pic" width="300" height="300" fetchpriority="high" loading="eager" decoding="sync">
+                <h1>James Bray</h1>
+                <p class="subtitle">R&D Contractor</p>
+                <!-- <div class="button-container">
+                    <button class="icon-button" aria-label="GitHub">
+                        <a href="https://github.com/jamesbray03" target="_blank" rel="noopener noreferrer">
+                            <img src="content/images/github.webp" alt="GitHub Icon" class="icon" style="display: block; margin: 0 auto;">
+                        </a>
+                    </button>
+                    <button class="icon-button" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/jamesbray03/" target="_blank" rel="noopener noreferrer">
+                            <img src="content/images/linkedin.webp" alt="LinkedIn Icon" class="icon" style="display: block; margin: 0 auto;">
+                        </a>
+                    </button>
+                    <button class="icon-button" aria-label="Email">
+                        <a href="contact/index.html">
+                            <img src="content/images/email.webp" alt="Email Icon" class="icon" style="display: block; margin: 0 auto;">
+                        </a>
+                    </button> -->
+                </div>
+            </div>
+        </section>
         <hr class="divider">
         <br>
         <section id="about" class="about-section">
@@ -79,11 +85,11 @@
                 <div class="info-content">
                     <h3>Background</h3>
                     <p>
-                        I am a Systems Engineer and Aerospace MEng graduate specialising in the integration of physical hardware and complex software. I have a range of past projects and upcoming contracts, giving me a wide field of applicable knowledge, making me highly adaptable to new challenges. I work well in cross-disciplinary teams, moving between high-level system design and detailed technical work to deliver high quality results.
+                        I am an Aerospace MEng graduate specialising in UAV system software. I have a range of past projects and upcoming contracts, giving me a wide field of applicable knowledge, making me highly adaptable to new challenges. I drop into cross-disciplinary teams, move fast between system design and hands-on build, and ship working results.
                     </p>
                     <p style="margin-bottom: 1.5rem;"></p>
                     <p>
-                        If you think there's a place for me in your team, feel free to reach out to me via my <a href="contact/index.html">contact form</a></p>
+                        Think there's a place for me in your team? <a href="contact/index.html">Get in touch</a>
                     </p>
                 </div>
             </div>
@@ -106,9 +112,9 @@
         
             <div class="info-card">
                 <div class="info-content">
-                    <h3>What’s Next?</h3>
+                    <h3>What's Next?</h3>
                     <p>
-                        I'm currently looking to take on short-term, high-impact R&D contracts. I want to work on a variety of projects in my early career, building up a wide skillset and network across the industry before I advance into long term goals.
+                        I take on short-term, high-impact R&D contracts to build a wide skill set and network across the industry before I advance into long term goals.
                     </p>
                     <p style="margin-bottom: 1.5rem;">
                     <p>

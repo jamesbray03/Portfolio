@@ -1,28 +1,98 @@
+/* ============================= */
+/* HERO (top band of the homepage) */
+/* ============================= */
+/* --- TWEAKABLES: change these to resize / reposition the three photos --- */
+.hero {
+    /* ===== ONE knob: scales the WHOLE hero vs the rest of the page ===== */
+    --hero-scale: 1;           /* 1 = current; 1.2 = 20% bigger; 0.8 = smaller */
+
+    /* centre circle */
+    --centre-size: calc(350px * var(--hero-scale));  /* diameter of the circular centre photo */
+
+    /* left & right flanking photos (FIXED px — do not scale with page width, only with --hero-scale) */
+    --side-w:    calc(350px * var(--hero-scale));    /* width of each side photo; height follows PNG aspect */
+    --side-gap:  calc(-10px * var(--hero-scale));    /* gap circle<->side photo; NEGATIVE = overlap behind circle */
+    --side-drop: calc(50px  * var(--hero-scale));    /* how far the side photos sit BELOW the vertical centre */
+
+    --centre-shadow: none;     /* shadow under the centre circle (none = flat; e.g. 0 0 16px var(--base-3) for a glow) */
+
+    /* ===== title block ("James Bray" + "Portfolio Website") ===== */
+    --title-size:    calc(2.5rem * var(--hero-scale));  /* "James Bray" font size */
+    --subtitle-size: calc(1.8rem * var(--hero-scale));  /* "Portfolio Website" font size */
+    --title-gap:     calc(0.5rem * var(--hero-scale));  /* vertical spacing between pfp / title / subtitle / icons */
+
+    /* ===== band + spacing ===== */
+    --hero-h:           calc(500px * var(--hero-scale)); /* height of the hero band on desktop */
+    --hero-divider-gap: 1rem;   /* extra gap below the hero before the divider (divider adds its own 2rem; negative ok) */
+    --hero-fade: 0.3s;          /* fade duration when the side photos appear / disappear */
+    /* NOTE: the width at which the side photos vanish is the @media query below (900px). */
+
+    position: relative;
+    overflow: hidden;          /* cleanly clips any side-photo bleed at the screen edges */
+    min-height: var(--hero-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--hero-divider-gap);
+}
+
+.hero-centre {
+    position: relative;
+    z-index: 2;                /* centre column sits in FRONT of the side photos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--title-gap);     /* uniform vertical spacing: pfp / title / subtitle / icons */
+}
+
+/* title + subtitle sizing scoped to the hero so other pages are untouched */
+.hero-centre h1        { font-size: var(--title-size);    margin: 0; }
+.hero-centre .subtitle { font-size: var(--subtitle-size); margin: 0; }
+.hero-centre .button-container { margin: 0; }
+
+.hero-side {
+    position: absolute;
+    top: 50%;
+    z-index: 1;                /* behind the centre column */
+    width: var(--side-w);
+    height: auto;              /* preserve PNG aspect ratio + baked-in glow */
+    transform: translateY(calc(-50% + var(--side-drop)));
+    transition: opacity var(--hero-fade) ease, visibility var(--hero-fade) ease;
+    pointer-events: none;      /* purely decorative */
+    user-select: none;
+}
+
+/* anchored to the CENTRE line (not the screen edges) so they never shift horizontally */
+.hero-left  { right: calc(50% + var(--centre-size) / 2 + var(--side-gap)); }
+.hero-right { left:  calc(50% + var(--centre-size) / 2 + var(--side-gap)); }
+
+/* Phones / narrow tablets: fade the side photos out, leaving only the centre.
+   (The fade runs both ways, so resizing the window fades them back in too.) */
+@media (max-width: 900px) {
+    .hero      { min-height: auto; }
+    .hero-side { opacity: 0; visibility: hidden; }
+}
+
 .profile-pic {
-    width: 240px;
-    height: 240px;
+    width: var(--centre-size, 240px);
+    height: var(--centre-size, 240px);
     max-width: 100%;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 1rem;
-    box-shadow: 0 0 16px var(--base-3);
+    margin-bottom: 0;          /* spacing handled by --title-gap on .hero-centre */
+    box-shadow: var(--centre-shadow);
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* shrink the centre circle on smaller screens (still respects --hero-scale) */
 @media (max-width: 768px) {
-    .profile-pic {
-        width: 180px;
-        height: 180px;
-    }
+    .hero { --centre-size: calc(180px * var(--hero-scale)); }
 }
 
 @media (max-width: 480px) {
-    .profile-pic {
-        width: 150px;
-        height: 150px;
-    }
+    .hero { --centre-size: calc(150px * var(--hero-scale)); }
 }
 
 .icon {
