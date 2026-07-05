@@ -1,40 +1,64 @@
-/* =================== */
-/* CONTACT PAGE STYLES */
-/* =================== */
+/* ============================================================
+   CONTACT — form
+   ============================================================ */
+
+.contact-main { max-width: 720px; }
+
+.page-head {
+    text-align: left;
+    padding: 2rem 0 0.5rem;
+}
+.page-head h1 { margin-bottom: 0.1em; }
+.page-sub {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    margin-bottom: 1.2em;
+}
 
 .contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    background-color: var(--base-5);
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 0 16px var(--base-3);
-    font-family: 'HarmonyOS', sans-serif;
+    gap: 1.1rem;
+    margin: 2rem 0 1.5rem;
+    padding: 1.8rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    text-align: left;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 0.8rem 1rem;
-    border: none;
-    border-radius: 12px;
+    font-family: var(--font-body);
     font-size: 1rem;
-    background-color: var(--base-5);
-    color: var(--base-1);
-    box-shadow: inset 0 0 6px var(--base-3);
-    transition: box-shadow 0.2s ease;
-    font-family: 'HarmonyOS', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.75rem 0.95rem;
+    transition: border-color var(--fade) ease, box-shadow var(--fade) ease;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-faint);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    box-shadow: 0 0 16px var(--accent-2);
+    border-color: var(--accent-line);
+    box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
-.contact-form button {
-    align-self: flex-end;
-    font-family: 'HarmonyOS', sans-serif;
-}
+.contact-form button { align-self: flex-end; }
+
+.contact-alt { color: var(--text-faint); }
