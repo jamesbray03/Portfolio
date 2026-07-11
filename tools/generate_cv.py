@@ -66,7 +66,7 @@ EXPERIENCE = [
         "org_url": "https://aura-xprize.com/",
         "date": "Sep 2025 – Jun 2026",
         "bullets": [
-            "Deployed in Alaska to manage integration of computer-vision systems into the tech stack",
+            "Deployed in Alaska to develop a swarm of autonomous UAVs for wildfire detection and mitigation",
             "Engineered a novel thermal detection refinement method to localise fires with 1 m accuracy",
             "Profiled the system architecture to identify and mitigate critical network bottlenecks",
             "Ran rapid hardware-in-the-loop testing cycles across a 38 h non-stop development sprint",
