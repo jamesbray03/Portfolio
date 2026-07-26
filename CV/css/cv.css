@@ -86,10 +86,7 @@
     margin: 0.8rem 0 0.2rem;
 }
 
-@media (max-width: 700px) {
-    .edu-card { flex-direction: row; }
-    .edu-card .info-image { width: 64px; height: 64px; margin-bottom: 0; }
-}
+
 
 /* ---------- skill cards ---------- */
 #skill-card-container {
