@@ -31,3 +31,7 @@ projects/update_project_structure.py
 projects/remove_download_fields.py
 
 videos/
+
+# Generated brand assets
+content/images/icon/brand/
+tools/
